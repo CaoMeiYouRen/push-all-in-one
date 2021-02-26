@@ -1,0 +1,32 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+    # if: contains(github.event.commit_comment.body,'feat') || contains(github.event.commit_comment.body,'fix')
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: "14"
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/cache
+            !~/cache/exclude
+            **/node_modules
+          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+      - run: yarn
+      - run: npm run lint
+      - run: npm run build
+    #   - env:
+    #       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    #       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    #     run: npm run release

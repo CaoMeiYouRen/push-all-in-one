@@ -1,0 +1,81 @@
+{
+  "name": "push-all-in-one",
+  "version": "0.1.0",
+  "description": "基于 semantic-release 的自动化 release rollup项目模板",
+  "author": "CaoMeiYouRen",
+  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "lint": "cross-env NODE_ENV=production eslint src --fix --ext .ts,.js",
+    "prebuild": "rimraf dist",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "postbuild": "npm run build:type",
+    "build:type": "api-extractor run && rimraf \"dist/*[^index].d.ts\"",
+    "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",
+    "dev": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
+    "dev:rollup": "cross-env NODE_ENV=development rollup -c",
+    "rm": "rimraf node_modules",
+    "start": "node ./dist/index",
+    "release": "semantic-release",
+    "commit": "git add . && git cz"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.13.1",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-typescript": "^8.2.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@types/debug": "^4.1.5",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "commitizen": "^4.2.3",
+    "conventional-changelog-cli": "^2.1.1",
+    "conventional-changelog-cmyr-config": "^1.2.3",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "debug": "^4.3.1",
+    "eslint": "^7.20.0",
+    "eslint-config-cmyr": "^1.0.10",
+    "husky": "^5.1.1",
+    "lint-staged": "^10.5.4",
+    "lodash": "^4.17.21",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.39.1",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "semantic-release": "^17.4.0",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.2",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "changelog": {
+    "language": "zh"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && git add .",
+      "commit-msg": "validate-commit-msg"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "module": "commonjs", //指定生成哪个模块系统代码
+        "target": "esnext", //目标代码类型
+        "noImplicitAny": true, //在表达式和声明上有隐含的'any'类型时报错。
+        "allowJs": true, //允许编译js文件
+        "checkJs": true, //在 .js文件中报告错误。与 --allowJs配合使用。
+        "sourceMap": false, //用于debug
+        "rootDir": "./src", //仅用来控制输出的目录结构--outDir。
+        "outDir": "./dist", //重定向输出目录。
+        "watch": false, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
+        "declaration": true, //生成类型文件
+        "importHelpers": true,
+        "strictPropertyInitialization": false,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true, //开启装饰器
+        "removeComments": false,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "lib": [
+            "esnext",
+            "dom",
+            "dom.iterable",
+            "scripthost"
+        ]
+    },
+    "include": [
+        "src/*.ts",
+        "src/**/*.ts",
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/node_modules/*"
+    ]
+}
