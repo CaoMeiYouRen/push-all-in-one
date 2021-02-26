@@ -115,4 +115,19 @@ export default [
             isMin: false,
         }),
     },
+    {
+        input: 'src/index.ts',
+        external,
+        output: {
+            file: 'dist/index.browser.js', // 生成 browser
+            format: 'umd',
+            name: outputName,
+            sourcemap: true,
+        },
+        plugins: getPlugins({
+            isBrowser: true,
+            isDeclaration: false,
+            isMin: true,
+        }),
+    },
 ]

@@ -1,14 +1,13 @@
 {
   "name": "push-all-in-one",
   "version": "0.1.0",
-  "description": "基于 semantic-release 的自动化 release rollup项目模板",
+  "description": "Push All In One！支持 Server酱、酷推、Bark App、Telegram Bot、钉钉机器人、企业微信机器人、企业微信应用和自定义推送等多种推送方式",
   "author": "CaoMeiYouRen",
-  "private": true,
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "browser": "dist/index.browser.js",
   "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -63,7 +62,10 @@
     "typescript": "^4.2.2",
     "validate-commit-msg": "^2.14.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.21.1",
+    "qs": "^6.9.6"
+  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
@@ -74,8 +76,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && git add .",
+      "pre-commit": "lint-staged",
       "commit-msg": "validate-commit-msg"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "cross-env NODE_ENV=production eslint --fix",
+      "git add"
+    ]
   }
 }
