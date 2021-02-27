@@ -44,6 +44,7 @@
     "@types/lodash": "^4.14.168",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^14.14.31",
+    "@types/nodemailer": "^6.4.0",
     "@types/qs": "^6.9.5",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
@@ -73,6 +74,7 @@
     "colors": "^1.4.0",
     "crypto-js": "^4.0.0",
     "debug": "^4.3.1",
+    "nodemailer": "^6.5.0",
     "qs": "^6.9.6"
   },
   "config": {

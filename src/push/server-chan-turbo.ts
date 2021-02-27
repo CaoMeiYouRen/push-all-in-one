@@ -24,6 +24,9 @@ export class ServerChanTurbo implements Send {
     constructor(SCTKEY: string) {
         this.SCTKEY = SCTKEY
         Debugger('set SCTKEY: "%s"', SCTKEY)
+        if (!this.SCTKEY) {
+            throw new Error('SCTKEY is required!')
+        }
     }
     /**
      *

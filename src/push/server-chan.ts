@@ -21,6 +21,9 @@ export class ServerChan implements Send {
      */
     constructor(SCKEY: string) {
         this.SCKEY = SCKEY
+        if (!this.SCKEY) {
+            throw new Error('SCKEY is required!')
+        }
     }
     /**
      * 请前往 https://sc.ftqq.com 领取
