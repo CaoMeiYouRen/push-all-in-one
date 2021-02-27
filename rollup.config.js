@@ -10,7 +10,6 @@ import _ from 'lodash'
 import path from 'path'
 import { dependencies, name } from './package.json'
 const external = Object.keys(dependencies) // 默认不打包 dependencies
-external.push('debug')
 const outputName = _.upperFirst(_.camelCase(name))// 导出的模块名称 PascalCase
 const env = process.env
 const __PROD__ = env.NODE_ENV === 'production'
@@ -113,7 +112,7 @@ export default [
         plugins: getPlugins({
             isBrowser: false,
             isDeclaration: false,
-            isMin: true,
+            isMin: false,
         }),
     },
     {
@@ -131,19 +130,19 @@ export default [
             isMin: false,
         }),
     },
-    {
-        input: 'src/index.ts',
-        external,
-        output: {
-            file: 'dist/index.browser.js', // 生成 browser
-            format: 'umd',
-            name: outputName,
-            sourcemap: true,
-        },
-        plugins: getPlugins({
-            isBrowser: true,
-            isDeclaration: false,
-            isMin: true,
-        }),
-    },
+    // { // 本包不推荐在浏览器中使用，故不生成浏览器版本
+    //     input: 'src/index.ts',
+    //     external,
+    //     output: {
+    //         file: 'dist/index.browser.js', // 生成 browser
+    //         format: 'umd',
+    //         name: outputName,
+    //         sourcemap: true,
+    //     },
+    //     plugins: getPlugins({
+    //         isBrowser: true,
+    //         isDeclaration: false,
+    //         isMin: true,
+    //     }),
+    // },
 ]

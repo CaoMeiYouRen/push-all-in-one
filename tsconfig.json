@@ -11,6 +11,8 @@
         "watch": false, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
         "declaration": true, //生成类型文件
         "importHelpers": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
         "strictPropertyInitialization": false,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true, //开启装饰器
@@ -19,7 +21,7 @@
         "paths": {
             "@/*": [
                 "src/*"
-            ]
+            ],
         },
         "lib": [
             "esnext",

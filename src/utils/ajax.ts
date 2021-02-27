@@ -1,5 +1,8 @@
 import axios, { AxiosResponse, Method } from 'axios'
 import qs from 'qs'
+import debug from 'debug'
+
+const Debugger = debug('push:ajax')
 
 class AjaxConfig {
     url: string
@@ -20,8 +23,9 @@ class AjaxConfig {
  */
 export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
     try {
+        Debugger('ajax config: %O', config)
         const { url, query = {}, data = {}, method = 'GET', headers = {} } = config
-        const resp = await axios(url, {
+        const response = await axios(url, {
             method,
             headers,
             params: query,
@@ -30,9 +34,9 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
             baseURL: '',
             transformRequest(reqData: any, reqHeaders?: Record<string, unknown>) {
                 const contentType = Object.keys(reqHeaders).find((e) => {
-                    return e.toLocaleLowerCase().includes('content-type')
+                    return e.toLocaleLowerCase().includes('Content-Type'.toLocaleLowerCase())
                 })
-                if (contentType === 'application/x-www-form-urlencoded' && typeof reqData === 'object') {
+                if (typeof reqData === 'object' && reqHeaders[contentType] === 'application/x-www-form-urlencoded') {
                     return qs.stringify(reqData)
                 }
                 if (typeof reqData === 'string' || reqData instanceof Buffer || reqData instanceof ArrayBuffer) {
@@ -41,7 +45,8 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
                 return JSON.stringify(reqData)
             },
         })
-        return resp
+        Debugger('response data: %O', response.data)
+        return response
     } catch (error) {
         if (error.toJSON) {
             console.error(error.toJSON())

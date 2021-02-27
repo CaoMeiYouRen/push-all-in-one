@@ -6,7 +6,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "browser": "dist/index.browser.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -20,7 +19,7 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "postbuild": "npm run build:type",
     "build:type": "api-extractor run",
-    "postbuild:type": "node build/post-build-type.js",
+    "postbuild:type": "rimraf \"dist/**/!(*.js?(.map)|index.d.ts)\"",
     "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",
     "dev": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
     "dev:rollup": "cross-env NODE_ENV=development rollup -c",
@@ -40,6 +39,7 @@
     "@rollup/plugin-typescript": "^8.2.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "@types/crypto-js": "^4.0.1",
     "@types/debug": "^4.1.5",
     "@types/lodash": "^4.14.168",
     "@types/module-alias": "^2.0.0",
@@ -52,12 +52,12 @@
     "conventional-changelog-cmyr-config": "^1.2.3",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "debug": "^4.3.1",
     "eslint": "^7.20.0",
     "eslint-config-cmyr": "^1.0.10",
     "husky": "^5.1.1",
     "lint-staged": "^10.5.4",
     "lodash": "^4.17.21",
+    "module-alias": "^2.2.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.39.1",
     "rollup-plugin-analyzer": "^4.0.0",
@@ -70,7 +70,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "module-alias": "^2.2.2",
+    "colors": "^1.4.0",
+    "crypto-js": "^4.0.0",
+    "debug": "^4.3.1",
     "qs": "^6.9.6"
   },
   "config": {

@@ -1,7 +1,3 @@
-import { ServerChan } from './push/server-chan'
-import { ServerChanTurbo } from './push/server-chan-turbo'
-
-export {
-    ServerChan,
-    ServerChanTurbo,
-}
+export * from './push/dingtalk'
+export * from './push/server-chan'
+export * from './push/server-chan-turbo'

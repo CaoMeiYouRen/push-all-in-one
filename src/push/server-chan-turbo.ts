@@ -1,5 +1,9 @@
+import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
+import debug from 'debug'
+
+const Debugger = debug('push:server-chan-turbo')
 
 /**
  * 文档 https://sct.ftqq.com/
@@ -9,7 +13,7 @@ import { AxiosResponse } from 'axios'
  * @export
  * @class ServerChanTurbo
  */
-export class ServerChanTurbo {
+export class ServerChanTurbo implements Send {
 
     /**
      *
@@ -19,6 +23,7 @@ export class ServerChanTurbo {
      */
     constructor(SCTKEY: string) {
         this.SCTKEY = SCTKEY
+        Debugger('set SCTKEY: "%s"', SCTKEY)
     }
     /**
      *
@@ -36,11 +41,12 @@ export class ServerChanTurbo {
      * @param desp 消息的内容，支持 Markdown
      */
     public async send(text: string, desp: string = ''): Promise<AxiosResponse<any>> {
+        Debugger('text: "%s", desp: "%s"', text, desp)
         return ajax({
             url: `https://sctapi.ftqq.com/${this.SCTKEY}.send`,
             method: 'POST',
             headers: {
-                'Content-type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
             data: {
                 text,

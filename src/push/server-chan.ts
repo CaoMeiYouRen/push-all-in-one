@@ -1,3 +1,4 @@
+import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 
@@ -10,7 +11,7 @@ import { AxiosResponse } from 'axios'
  * @class ServerChan
  * @deprecated 旧版将在2021年4月后下线，请尽快完成配置的更新。详见https://sc.ftqq.com
  */
-export class ServerChan {
+export class ServerChan implements Send {
 
     /**
      *
@@ -40,7 +41,7 @@ export class ServerChan {
             url: `https://sc.ftqq.com/${this.SCKEY}.send`,
             method: 'POST',
             headers: {
-                'Content-type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
             data: {
                 text,
