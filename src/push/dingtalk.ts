@@ -9,10 +9,26 @@ import { Message } from './dingtalk/index'
 const Debugger = debug('push:dingtalk')
 
 class RobotOption {
+    /**
+     * 即 access_token
+     *
+     */
     accessToken?: string
+    /**
+     * 加签安全秘钥（HmacSHA256）
+     *
+     */
     secret?: string
 }
-
+/**
+ * 在 [dingtalk-robot-sdk](https://github.com/ineo6/dingtalk-robot-sdk) 的基础上重构了一下，用法几乎完全一致。
+ * 参考文档 [钉钉开放平台 - 自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)
+ *
+ * @author CaoMeiYouRen
+ * @date 2021-02-27
+ * @export
+ * @class Dingtalk
+ */
 export class Dingtalk implements Send {
     private accessToken?: string
     private secret?: string
@@ -35,7 +51,14 @@ export class Dingtalk implements Send {
         }
         return signStr
     }
-
+    /**
+     *
+     *
+     * @author CaoMeiYouRen
+     * @date 2021-02-27
+     * @param message
+     * @returns
+     */
     public async send(message: Message): Promise<AxiosResponse<any>> {
         const timestamp = Date.now()
         const sign = this.getSign(timestamp)
