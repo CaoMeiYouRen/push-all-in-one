@@ -20,6 +20,7 @@ export class Email implements Send {
     }
 
     async send(mailOptions: SendMailOptions): Promise<any> {
+        Debugger('mailOptions: %O', mailOptions)
         return new Promise((resolve: (value: unknown) => void, reject: (err: Error) => void) => {
             this.mail.sendMail(mailOptions, (err, info) => {
                 if (err) {

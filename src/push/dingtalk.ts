@@ -33,7 +33,7 @@ export class Dingtalk implements Send {
     private accessToken?: string
     private secret?: string
     private webhook: string = 'https://oapi.dingtalk.com/robot/send'
-    constructor(option: RobotOption = {}) {
+    constructor(option: RobotOption) {
         Object.assign(this, option)
         if (!this.accessToken) {
             throw new Error('accessToken is required!')

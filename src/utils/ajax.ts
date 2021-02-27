@@ -33,9 +33,7 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
             timeout: 10000,
             baseURL: '',
             transformRequest(reqData: any, reqHeaders?: Record<string, unknown>) {
-                const contentType = Object.keys(reqHeaders).find((e) => {
-                    return e.toLocaleLowerCase().includes('Content-Type'.toLocaleLowerCase())
-                })
+                const contentType = Object.keys(reqHeaders).find((e) => e.toLocaleLowerCase().includes('Content-Type'.toLocaleLowerCase()))
                 if (typeof reqData === 'object' && reqHeaders[contentType] === 'application/x-www-form-urlencoded') {
                     return qs.stringify(reqData)
                 }
