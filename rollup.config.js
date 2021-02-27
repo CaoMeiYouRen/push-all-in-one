@@ -4,9 +4,13 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import json from '@rollup/plugin-json'
 import analyzer from 'rollup-plugin-analyzer'
+import alias from '@rollup/plugin-alias'
+import replace from '@rollup/plugin-replace'
 import _ from 'lodash'
+import path from 'path'
 import { dependencies, name } from './package.json'
 const external = Object.keys(dependencies) // 默认不打包 dependencies
+external.push('debug')
 const outputName = _.upperFirst(_.camelCase(name))// 导出的模块名称 PascalCase
 const env = process.env
 const __PROD__ = env.NODE_ENV === 'production'
@@ -30,6 +34,11 @@ function getPlugins({ isBrowser = false, isMin = false, isDeclaration = false })
             sourceMap: true,
         }),
     )
+    plugins.push(alias({
+        entries: [
+            { find: '@', replacement: path.resolve(__dirname, '../src') },
+        ],
+    }))
     plugins.push(
         commonjs({
             sourceMap: false,
@@ -37,6 +46,13 @@ function getPlugins({ isBrowser = false, isMin = false, isDeclaration = false })
     )
     plugins.push(
         json({}),
+    )
+    plugins.push(
+        replace({
+            exclude: 'node_modules/**',
+            'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV || 'production'),
+            preventAssignment: false,
+        }),
     )
     if (isMin) {
         plugins.push(

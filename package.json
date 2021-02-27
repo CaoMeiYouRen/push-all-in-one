@@ -19,26 +19,32 @@
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production rollup -c",
     "postbuild": "npm run build:type",
-    "build:type": "api-extractor run && rimraf \"dist/*[^index].d.ts\"",
+    "build:type": "api-extractor run",
+    "postbuild:type": "node build/post-build-type.js",
     "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",
     "dev": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
     "dev:rollup": "cross-env NODE_ENV=development rollup -c",
     "rm": "rimraf node_modules",
     "start": "node ./dist/index",
     "release": "semantic-release",
-    "commit": "git add . && git cz"
+    "commit": "git add . && git cz",
+    "test:debug": "cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.13.1",
+    "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-replace": "^2.4.1",
     "@rollup/plugin-typescript": "^8.2.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/debug": "^4.1.5",
     "@types/lodash": "^4.14.168",
+    "@types/module-alias": "^2.0.0",
     "@types/node": "^14.14.31",
+    "@types/qs": "^6.9.5",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "commitizen": "^4.2.3",
@@ -64,6 +70,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "module-alias": "^2.2.2",
     "qs": "^6.9.6"
   },
   "config": {

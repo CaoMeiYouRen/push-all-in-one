@@ -1,10 +1,7 @@
-/**
- * say hello
- *
- * @author CaoMeiYouRen
- * @date 2020-11-28
- * @export
- */
-export function hello() {
-    console.log('hello'.toUpperCase())
+import { ServerChan } from './push/server-chan'
+import { ServerChanTurbo } from './push/server-chan-turbo'
+
+export {
+    ServerChan,
+    ServerChanTurbo,
 }
