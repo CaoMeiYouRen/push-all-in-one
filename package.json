@@ -90,6 +90,9 @@
       "commit-msg": "validate-commit-msg"
     }
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "lint-staged": {
     "*.{js,ts}": [
       "cross-env NODE_ENV=production eslint --fix",
