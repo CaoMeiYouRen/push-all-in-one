@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [1.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.1.0...v1.2.0) (2021-02-28)
+
+
+### ✨ 新功能
+
+* 完成 企业微信群机器人、企业微信应用推送 接入 ([12fa2f7](https://github.com/CaoMeiYouRen/push-all-in-one/commit/12fa2f7))
+
 # [1.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.0.0...v1.1.0) (2021-02-28)
 
 
