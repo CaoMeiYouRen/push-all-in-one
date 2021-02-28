@@ -1,7 +1,9 @@
-import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
+import debug from 'debug'
+import { Send } from '../interfaces/send'
 
+const Debugger = debug('push:server-chan')
 /**
  *
  *
@@ -21,6 +23,7 @@ export class ServerChan implements Send {
      */
     constructor(SCKEY: string) {
         this.SCKEY = SCKEY
+        Debugger('set SCKEY: "%s"', SCKEY)
         if (!this.SCKEY) {
             throw new Error('SCKEY 是必须的！')
         }
@@ -40,6 +43,7 @@ export class ServerChan implements Send {
      * @param desp 消息的内容，支持 Markdown
      */
     async send(text: string, desp: string = ''): Promise<AxiosResponse<any>> {
+        Debugger('text: "%s", desp: "%s"', text, desp)
         return ajax({
             url: `https://sc.ftqq.com/${this.SCKEY}.send`,
             method: 'POST',

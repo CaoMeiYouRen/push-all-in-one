@@ -1,8 +1,8 @@
-import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { warn } from '@/utils/helper'
 import { AxiosResponse } from 'axios'
-import colors from 'colors'
 import debug from 'debug'
+import { Send } from '../interfaces/send'
 
 const Debugger = debug('push:email')
 
@@ -54,7 +54,7 @@ export class Email implements Send {
         this.BER_KEY = BER_KEY
         Debugger('set BER_KEY: "%s"', BER_KEY)
         if (!this.BER_KEY) {
-            console.warn(colors.yellow('未提供 BER_KEY！将使用免费版本进行推送！官方文档：http://doc.berfen.com/1239397'))
+            warn('未提供 BER_KEY！将使用免费版本进行推送！官方文档：http://doc.berfen.com/1239397')
         }
     }
 

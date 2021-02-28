@@ -1,9 +1,9 @@
-import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
-import colors from 'colors'
 import CryptoJS from 'crypto-js'
+import { warn } from '@/utils/helper'
+import { Send } from '../interfaces/send'
 import { MessageTemplateAbs } from './dingtalk/template'
 import { Text } from './dingtalk/Text'
 import { Markdown } from './dingtalk/Markdown'
@@ -32,11 +32,12 @@ export class Dingtalk implements Send {
     constructor(ACCESS_TOKEN: string, SECRET?: string) {
         this.ACCESS_TOKEN = ACCESS_TOKEN
         this.SECRET = SECRET
+        Debugger('ACCESS_TOKEN: %s , SECRET: %s', ACCESS_TOKEN, SECRET)
         if (!this.ACCESS_TOKEN) {
             throw new Error('ACCESS_TOKEN 是必须的！')
         }
         if (!this.SECRET) {
-            console.warn(colors.yellow('未提供 SECRET ！'))
+            warn('未提供 SECRET ！')
         }
     }
 

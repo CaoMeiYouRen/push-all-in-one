@@ -1,7 +1,7 @@
-import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
+import { Send } from '../interfaces/send'
 
 const Debugger = debug('push:cool-push')
 
@@ -49,6 +49,7 @@ export class CoolPush implements Send {
      * @returns
      */
     async send(content: string, type: PushType = 'send'): Promise<AxiosResponse<any>> {
+        Debugger('content: "%s" ,type: "%s"', content, type)
         return ajax({
             url: `https://push.xuthus.cc/${type}/${this.SKEY}`,
             query: {

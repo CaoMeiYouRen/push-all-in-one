@@ -7,7 +7,7 @@ const Debugger = debug('push:ajax')
 class AjaxConfig {
     url: string
     query?: Record<string, unknown>
-    data?: Record<string, unknown>
+    data?: Record<string, unknown> | string | Buffer | ArrayBuffer
     method?: Method = 'GET'
     headers?: Record<string, unknown>
 }

@@ -6,10 +6,16 @@ module.exports = {
     },
     env: {
     },
+    settings: {
+    },
     extends: [
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:import/typescript',
         'cmyr',
     ],
     plugins: [
+        'import',
     ],
     rules: {
         'no-console': __WARN__,
@@ -19,5 +25,7 @@ module.exports = {
             allowArgumentsExplicitlyTypedAsAny: true,
         }], // 要求导出函数和类的公共类方法的显式返回和参数类型
         '@typescript-eslint/comma-dangle': [2, 'always-multiline'], // 要求或禁止使用拖尾逗号
+        'import/no-unresolved': 0,
+        'import/order': 1,
     },
 }

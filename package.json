@@ -1,7 +1,7 @@
 {
   "name": "push-all-in-one",
   "version": "1.1.0",
-  "description": "Push All In One！支持 Server酱、酷推、Bark App、Telegram Bot、钉钉机器人、企业微信机器人、企业微信应用和自定义推送等多种推送方式",
+  "description": "Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用等多种推送方式",
   "author": "CaoMeiYouRen",
   "license": "MIT",
   "main": "dist/index.js",
@@ -54,6 +54,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.20.0",
     "eslint-config-cmyr": "^1.1.7",
+    "eslint-plugin-import": "^2.22.1",
     "husky": "^5.1.1",
     "lint-staged": "^10.5.4",
     "lodash": "^4.17.21",
