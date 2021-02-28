@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [1.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.0.0...v1.1.0) (2021-02-28)
+
+
+### ✨ 新功能
+
+* 修改邮件推送为 BER分邮件系统 ([0b2e864](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0b2e864))
+
 # 1.0.0 (2021-02-27)
 
 
