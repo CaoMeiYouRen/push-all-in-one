@@ -14,7 +14,7 @@
     "node": ">=12"
   },
   "scripts": {
-    "lint": "cross-env NODE_ENV=production eslint src --fix --ext .ts,.js",
+    "lint": "cross-env NODE_ENV=production eslint src *.js --fix --ext .ts,.js",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production rollup -c",
     "postbuild": "npm run build:type",
