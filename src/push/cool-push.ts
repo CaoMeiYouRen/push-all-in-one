@@ -36,7 +36,7 @@ export class CoolPush implements Send {
         this.SKEY = SKEY
         Debugger('set SKEY: "%s"', SKEY)
         if (!this.SKEY) {
-            throw new Error('SKEY is required!')
+            throw new Error('SKEY 是必须的！')
         }
     }
     /**
@@ -48,7 +48,7 @@ export class CoolPush implements Send {
      * @param [type='send'] 推送类型
      * @returns
      */
-    send(content: string, type: PushType = 'send'): Promise<AxiosResponse<any>> {
+    async send(content: string, type: PushType = 'send'): Promise<AxiosResponse<any>> {
         return ajax({
             url: `https://push.xuthus.cc/${type}/${this.SKEY}`,
             query: {

@@ -25,7 +25,7 @@ export class ServerChanTurbo implements Send {
         this.SCTKEY = SCTKEY
         Debugger('set SCTKEY: "%s"', SCTKEY)
         if (!this.SCTKEY) {
-            throw new Error('SCTKEY is required!')
+            throw new Error('SCTKEY 是必须的！')
         }
     }
     /**
@@ -43,7 +43,7 @@ export class ServerChanTurbo implements Send {
      * @param text 消息的标题
      * @param desp 消息的内容，支持 Markdown
      */
-    public async send(text: string, desp: string = ''): Promise<AxiosResponse<any>> {
+    async send(text: string, desp: string = ''): Promise<AxiosResponse<any>> {
         Debugger('text: "%s", desp: "%s"', text, desp)
         return ajax({
             url: `https://sctapi.ftqq.com/${this.SCTKEY}.send`,

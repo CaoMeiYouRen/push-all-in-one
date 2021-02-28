@@ -1,33 +1,84 @@
 import { Send } from '../interfaces/send'
-import { createTransport, SendMailOptions } from 'nodemailer'
+import { ajax } from '@/utils/ajax'
+import { AxiosResponse } from 'axios'
+import colors from 'colors'
 import debug from 'debug'
 
 const Debugger = debug('push:email')
 
-type Mail = ReturnType<typeof createTransport>
-type Args = Parameters<typeof createTransport>
-
+type EmailSendOption = {
+    /**
+     * 发件标题
+     *
+     */
+    title: string
+    /**
+     * 发件人名称，俗称小标题
+     *
+     */
+    subtitle?: string
+    /**
+     * 	发件内容（可以是html代码格式）
+     *
+     */
+    desp: string
+    /**
+     * 收件人邮箱（邮箱地址必须正确）
+     *
+     */
+    addressee: string
+}
+/**
+ * 文档：http://doc.berfen.com/1239397
+ *
+ * @author CaoMeiYouRen
+ * @date 2021-02-28
+ * @export
+ * @class Email
+ */
 export class Email implements Send {
+    /**
+     * 请前往 https://email.berfen.com/ 注册后领取
+     *
+     * @private
+     */
+    private BER_KEY?: string
 
-    private mail: Mail
-
-    constructor(...args: Args) {
-        this.mail = createTransport(...args)
+    /**
+     *
+     * @author CaoMeiYouRen
+     * @date 2021-02-28
+     * @param BER_KEY 请前往 https://email.berfen.com/ 注册后领取
+     */
+    constructor(BER_KEY?: string) {
+        this.BER_KEY = BER_KEY
+        Debugger('set BER_KEY: "%s"', BER_KEY)
+        if (!this.BER_KEY) {
+            console.warn(colors.yellow('未提供 BER_KEY！将使用免费版本进行推送！官方文档：http://doc.berfen.com/1239397'))
+        }
     }
 
-    close(): void {
-        this.mail.close()
-    }
-
-    async send(mailOptions: SendMailOptions): Promise<any> {
-        Debugger('mailOptions: %O', mailOptions)
-        return new Promise((resolve: (value: unknown) => void, reject: (err: Error) => void) => {
-            this.mail.sendMail(mailOptions, (err, info) => {
-                if (err) {
-                    return reject(err)
-                }
-                return resolve(info)
-            })
+    async send(option: EmailSendOption): Promise<AxiosResponse<any>> {
+        const { title, subtitle, desp, addressee } = option
+        Debugger('option: %O', option)
+        if (!addressee) {
+            throw new Error('addressee(收件人邮箱) 地址必须正确')
+        }
+        const free = 'https://email.berfen.com/api'
+        const pay = `https://email.berfen.com/api/dz/${this.BER_KEY}/`
+        const url = this.BER_KEY ? pay : free
+        return ajax({
+            url,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data: {
+                title,
+                x_title: subtitle,
+                text: desp,
+                to: addressee,
+            },
         })
     }
 }

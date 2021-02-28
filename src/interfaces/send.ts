@@ -6,7 +6,6 @@
  * @export
  * @interface Send
  */
-interface Send {
+export interface Send {
     send(...args: any[]): Promise<any>
 }
-export { Send }

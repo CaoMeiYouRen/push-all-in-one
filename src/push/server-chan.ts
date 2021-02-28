@@ -22,7 +22,7 @@ export class ServerChan implements Send {
     constructor(SCKEY: string) {
         this.SCKEY = SCKEY
         if (!this.SCKEY) {
-            throw new Error('SCKEY is required!')
+            throw new Error('SCKEY 是必须的！')
         }
     }
     /**
@@ -39,7 +39,7 @@ export class ServerChan implements Send {
      * @param text 消息的标题
      * @param desp 消息的内容，支持 Markdown
      */
-    public async send(text: string, desp: string = ''): Promise<AxiosResponse<any>> {
+    async send(text: string, desp: string = ''): Promise<AxiosResponse<any>> {
         return ajax({
             url: `https://sc.ftqq.com/${this.SCKEY}.send`,
             method: 'POST',
