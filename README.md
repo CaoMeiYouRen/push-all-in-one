@@ -1,6 +1,6 @@
 # push-all-in-one
 
-本项目的目标是支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用等多种推送方式，目前还在开发中。
+本项目的目标是支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot等多种推送方式，目前还在开发中。
 
 ## 温馨提示：
 
@@ -58,6 +58,16 @@ const wechatApp = new WechatApp({
     WX_APP_USERID: '@all',
 })
 wechatApp.send('你好，我很可爱')
+
+// pushplus 推送，官方文档：http://pushplus.hxtrip.com/doc/
+const PUSH_PLUS_TOKEN = 'xxxxxxxxxxxxxxxxxxxxx'
+const pushplus = new PushPlus(PUSH_PLUS_TOKEN)
+pushplus.send('你好', '你好，我很可爱')
+
+// iGot 推送，官方文档：https://wahao.github.io/Bark-MP-helper
+const I_GOT_KEY = 'xxxxxxxxxx'
+const iGot = new IGot(I_GOT_KEY)
+iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/push-all-in-one')
 
 ```
 

@@ -1,7 +1,7 @@
 {
   "name": "push-all-in-one",
   "version": "1.2.0",
-  "description": "Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用等多种推送方式",
+  "description": "Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot等多种推送方式",
   "author": "CaoMeiYouRen",
   "license": "MIT",
   "main": "dist/index.js",
@@ -13,6 +13,20 @@
   "engines": {
     "node": ">=12"
   },
+  "keywords": [
+    "push",
+    "server-chan",
+    "serverchan",
+    "server-chan-turbo",
+    "CoolPush",
+    "email",
+    "dingtalk",
+    "weixin",
+    "wechat",
+    "pushplus",
+    "push+",
+    "iGot"
+  ],
   "scripts": {
     "lint": "cross-env NODE_ENV=production eslint src *.js --fix --ext .ts,.js",
     "prebuild": "rimraf dist",

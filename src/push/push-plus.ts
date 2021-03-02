@@ -1,5 +1,4 @@
 import { ajax } from '@/utils/ajax'
-import { warn } from '@/utils/helper'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
@@ -47,7 +46,7 @@ export class PushPlus implements Send {
      * @returns
      */
     send(title: string, content?: string, template: TemplateType = 'html'): Promise<AxiosResponse<any>> {
-        Debugger('content: "%s", content: "%s"', title, content)
+        Debugger('title: "%s", content: "%s"', title, content)
         return ajax({
             url: 'http://pushplus.hxtrip.com/send',
             method: 'POST',
