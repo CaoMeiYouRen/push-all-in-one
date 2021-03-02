@@ -37,7 +37,10 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
                 if (typeof reqData === 'object' && reqHeaders[contentType] === 'application/x-www-form-urlencoded') {
                     return qs.stringify(reqData)
                 }
-                if (typeof reqData === 'string' || reqData instanceof Buffer || reqData instanceof ArrayBuffer) {
+                if (typeof reqData === 'string') {
+                    return reqData
+                }
+                if (reqData instanceof Buffer || reqData instanceof ArrayBuffer) {
                     return reqData
                 }
                 return JSON.stringify(reqData)

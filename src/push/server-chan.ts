@@ -1,6 +1,7 @@
 import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
+import { warn } from '@/utils/helper'
 import { Send } from '../interfaces/send'
 
 const Debugger = debug('push:server-chan')
@@ -24,6 +25,7 @@ export class ServerChan implements Send {
     constructor(SCKEY: string) {
         this.SCKEY = SCKEY
         Debugger('set SCKEY: "%s"', SCKEY)
+        warn('ServerChan 已弃用！将在2021年4月后下线，请尽快完成配置的更新。详见 https://sc.ftqq.com')
         if (!this.SCKEY) {
             throw new Error('SCKEY 是必须的！')
         }

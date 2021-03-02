@@ -50,6 +50,7 @@ function getPlugins({ isBrowser = false, isMin = false, isDeclaration = false })
         replace({
             exclude: 'node_modules/**',
             'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV || 'production'),
+            'process.browser': isBrowser,
             preventAssignment: false,
         }),
     )
@@ -130,19 +131,19 @@ export default [
             isMin: false,
         }),
     },
-    // { // 本包不推荐在浏览器中使用，故不生成浏览器版本
-    //     input: 'src/index.ts',
-    //     external,
-    //     output: {
-    //         file: 'dist/index.browser.js', // 生成 browser
-    //         format: 'umd',
-    //         name: outputName,
-    //         sourcemap: true,
-    //     },
-    //     plugins: getPlugins({
-    //         isBrowser: true,
-    //         isDeclaration: false,
-    //         isMin: true,
-    //     }),
-    // },
+    { // 本包不推荐在浏览器中使用，故不生成浏览器版本
+        input: 'src/index.ts',
+        external,
+        output: {
+            file: 'dist/index.browser.js', // 生成 browser
+            format: 'umd',
+            name: outputName,
+            sourcemap: true,
+        },
+        plugins: getPlugins({
+            isBrowser: true,
+            isDeclaration: false,
+            isMin: false,
+        }),
+    },
 ]
