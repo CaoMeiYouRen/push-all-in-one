@@ -1,5 +1,18 @@
 # push-all-in-one
 
+# [1.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.2.0...v1.3.0) (2021-03-02)
+
+
+### ✨ 新功能
+
+* 新增 iGot 推送 ([e53e6bb](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e53e6bb)), closes [#4](https://github.com/CaoMeiYouRen/push-all-in-one/issues/4)
+* 新增 PushPlus 推送支持 ([299ae9f](https://github.com/CaoMeiYouRen/push-all-in-one/commit/299ae9f))
+
+
+### 🐛 Bug 修复
+
+* server-chan 新增弃用 warn ([c9a9d0d](https://github.com/CaoMeiYouRen/push-all-in-one/commit/c9a9d0d)), closes [#5](https://github.com/CaoMeiYouRen/push-all-in-one/issues/5)
+
 # [1.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.1.0...v1.2.0) (2021-02-28)
 
 
