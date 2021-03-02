@@ -15,7 +15,7 @@ npm i push-all-in-one -S
 ## 使用
 
 ```ts
-import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp } from 'push-all-in-one'
+import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp, PushPlus, IGot } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
