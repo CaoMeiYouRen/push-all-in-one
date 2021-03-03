@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [1.3.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.0...v1.3.1) (2021-03-03)
+
+
+### 🐛 Bug 修复
+
+* 修复 Dingtalk 推送错误；修复 ajax 请求 Content-Type: application/json 格式数据出错的问题 ([ffcebb4](https://github.com/CaoMeiYouRen/push-all-in-one/commit/ffcebb4))
+
 # [1.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.2.0...v1.3.0) (2021-03-02)
 
 
