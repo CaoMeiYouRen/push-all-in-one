@@ -33,6 +33,9 @@ export class WechatRobot implements Send {
     async push(message: Msg): Promise<AxiosResponse<any>> {
         return ajax({
             url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             method: 'POST',
             query: { key: this.WX_ROBOT_KEY },
             data: { ...message },

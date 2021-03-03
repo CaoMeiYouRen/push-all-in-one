@@ -79,15 +79,27 @@ export class WechatApp implements Send {
                 corpsecret: this.WX_APP_SECRET,
             },
         })
-        if (data?.errcode === 0) { // 出错返回码，为0表示成功，非0表示调用失败
-            Debugger('获取 access_token 成功: %O', data)
-            this.expiresTime = Date.now() + (data.expires_in || 7200) * 1000 // 设置过期时间
-            this.ACCESS_TOKEN = data.access_token
-            return data.access_token
+        if (data?.errcode !== 0) { // 出错返回码，为0表示成功，非0表示调用失败
+            error(data?.errmsg)
+            throw new Error(data?.errmsg || '获取 access_token 失败！')
         }
-        error(data?.errmsg)
-        throw new Error(data?.errmsg || '获取 access_token 失败！')
+        const { access_token, expires_in = 7200 } = data
+        Debugger('获取 access_token 成功: %s', access_token)
+        this.extendexpiresTime(expires_in)
+        return access_token
     }
+    /**
+     * 延长过期时间
+     *
+     * @author CaoMeiYouRen
+     * @date 2021-03-03
+     * @private
+     * @param expiresIn 延长的秒数
+     */
+    private extendexpiresTime(expiresIn: number): void {
+        this.expiresTime = Date.now() + expiresIn * 1000 // 设置过期时间
+    }
+
     /**
      *
      *
@@ -99,11 +111,14 @@ export class WechatApp implements Send {
     async send(content: string): Promise<AxiosResponse<any>> {
         Debugger('content: %s', content)
         if (!this.ACCESS_TOKEN || Date.now() >= this.expiresTime) {
-            await this.getAccessToken()
+            this.ACCESS_TOKEN = await this.getAccessToken()
         }
         return ajax({
             url: 'https://qyapi.weixin.qq.com/cgi-bin/message/send',
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             query: {
                 access_token: this.ACCESS_TOKEN,
             },

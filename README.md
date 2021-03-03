@@ -1,6 +1,6 @@
 # push-all-in-one
 
-本项目的目标是支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot等多种推送方式，目前还在开发中。
+Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 等多种推送方式。
 
 ## 温馨提示：
 
@@ -74,4 +74,22 @@ iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/pu
 ## 关于设计理念
 
 本人比较认同 `Server酱` 的设计理念，即简化使用的流程，用最简单的方法实现推送。因此，在集成推送功能时不会完整的接入所有功能，而是有所取舍，部分我觉得使用较为麻烦的功能将会移除，只保留最核心的推送功能。【如果想用完整版直接用官方sdk就行了】
+
+## 开发
+
+本项目采用 TypeScript 开发，使用 rollup 打包，可以完美实现类型提示和摇树优化，对于未使用到的模块，会在编译阶段去除。
+
+### debug
+
+本项目使用 `debug` 这个包来 debug ，如果要开启调试则设置环境变量为 `DEBUG=push:*` 即可，例如
+
+```sh
+cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts # 因为一些原因该文件未上传，可自行编写测试用例
+```
+
+### 编译
+
+```sh
+npm run build
+```
 

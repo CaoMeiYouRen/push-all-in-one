@@ -52,10 +52,13 @@ export class CoolPush implements Send {
         Debugger('content: "%s" ,type: "%s"', content, type)
         return ajax({
             url: `https://push.xuthus.cc/${type}/${this.SKEY}`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
             query: {
                 c: content,
             },
-            method: 'POST',
         })
     }
 

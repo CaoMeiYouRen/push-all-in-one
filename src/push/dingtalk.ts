@@ -55,15 +55,16 @@ export class Dingtalk implements Send {
         const sign = this.getSign(timestamp)
         const result = await ajax({
             url: this.webhook,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             query: {
                 timestamp,
                 sign,
                 access_token: this.ACCESS_TOKEN,
             },
             data: message.get(),
-            headers: {
-                'Content-Type': 'application/json',
-            },
         })
         Debugger('Result is %s, %s。', result.data.errcode, result.data.errmsg)
         if (result.data.errcode === 310000) {

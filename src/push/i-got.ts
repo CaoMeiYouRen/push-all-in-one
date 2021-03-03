@@ -49,6 +49,9 @@ export class IGot implements Send {
         return ajax({
             url: `https://push.hellyw.com/${this.I_GOT_KEY}`,
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             data: {
                 title,
                 content: content || title,

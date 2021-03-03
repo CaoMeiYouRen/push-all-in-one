@@ -35,6 +35,7 @@ type EmailSendOption = {
  * @date 2021-02-28
  * @export
  * @class Email
+ *
  */
 export class Email implements Send {
     /**

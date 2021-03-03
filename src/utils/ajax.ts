@@ -31,10 +31,9 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
             params: query,
             data,
             timeout: 10000,
-            baseURL: '',
             transformRequest(reqData: any, reqHeaders?: Record<string, unknown>) {
                 const contentType = Object.keys(reqHeaders).find((e) => e.toLocaleLowerCase().includes('Content-Type'.toLocaleLowerCase()))
-                if (typeof reqData === 'object' && reqHeaders[contentType] === 'application/x-www-form-urlencoded') {
+                if (reqHeaders[contentType] === 'application/x-www-form-urlencoded' && typeof reqData === 'object') {
                     return qs.stringify(reqData)
                 }
                 if (typeof reqData === 'string') {
@@ -43,6 +42,9 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
                 if (reqData instanceof Buffer || reqData instanceof ArrayBuffer) {
                     return reqData
                 }
+                if (!reqHeaders['Content-Type']) {
+                    reqHeaders['Content-Type'] = 'application/json'
+                }
                 return JSON.stringify(reqData)
             },
         })
@@ -50,7 +52,7 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
         return response
     } catch (error) {
         if (error.toJSON) {
-            console.error(error.toJSON())
+            console.error(error?.response || error.toJSON())
             return error.response
         }
         console.error(error)
