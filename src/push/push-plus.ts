@@ -5,7 +5,7 @@ import { Send } from '../interfaces/send'
 
 const Debugger = debug('push:push-plus')
 
-type TemplateType = 'html' | 'json' | 'cloudMonitor'
+export type TemplateType = 'html' | 'json' | 'cloudMonitor'
 /**
  * pushplus 推送加开放平台，仅支持一对一推送。官方文档：http://pushplus.hxtrip.com/doc/
  *

@@ -7,7 +7,7 @@ import { TextMsg } from './wechat/TextMsg'
 
 const Debugger = debug('push:wechat-robot')
 
-type MsgType = 'text' | 'markdown'
+export type MsgType = 'text' | 'markdown'
 type Msg = TextMsg | MarkdownMsg
 
 /**
