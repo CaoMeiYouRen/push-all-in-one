@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [1.3.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.2...v1.3.3) (2021-03-04)
+
+
+### 🐛 Bug 修复
+
+* **type:** 导出类型枚举 ([0ad08ce](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0ad08ce))
+
 ## [1.3.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.1...v1.3.2) (2021-03-04)
 
 
