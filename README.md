@@ -34,7 +34,7 @@ email.send({
     title: '你好',
     subtitle: '这是个小标题',
     desp: '你好，我很可爱',
-    addressee: '123456@example.com',
+    address: '123456@example.com',
 })
 
 // 钉钉机器人。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access

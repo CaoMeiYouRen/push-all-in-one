@@ -26,7 +26,7 @@ type EmailSendOption = {
      * 收件人邮箱（邮箱地址必须正确）
      *
      */
-    addressee: string
+    address: string
 }
 /**
  * 文档：http://doc.berfen.com/1239397
@@ -60,10 +60,10 @@ export class Email implements Send {
     }
 
     async send(option: EmailSendOption): Promise<AxiosResponse<any>> {
-        const { title, subtitle, desp, addressee } = option
+        const { title, subtitle, desp, address } = option
         Debugger('option: %O', option)
-        if (!addressee) {
-            throw new Error('addressee(收件人邮箱) 地址必须正确')
+        if (!address) {
+            throw new Error('address(收件人邮箱) 地址必须正确')
         }
         const free = 'https://email.berfen.com/api'
         const pay = `https://email.berfen.com/api/dz/${this.BER_KEY}/`
@@ -78,7 +78,7 @@ export class Email implements Send {
                 title,
                 x_title: subtitle,
                 text: desp,
-                to: addressee,
+                to: address,
             },
         })
     }
