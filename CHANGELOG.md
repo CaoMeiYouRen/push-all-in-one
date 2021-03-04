@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [1.3.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.3...v1.3.4) (2021-03-04)
+
+
+### 🐛 Bug 修复
+
+* 修改 ts target 为 es2019 ([3cdfeb0](https://github.com/CaoMeiYouRen/push-all-in-one/commit/3cdfeb0))
+
 ## [1.3.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.2...v1.3.3) (2021-03-04)
 
 
