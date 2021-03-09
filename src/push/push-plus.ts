@@ -5,9 +5,9 @@ import { Send } from '../interfaces/send'
 
 const Debugger = debug('push:push-plus')
 
-export type TemplateType = 'html' | 'json' | 'cloudMonitor'
+export type TemplateType = 'html' | 'json' | 'cloudMonitor' | 'jenkins' | 'route'
 /**
- * pushplus 推送加开放平台，仅支持一对一推送。官方文档：http://pushplus.hxtrip.com/doc/
+ * pushplus 推送加开放平台，仅支持一对一推送。官方文档：https://www.pushplus.plus/doc/
  *
  * @author CaoMeiYouRen
  * @date 2021-03-03
@@ -17,7 +17,7 @@ export type TemplateType = 'html' | 'json' | 'cloudMonitor'
 export class PushPlus implements Send {
 
     /**
-     * 请前往 http://pushplus.hxtrip.com/message 领取
+     * 请前往 https://www.pushplus.plus/message 领取
      *
      * @private
      */
@@ -26,7 +26,7 @@ export class PushPlus implements Send {
      *
      * @author CaoMeiYouRen
      * @date 2021-03-03
-     * @param PUSH_PLUS_TOKEN 请前往 http://pushplus.hxtrip.com/message 领取
+     * @param PUSH_PLUS_TOKEN 请前往 https://www.pushplus.plus/message 领取
      */
     constructor(PUSH_PLUS_TOKEN: string) {
         this.PUSH_PLUS_TOKEN = PUSH_PLUS_TOKEN
@@ -48,7 +48,7 @@ export class PushPlus implements Send {
     send(title: string, content?: string, template: TemplateType = 'html'): Promise<AxiosResponse<any>> {
         Debugger('title: "%s", content: "%s", template: "%s"', title, content, template)
         return ajax({
-            url: 'http://pushplus.hxtrip.com/send',
+            url: 'http://www.pushplus.plus/send',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -59,7 +59,7 @@ const wechatApp = new WechatApp({
 })
 wechatApp.send('你好，我很可爱')
 
-// pushplus 推送，官方文档：http://pushplus.hxtrip.com/doc/
+// pushplus 推送，官方文档：https://www.pushplus.plus/doc/
 const PUSH_PLUS_TOKEN = 'xxxxxxxxxxxxxxxxxxxxx'
 const pushplus = new PushPlus(PUSH_PLUS_TOKEN)
 pushplus.send('你好', '你好，我很可爱')
