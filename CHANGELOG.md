@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [1.3.5](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.4...v1.3.5) (2021-03-09)
+
+
+### 🐛 Bug 修复
+
+* **push-plus:** 修改 http://pushplus.hxtrip.com -> https://www.pushplus.plus ([e046788](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e046788))
+
 ## [1.3.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.3...v1.3.4) (2021-03-04)
 
 
