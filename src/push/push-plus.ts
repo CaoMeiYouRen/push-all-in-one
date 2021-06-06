@@ -5,7 +5,10 @@ import { Send } from '../interfaces/send'
 
 const Debugger = debug('push:push-plus')
 
-export type TemplateType = 'html' | 'json' | 'cloudMonitor' | 'jenkins' | 'route'
+export type TemplateType = 'html' | 'txt' | 'json' | 'markdown' | 'cloudMonitor' | 'jenkins' | 'route'
+
+export type ChannelType = 'wechat' | 'webhook' | 'cp' | 'sms' | 'mail'
+
 /**
  * pushplus 推送加开放平台，仅支持一对一推送。官方文档：https://www.pushplus.plus/doc/
  *
@@ -39,13 +42,14 @@ export class PushPlus implements Send {
      *
      *
      * @author CaoMeiYouRen
-     * @date 2021-03-03
-     * @param title 消息标题
-     * @param [content] 具体消息内容，根据不同template支持不同格式
-     * @param [template='html'] 发送消息模板，默认为 html
+     * @date 2021-06-06
+     * @param title
+     * @param [content] 消息标题
+     * @param [template='html'] 具体消息内容，根据不同template支持不同格式
+     * @param [channel='wechat'] 发送渠道
      * @returns
      */
-    send(title: string, content?: string, template: TemplateType = 'html'): Promise<AxiosResponse<any>> {
+    send(title: string, content?: string, template: TemplateType = 'html', channel: ChannelType = 'wechat'): Promise<AxiosResponse<any>> {
         Debugger('title: "%s", content: "%s", template: "%s"', title, content, template)
         return ajax({
             url: 'http://www.pushplus.plus/send',
@@ -58,6 +62,7 @@ export class PushPlus implements Send {
                 title,
                 content: content || title,
                 template,
+                channel,
             },
         })
     }
