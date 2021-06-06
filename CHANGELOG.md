@@ -1,5 +1,18 @@
 # push-all-in-one
 
+# [2.0.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.5...v2.0.0) (2021-06-06)
+
+
+### ✨ 新功能
+
+* 更新 pushplus 接口 ([4a1de7a](https://github.com/CaoMeiYouRen/push-all-in-one/commit/4a1de7a))
+* 移除 旧版本 ServerChan ([a0225ee](https://github.com/CaoMeiYouRen/push-all-in-one/commit/a0225ee))
+
+
+### BREAKING CHANGES
+
+* 移除 旧版本 ServerChan
+
 ## [1.3.5](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.4...v1.3.5) (2021-03-09)
 
 
