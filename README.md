@@ -53,7 +53,7 @@ wechatRobot.send('你好，我很可爱', 'text')
 // 微信插件 https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin
 const wechatApp = new WechatApp({
     WX_APP_CORPID: 'wwxxxxxxxxxxxxxxxxxxxx',
-    WX_APP_AGENTID: 10001,
+    WX_APP_AGENTID: 10001, // 请更换为自己的 AGENTID 
     WX_APP_SECRET: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     WX_APP_USERID: '@all',
 })
