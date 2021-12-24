@@ -1,9 +1,9 @@
-import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { MarkdownMsg } from './wechat/MarkdownMsg'
 import { TextMsg } from './wechat/TextMsg'
+import { ajax } from '@/utils/ajax'
 
 const Debugger = debug('push:wechat-robot')
 

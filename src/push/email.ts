@@ -1,8 +1,8 @@
-import { ajax } from '@/utils/ajax'
-import { warn } from '@/utils/helper'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
+import { warn } from '@/utils/helper'
+import { ajax } from '@/utils/ajax'
 
 const Debugger = debug('push:email')
 

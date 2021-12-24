@@ -1,8 +1,8 @@
-import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
-import { error, warn } from '@/utils/helper'
 import { Send } from '../interfaces/send'
+import { error, warn } from '@/utils/helper'
+import { ajax } from '@/utils/ajax'
 
 const Debugger = debug('push:wechat-app')
 

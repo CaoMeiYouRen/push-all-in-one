@@ -1,12 +1,12 @@
-import { ajax } from '@/utils/ajax'
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import CryptoJS from 'crypto-js'
-import { warn } from '@/utils/helper'
 import { Send } from '../interfaces/send'
 import { MessageTemplateAbs } from './dingtalk/template'
 import { Text } from './dingtalk/Text'
 import { Markdown } from './dingtalk/Markdown'
+import { warn } from '@/utils/helper'
+import { ajax } from '@/utils/ajax'
 
 const Debugger = debug('push:dingtalk')
 
