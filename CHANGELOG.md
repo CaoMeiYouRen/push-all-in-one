@@ -1,5 +1,17 @@
 # push-all-in-one
 
+## [2.0.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.0...v2.0.1) (2021-12-24)
+
+
+* Merge branch 'master' of github.com:CaoMeiYouRen/push-all-in-one ([7e795e0](https://github.com/CaoMeiYouRen/push-all-in-one/commit/7e795e0))
+* Update README.md ([4e03789](https://github.com/CaoMeiYouRen/push-all-in-one/commit/4e03789))
+* Merge branch 'master' of github.com:CaoMeiYouRen/push-all-in-one ([f2273ae](https://github.com/CaoMeiYouRen/push-all-in-one/commit/f2273ae))
+
+
+### 🐛 Bug 修复
+
+* 更新依赖；格式化代码；更新 CI ([0dfc04a](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0dfc04a))
+
 # [2.0.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v1.3.5...v2.0.0) (2021-06-06)
 
 
