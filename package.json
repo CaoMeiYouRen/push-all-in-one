@@ -88,7 +88,7 @@
     "validate-commit-msg": "^2.14.0"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "colors": "^1.4.0",
     "crypto-js": "^4.0.0",
     "debug": "^4.3.1",
