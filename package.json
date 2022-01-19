@@ -52,7 +52,7 @@
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.2.0",
-    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/crypto-js": "^4.0.1",
     "@types/debug": "^4.1.5",
