@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [2.0.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.1...v2.0.2) (2022-01-24)
+
+
+### 🐛 Bug 修复
+
+* 更新文档；新增 husky ([43d230b](https://github.com/CaoMeiYouRen/push-all-in-one/commit/43d230b))
+
 ## [2.0.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.0...v2.0.1) (2021-12-24)
 
 
