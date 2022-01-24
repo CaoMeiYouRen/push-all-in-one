@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [2.0.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.2...v2.0.3) (2022-01-24)
+
+
+### 🐛 Bug 修复
+
+* 修复 Ajax 错误 ([b35c895](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b35c895))
+
 ## [2.0.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.1...v2.0.2) (2022-01-24)
 
 
