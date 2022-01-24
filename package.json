@@ -42,9 +42,12 @@
     "release": "semantic-release",
     "commit": "git add . && git cz",
     "test:e2e": "cross-env DEBUG=push:* NODE_ENV=development mocha -r ts-node/register test/register.ts test/**/*.test.ts -R nyan -t 30000",
-    "test:debug": "cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts"
+    "test:debug": "cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@microsoft/api-extractor": "^7.13.1",
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-commonjs": "^21.0.1",
@@ -68,6 +71,7 @@
     "conventional-changelog-cmyr-config": "^2.0.3",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-conventional-changelog-cmyr": "^1.0.0",
     "eslint": "^7.20.0",
     "eslint-config-cmyr": "^1.1.15",
     "eslint-plugin-import": "^2.22.1",
@@ -96,7 +100,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "./node_modules/cz-conventional-changelog-cmyr"
     }
   },
   "changelog": {

@@ -1,10 +1,40 @@
-# push-all-in-one
+<h1 align="center">push-all-in-one </h1>
+<p>
+  <a href="https://www.npmjs.com/package/push-all-in-one" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/push-all-in-one.svg">
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/push-all-in-one/actions?query=workflow%3ARelease" target="_blank">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/CaoMeiYouRen/push-all-in-one/Release">
+  </a>
+  <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" />
+  <a href="https://github.com/CaoMeiYouRen/push-all-in-one#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/push-all-in-one/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/push-all-in-one/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
+> Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 等多种推送方式。
+>
+> 温馨提示：出于安全考虑，**所有**推送方式请在**服务端**使用！请勿在**客户端**使用！
 
-Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 等多种推送方式。
+### 🏠 [主页](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
 
-## 温馨提示：
+[https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
 
-出于安全考虑，**所有**推送方式请在**服务端**使用！请勿在**客户端**使用！
+
+### ✨ [Demo](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+
+[https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+
+
+## 依赖要求
+
+
+- node >=12
 
 ## 安装
 
@@ -43,7 +73,7 @@ const SECRET = 'SECxxxxxxxxxxxxxxxx'
 const dingtalk = new Dingtalk(ACCESS_TOKEN, SECRET)
 dingtalk.send('你好', '你好，我很可爱')
 
-// 企业微信群机器人。官方文档：https://work.weixin.qq.com/help?person_id=1&doc_id=13376
+// 企业微信群机器人。官方文档：https://developer.work.weixin.qq.com/document/path/91770
 // 企业微信群机器人的使用需要两人以上加入企业，如果个人使用微信推送建议使用 企业微信应用+微信插件 推送。虽然需要配置的内容更多了，但是无需下载企业微信，网页端即可完成操作。
 const WX_ROBOT_KEY = 'xxxxxxxxxxxxxxxxxxxxxxx'
 const wechatRobot = new WechatRobot(WX_ROBOT_KEY)
@@ -51,6 +81,7 @@ wechatRobot.send('你好，我很可爱', 'text')
 
 // 企业微信应用推送，官方文档：https://work.weixin.qq.com/api/doc/90000/90135/90664
 // 微信插件 https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin
+// 参数的介绍请参考：https://developer.work.weixin.qq.com/document/path/90665
 const wechatApp = new WechatApp({
     WX_APP_CORPID: 'wwxxxxxxxxxxxxxxxxxxxx',
     WX_APP_AGENTID: 10001, // 请更换为自己的 AGENTID 
@@ -71,15 +102,15 @@ iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/pu
 
 ```
 
-## 关于设计理念
-
-本人比较认同 `Server酱` 的设计理念，即简化使用的流程，用最简单的方法实现推送。因此，在集成推送功能时不会完整的接入所有功能，而是有所取舍，部分我觉得使用较为麻烦的功能将会移除，只保留最核心的推送功能。【如果想用完整版直接用官方sdk就行了】
-
 ## 开发
 
 本项目采用 TypeScript 开发，使用 rollup 打包，可以完美实现类型提示和摇树优化，对于未使用到的模块，会在编译阶段去除。
 
-### debug
+```sh
+npm run dev
+```
+
+## debug
 
 本项目使用 `debug` 这个包来 debug ，如果要开启调试则设置环境变量为 `DEBUG=push:*` 即可，例如
 
@@ -87,9 +118,46 @@ iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/pu
 cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts # 因为一些原因该文件未上传，可自行编写测试用例
 ```
 
-### 编译
+## 编译
 
 ```sh
 npm run build
 ```
 
+## Lint
+
+```sh
+npm run lint
+```
+
+## Commit
+
+```sh
+npm run commit
+```
+
+
+## 作者
+
+
+👤 **CaoMeiYouRen**
+
+* Website: [https://blog.cmyr.ltd/](https://blog.cmyr.ltd/)
+* GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
+
+
+## 🤝贡献
+
+欢迎 贡献、提问或提出新功能！<br />如有问题请查看 [issues page](https://github.com/CaoMeiYouRen/push-all-in-one/issues). <br/>贡献或提出新功能可以查看[contributing guide](https://github.com/CaoMeiYouRen/push-all-in-one/blob/master/CONTRIBUTING.md).
+
+## 💰支持
+
+如果觉得这个项目有用的话请给一颗⭐️，非常感谢
+
+## 📝 License
+
+Copyright © 2022 [CaoMeiYouRen](https://github.com/CaoMeiYouRen).<br />
+This project is [MIT](https://github.com/CaoMeiYouRen/push-all-in-one/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [cmyr-template-cli](https://github.com/CaoMeiYouRen/cmyr-template-cli)_
