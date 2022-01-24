@@ -28,5 +28,6 @@ module.exports = {
         '@typescript-eslint/comma-dangle': [2, 'always-multiline'], // 要求或禁止使用拖尾逗号
         'import/no-unresolved': 0,
         'import/order': 1,
+        'require-await': 0,
     },
 }
