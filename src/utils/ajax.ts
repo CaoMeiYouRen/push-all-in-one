@@ -1,15 +1,15 @@
-import axios, { AxiosResponse, Method } from 'axios'
+import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import qs from 'qs'
 import debug from 'debug'
 
 const Debugger = debug('push:ajax')
 
-class AjaxConfig {
+interface AjaxConfig {
     url: string
     query?: Record<string, unknown>
     data?: Record<string, unknown> | string | Buffer | ArrayBuffer
-    method?: Method = 'GET'
-    headers?: Record<string, unknown>
+    method?: Method
+    headers?: AxiosRequestHeaders
 }
 
 /**
@@ -51,11 +51,15 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
         Debugger('response data: %O', response.data)
         return response
     } catch (error) {
-        if (error.toJSON) {
-            console.error(error?.response || error.toJSON())
+        if (error?.response) {
+            console.error(error.response)
             return error.response
         }
-        console.error(error)
+        if (error.toJSON) {
+            console.error(error.toJSON())
+        } else {
+            console.error(error)
+        }
         throw error
     }
 }
