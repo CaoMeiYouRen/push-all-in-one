@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [2.0.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.3...v2.0.4) (2022-02-14)
+
+
+### 🐛 Bug 修复
+
+* 优化 ajax 对 form 格式的处理；优化 Debugger；更新依赖 ([5326c62](https://github.com/CaoMeiYouRen/push-all-in-one/commit/5326c62))
+
 ## [2.0.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.2...v2.0.3) (2022-01-24)
 
 
