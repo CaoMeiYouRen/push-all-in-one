@@ -24,29 +24,19 @@ interface AjaxConfig {
 export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
     try {
         Debugger('ajax config: %O', config)
-        const { url, query = {}, data = {}, method = 'GET', headers = {} } = config
+        const { url, query = {}, method = 'GET', headers = {} } = config
+        let { data = {} } = config
+
+        if (headers['Content-Type'] === 'application/x-www-form-urlencoded' && typeof data === 'object') {
+            data = qs.stringify(data)
+        }
+
         const response = await axios(url, {
             method,
             headers,
             params: query,
             data,
             timeout: 10000,
-            transformRequest(reqData: any, reqHeaders?: Record<string, unknown>) {
-                const contentType = Object.keys(reqHeaders).find((e) => e.toLocaleLowerCase().includes('Content-Type'.toLocaleLowerCase()))
-                if (reqHeaders[contentType] === 'application/x-www-form-urlencoded' && typeof reqData === 'object') {
-                    return qs.stringify(reqData)
-                }
-                if (typeof reqData === 'string') {
-                    return reqData
-                }
-                if (reqData instanceof Buffer || reqData instanceof ArrayBuffer) {
-                    return reqData
-                }
-                if (!reqHeaders['Content-Type']) {
-                    reqHeaders['Content-Type'] = 'application/json'
-                }
-                return JSON.stringify(reqData)
-            },
         })
         Debugger('response data: %O', response.data)
         return response

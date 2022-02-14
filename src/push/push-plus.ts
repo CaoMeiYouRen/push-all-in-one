@@ -50,7 +50,7 @@ export class PushPlus implements Send {
      * @returns
      */
     send(title: string, content?: string, template: TemplateType = 'html', channel: ChannelType = 'wechat'): Promise<AxiosResponse<any>> {
-        Debugger('title: "%s", content: "%s", template: "%s"', title, content, template)
+        Debugger('title: "%s", content: "%s", template: "%s", channel: "%s"', title, content, template, channel)
         return ajax({
             url: 'http://www.pushplus.plus/send',
             method: 'POST',

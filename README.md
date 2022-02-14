@@ -17,6 +17,7 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
+
 > Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 等多种推送方式。
 >
 > 温馨提示：出于安全考虑，**所有**推送方式请在**服务端**使用！请勿在**客户端**使用！
