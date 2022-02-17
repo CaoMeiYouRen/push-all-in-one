@@ -46,7 +46,7 @@ npm i push-all-in-one -S
 ## 使用
 
 ```ts
-import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp, PushPlus, IGot } from 'push-all-in-one'
+import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp, PushPlus, IGot, Qmsg } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
@@ -100,6 +100,11 @@ pushplus.send('你好', '你好，我很可爱')
 const I_GOT_KEY = 'xxxxxxxxxx'
 const iGot = new IGot(I_GOT_KEY)
 iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/push-all-in-one')
+
+// Qmsg 酱 推送，官方文档：https://qmsg.zendee.cn/api.html
+const QMSG_KEY = 'xxxxxxxxxxxx'
+const qmsg = new Qmsg(QMSG_KEY)
+qmsg.send('你好，我很可爱 - Qmsg', '12345,12346', 'send') // msg：要推送的消息内容；qq：指定要接收消息的QQ号或者QQ群，多个以英文逗号分割，例如：12345,12346
 
 ```
 

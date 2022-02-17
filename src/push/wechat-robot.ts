@@ -30,7 +30,7 @@ export class WechatRobot implements Send {
         }
     }
 
-    async push(message: Msg): Promise<AxiosResponse<any>> {
+    private async push(message: Msg): Promise<AxiosResponse<any>> {
         return ajax({
             url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send',
             headers: {
