@@ -1,5 +1,13 @@
 # push-all-in-one
 
+# [2.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.4...v2.1.0) (2022-02-17)
+
+
+### ✨ 新功能
+
+* 新增 Qmsg 酱推送 ([4dc8232](https://github.com/CaoMeiYouRen/push-all-in-one/commit/4dc8232))
+* 新增 息知 推送 ([cfff80b](https://github.com/CaoMeiYouRen/push-all-in-one/commit/cfff80b))
+
 ## [2.0.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.3...v2.0.4) (2022-02-14)
 
 
