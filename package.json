@@ -25,7 +25,9 @@
     "wechat",
     "pushplus",
     "push+",
-    "iGot"
+    "iGot",
+    "Qmsg",
+    "xi-zhi"
   ],
   "scripts": {
     "lint": "cross-env NODE_ENV=production eslint src *.js --fix --ext .ts,.js",
