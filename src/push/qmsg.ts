@@ -30,7 +30,8 @@ export class Qmsg implements Send {
         }
     }
 
-    async send(msg: string, qq?: string, type: QmsgPushType = 'send'): Promise<any> {
+    async send(msg: string, qq?: string, type: QmsgPushType = 'send'): Promise<AxiosResponse<any>> {
+        Debugger('msg: "%s", qq: "%s", type: "%s"', msg, qq, type)
         return ajax({
             url: `https://qmsg.zendee.cn/${type}/${this.QMSG_KEY}`,
             headers: {
