@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [2.1.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.1.0...v2.1.1) (2022-02-18)
+
+
+### 🐛 Bug 修复
+
+* 优化 colors 在非 Node 端的导入；优化文档说明 ([100ab96](https://github.com/CaoMeiYouRen/push-all-in-one/commit/100ab96))
+
 # [2.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.0.4...v2.1.0) (2022-02-17)
 
 
