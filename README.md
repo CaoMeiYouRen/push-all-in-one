@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知等多种推送方式。
+> Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -46,7 +46,7 @@ npm i push-all-in-one -S
 ## 使用
 
 ```ts
-import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi } from 'push-all-in-one'
+import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
@@ -111,6 +111,11 @@ qmsg.send('你好，我很可爱 - Qmsg', '12345,12346', 'send') // msg：要推
 const XI_ZHI_KEY = 'xxxxxxxxxxxxx'
 const xiZhi = new XiZhi(XI_ZHI_KEY)
 xiZhi.send('你好', '你好，我很可爱 - XiZhi')
+
+// PushDeer 推送，官方文档：https://github.com/easychen/pushdeer
+const PUSH_DEER_PUSH_KEY = 'xxxxxxxxxx'
+const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
+pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
 ```
 
 ## 开发

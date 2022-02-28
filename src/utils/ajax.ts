@@ -10,6 +10,7 @@ interface AjaxConfig {
     data?: Record<string, unknown> | string | Buffer | ArrayBuffer
     method?: Method
     headers?: AxiosRequestHeaders
+    baseURL?: string
 }
 
 /**
@@ -24,7 +25,7 @@ interface AjaxConfig {
 export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
     try {
         Debugger('ajax config: %O', config)
-        const { url, query = {}, method = 'GET', headers = {} } = config
+        const { url, query = {}, method = 'GET', headers = {}, baseURL = '' } = config
         let { data = {} } = config
 
         if (headers['Content-Type'] === 'application/x-www-form-urlencoded' && typeof data === 'object') {
@@ -32,6 +33,7 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
         }
 
         const response = await axios(url, {
+            baseURL,
             method,
             headers,
             params: query,
