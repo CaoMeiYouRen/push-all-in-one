@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [2.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.1.1...v2.2.0) (2022-02-28)
+
+
+### ✨ 新功能
+
+* 新增 PushDeer 推送支持 ([45444c7](https://github.com/CaoMeiYouRen/push-all-in-one/commit/45444c7))
+
 ## [2.1.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.1.0...v2.1.1) (2022-02-18)
 
 
