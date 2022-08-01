@@ -69,7 +69,7 @@ email.send({
     address: '123456@example.com',
 })
 
-// 钉钉机器人。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access
+// 【推荐】钉钉机器人。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access
 const ACCESS_TOKEN = 'xxxxxxxxxxxxxxxxxx'
 const SECRET = 'SECxxxxxxxxxxxxxxxx'
 const dingtalk = new Dingtalk(ACCESS_TOKEN, SECRET)
@@ -81,7 +81,7 @@ const WX_ROBOT_KEY = 'xxxxxxxxxxxxxxxxxxxxxxx'
 const wechatRobot = new WechatRobot(WX_ROBOT_KEY)
 wechatRobot.send('你好，我很可爱', 'text')
 
-// 企业微信应用推送，官方文档：https://work.weixin.qq.com/api/doc/90000/90135/90664
+// 【推荐】企业微信应用推送，官方文档：https://work.weixin.qq.com/api/doc/90000/90135/90664
 // 微信插件 https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin
 // 参数的介绍请参考：https://developer.work.weixin.qq.com/document/path/90665
 const wechatApp = new WechatApp({
@@ -113,7 +113,7 @@ const XI_ZHI_KEY = 'xxxxxxxxxxxxx'
 const xiZhi = new XiZhi(XI_ZHI_KEY)
 xiZhi.send('你好', '你好，我很可爱 - XiZhi')
 
-// PushDeer 推送，官方文档：https://github.com/easychen/pushdeer
+// 【推荐】PushDeer 推送，官方文档：https://github.com/easychen/pushdeer
 const PUSH_DEER_PUSH_KEY = 'xxxxxxxxxx'
 const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
 pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
