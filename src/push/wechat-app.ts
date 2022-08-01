@@ -5,8 +5,8 @@ import { error, warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
 
 const Debugger = debug('push:wechat-app')
-
-type WechatAppOption = {
+export type WechatAppMsgType = 'text' | 'markdown'
+export type WechatAppOption = {
     /**
      * 企业ID，获取方式参考：[术语说明-corpid](https://work.weixin.qq.com/api/doc/90000/90135/91039#14953/corpid)
      *
@@ -104,12 +104,12 @@ export class WechatApp implements Send {
      *
      *
      * @author CaoMeiYouRen
-     * @date 2021-02-28
+     * @date 2022-08-01
      * @param content 消息内容，最长不超过2048个字节，超过将截断（支持id转译）
-     * @returns
+     * @param [msgtype='text'] 消息类型，text | markdown
      */
-    async send(content: string): Promise<AxiosResponse<any>> {
-        Debugger('content: %s', content)
+    async send(content: string, msgtype: WechatAppMsgType = 'text'): Promise<AxiosResponse<any>> {
+        Debugger('content: %s, msgtype: "%s"', content, msgtype)
         if (!this.ACCESS_TOKEN || Date.now() >= this.expiresTime) {
             this.ACCESS_TOKEN = await this.getAccessToken()
         }
@@ -124,9 +124,9 @@ export class WechatApp implements Send {
             },
             data: {
                 touser: this.WX_APP_USERID,
-                msgtype: 'text',
+                msgtype,
                 agentid: this.WX_APP_AGENTID,
-                text: {
+                [msgtype]: {
                     content,
                 },
             },

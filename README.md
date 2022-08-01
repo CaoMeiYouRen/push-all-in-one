@@ -90,7 +90,7 @@ const wechatApp = new WechatApp({
     WX_APP_SECRET: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     WX_APP_USERID: '@all',
 })
-wechatApp.send('你好，我很可爱')
+wechatApp.send('你好，我很可爱', 'text')
 
 // pushplus 推送，官方文档：https://www.pushplus.plus/doc/
 const PUSH_PLUS_TOKEN = 'xxxxxxxxxxxxxxxxxxxxx'
