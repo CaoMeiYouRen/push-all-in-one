@@ -84,6 +84,7 @@ wechatRobot.send('你好，我很可爱', 'text')
 // 【推荐】企业微信应用推送，官方文档：https://work.weixin.qq.com/api/doc/90000/90135/90664
 // 微信插件 https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin
 // 参数的介绍请参考：https://developer.work.weixin.qq.com/document/path/90665
+// 支持 text 和 markdown 格式，但 markdown 格式仅可在企业微信中查看
 const wechatApp = new WechatApp({
     WX_APP_CORPID: 'wwxxxxxxxxxxxxxxxxxxxx',
     WX_APP_AGENTID: 10001, // 请更换为自己的 AGENTID 
