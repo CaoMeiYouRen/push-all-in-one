@@ -2,22 +2,26 @@ import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { warn } from '@/utils/helper'
 
 const Debugger = debug('push:cool-push')
 
 /**
  * 推送类型，见 [Cool Push](https://cp.xuthus.cc/)。
- * 暂不支持 一对多推送/指定特定的qq号或者群/企业微信消息推送/钉钉群消息/邮箱消息推送
+ * 暂不支持 一对多推送/指定特定的qq号或者群/企业微信消息推送/钉钉群消息/邮箱消息推送'
+ *  @deprecated
  */
 export type PushType = 'send' | 'group' | 'psend' | 'pgroup' | 'wx' | 'tg'
 
 /**
+ * TODO: 移除接口
  * Cool Push QQ消息推送服务。使用说明见 [Cool Push](https://cp.xuthus.cc/)
  *
  * @author CaoMeiYouRen
  * @date 2021-02-27
  * @export
  * @class CoolPush
+ * @deprecated 网站已无法登陆，故不再提供接口集成，3.0 版本将会移除
  */
 export class CoolPush implements Send {
     /**
@@ -35,6 +39,7 @@ export class CoolPush implements Send {
     constructor(SKEY: string) {
         this.SKEY = SKEY
         Debugger('set SKEY: "%s"', SKEY)
+        warn('CoolPush 网站已无法登陆，故不再提供接口集成，3.0 版本将会移除')
         if (!this.SKEY) {
             throw new Error('SKEY 是必须的！')
         }

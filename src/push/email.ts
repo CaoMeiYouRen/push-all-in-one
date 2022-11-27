@@ -6,6 +6,9 @@ import { ajax } from '@/utils/ajax'
 
 const Debugger = debug('push:email')
 
+/**
+ * @deprecated
+ */
 type EmailSendOption = {
     /**
      * 发件标题
@@ -29,13 +32,13 @@ type EmailSendOption = {
     address: string
 }
 /**
+ * TODO: 移除接口
  * 文档：http://doc.berfen.com/1239397
- *
  * @author CaoMeiYouRen
  * @date 2021-02-28
  * @export
  * @class Email
- *
+ * @deprecated 网站已无法登陆，故不再提供接口集成，3.0 版本将会移除
  */
 export class Email implements Send {
     /**
@@ -54,6 +57,7 @@ export class Email implements Send {
     constructor(BER_KEY?: string) {
         this.BER_KEY = BER_KEY
         Debugger('set BER_KEY: "%s"', BER_KEY)
+        warn('BER分邮件系统 网站已无法登陆，故不再提供接口集成，3.0 版本将会移除')
         if (!this.BER_KEY) {
             warn('未提供 BER_KEY！将使用免费版本进行推送！官方文档：http://doc.berfen.com/1239397')
         }

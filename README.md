@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server酱、酷推、邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
+> Push All In One！支持 Server 酱、~~酷推、邮件~~、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -54,12 +54,12 @@ const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
 const serverChanTurbo = new ServerChanTurbo(SCTKEY)
 serverChanTurbo.send('你好', '你好，我很可爱')
 
-// 酷推。官方文档：https://cp.xuthus.cc/
+// 【已无法登陆，3.0 版本将会移除】酷推。官方文档：https://cp.xuthus.cc/
 const SKEY = '022bxxxxxxxxxxxxxxxxxx'
 const coolPush = new CoolPush(SKEY)
 coolPush.send('你好，我很可爱', 'send')
 
-// BER分邮件系统。官方文档：http://doc.berfen.com/1239397
+// 【已无法登陆，3.0 版本将会移除】BER分邮件系统。官方文档：https://www.kancloud.cn/yuanzhu/berfenapi/1239397
 // 如果不提供 BER_KEY 将会使用免费版本进行推送。免费接口有较多限制，请自行斟酌
 const email = new Email('xxxxxxx')
 email.send({
@@ -81,7 +81,7 @@ const WX_ROBOT_KEY = 'xxxxxxxxxxxxxxxxxxxxxxx'
 const wechatRobot = new WechatRobot(WX_ROBOT_KEY)
 wechatRobot.send('你好，我很可爱', 'text')
 
-// 【推荐】企业微信应用推送，官方文档：https://work.weixin.qq.com/api/doc/90000/90135/90664
+// 【推荐】企业微信应用推送，官方文档：https://developer.work.weixin.qq.com/document/path/90664
 // 微信插件 https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin
 // 参数的介绍请参考：https://developer.work.weixin.qq.com/document/path/90665
 // 支持 text 和 markdown 格式，但 markdown 格式仅可在企业微信中查看
@@ -103,7 +103,7 @@ const I_GOT_KEY = 'xxxxxxxxxx'
 const iGot = new IGot(I_GOT_KEY)
 iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/push-all-in-one')
 
-// Qmsg 酱 推送，官方文档：https://qmsg.zendee.cn/api.html
+// Qmsg 酱 推送，官方文档：https://qmsg.zendee.cn
 const QMSG_KEY = 'xxxxxxxxxxxx'
 const qmsg = new Qmsg(QMSG_KEY)
 qmsg.send('你好，我很可爱 - Qmsg', '12345,12346', 'send') // msg：要推送的消息内容；qq：指定要接收消息的QQ号或者QQ群，多个以英文逗号分割，例如：12345,12346
