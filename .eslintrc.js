@@ -26,6 +26,7 @@ module.exports = {
             allowArgumentsExplicitlyTypedAsAny: true,
         }], // 要求导出函数和类的公共类方法的显式返回和参数类型
         '@typescript-eslint/comma-dangle': [2, 'always-multiline'], // 要求或禁止使用拖尾逗号
+        '@typescript-eslint/prefer-as-const': 1,
         'import/no-unresolved': 0,
         'import/order': 1,
         'require-await': 0,

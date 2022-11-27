@@ -8,7 +8,7 @@ export class TextMsg {
     constructor(obj: TextMsg) {
         Object.assign(this, obj)
     }
-    msgtype: 'text' = 'text'
+    msgtype: 'text' = 'text' as const
     text: Text
 }
 
