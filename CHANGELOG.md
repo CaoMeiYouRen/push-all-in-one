@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [2.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.2.0...v2.3.0) (2022-08-01)
+
+
+### ✨ 新功能
+
+* 企业微信应用推送 新增 markdown 推送支持 ([ca315b4](https://github.com/CaoMeiYouRen/push-all-in-one/commit/ca315b4))
+
 # [2.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.1.1...v2.2.0) (2022-02-28)
 
 
