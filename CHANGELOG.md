@@ -1,5 +1,13 @@
 # push-all-in-one
 
+## [2.3.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.3.0...v2.3.1) (2022-11-27)
+
+
+### 🐛 Bug 修复
+
+* 修复 eslint 风格问题 ([e74e03e](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e74e03e))
+* 更新 文档说明；添加 Email、CoolPush 的弃用声明 ([bf899a0](https://github.com/CaoMeiYouRen/push-all-in-one/commit/bf899a0))
+
 # [2.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.2.0...v2.3.0) (2022-08-01)
 
 
