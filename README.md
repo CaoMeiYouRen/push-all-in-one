@@ -4,7 +4,7 @@
     <img alt="Version" src="https://img.shields.io/npm/v/push-all-in-one.svg">
   </a>
   <a href="https://github.com/CaoMeiYouRen/push-all-in-one/actions?query=workflow%3ARelease" target="_blank">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/CaoMeiYouRen/push-all-in-one/Release">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/push-all-in-one/release.yml?branch=master">
   </a>
   <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" />
   <a href="https://github.com/CaoMeiYouRen/push-all-in-one#readme" target="_blank">
