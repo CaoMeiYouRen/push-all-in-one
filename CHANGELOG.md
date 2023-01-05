@@ -1,5 +1,17 @@
 # push-all-in-one
 
+# [3.0.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.3.1...v3.0.0) (2023-01-05)
+
+
+### ✨ 新功能
+
+* 移除 酷推、BER分邮件系统 的集成 ([6e59259](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6e59259))
+
+
+### 💥 BREAKING CHANGES
+
+* 由于 酷推、BER分邮件系统 已无法登陆，故不再提供接口集成
+
 ## [2.3.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.3.0...v2.3.1) (2022-11-27)
 
 
