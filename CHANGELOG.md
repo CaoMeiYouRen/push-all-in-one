@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.0.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.0.0...v3.0.1) (2023-01-05)
+
+
+### 🐛 Bug 修复
+
+* 替换colors为 @colors/colors ([e014753](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e014753))
+
 # [3.0.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.3.1...v3.0.0) (2023-01-05)
 
 
