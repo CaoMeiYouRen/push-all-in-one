@@ -1,9 +1,7 @@
-// import colors from 'colors'
-
 let colors: any
 
 if (globalThis.process && typeof globalThis.process.on === 'function') {
-    import('colors').then((value) => {
+    import('@colors/colors').then((value) => {
         colors = value.default
     }).catch(console.error)
 }
