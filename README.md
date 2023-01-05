@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱、~~酷推、邮件~~、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
+> Push All In One！支持 Server 酱、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -47,27 +47,12 @@ npm i push-all-in-one -S
 ## 使用
 
 ```ts
-import { ServerChanTurbo, CoolPush, Dingtalk, Email, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
+import { ServerChanTurbo, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
 const serverChanTurbo = new ServerChanTurbo(SCTKEY)
 serverChanTurbo.send('你好', '你好，我很可爱')
-
-// 【已无法登陆，3.0 版本将会移除】酷推。官方文档：https://cp.xuthus.cc/
-const SKEY = '022bxxxxxxxxxxxxxxxxxx'
-const coolPush = new CoolPush(SKEY)
-coolPush.send('你好，我很可爱', 'send')
-
-// 【已无法登陆，3.0 版本将会移除】BER分邮件系统。官方文档：https://www.kancloud.cn/yuanzhu/berfenapi/1239397
-// 如果不提供 BER_KEY 将会使用免费版本进行推送。免费接口有较多限制，请自行斟酌
-const email = new Email('xxxxxxx')
-email.send({
-    title: '你好',
-    subtitle: '这是个小标题',
-    desp: '你好，我很可爱',
-    address: '123456@example.com',
-})
 
 // 【推荐】钉钉机器人。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access
 const ACCESS_TOKEN = 'xxxxxxxxxxxxxxxxxx'
