@@ -1,5 +1,17 @@
 # push-all-in-one
 
+# [3.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.0.1...v3.1.0) (2023-03-12)
+
+
+### ✨ 新功能
+
+* 新增 自定义邮件 支持（基于 nodemailer） ([3d6ccc8](https://github.com/CaoMeiYouRen/push-all-in-one/commit/3d6ccc8))
+
+
+### 🐛 Bug 修复
+
+* 修复 新版本的依赖和类型问题 ([8ccc2ce](https://github.com/CaoMeiYouRen/push-all-in-one/commit/8ccc2ce))
+
 ## [3.0.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.0.0...v3.0.1) (2023-01-05)
 
 
