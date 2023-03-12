@@ -1,3 +1,4 @@
+export * from './push/custom-email'
 export * from './push/dingtalk'
 export * from './push/i-got'
 export * from './push/push-deer'

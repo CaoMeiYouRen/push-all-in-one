@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
+> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -47,12 +47,23 @@ npm i push-all-in-one -S
 ## 使用
 
 ```ts
-import { ServerChanTurbo, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
+import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
 const serverChanTurbo = new ServerChanTurbo(SCTKEY)
 serverChanTurbo.send('你好', '你好，我很可爱')
+
+// 【推荐】自定义邮件，基于 nodemailer 实现，官方文档: https://github.com/nodemailer/nodemailer
+const customEmail = new CustomEmail({
+    EMAIL_TYPE: 'text',
+    EMAIL_TO_ADDRESS: 'xxxxx@qq.com',
+    EMAIL_AUTH_USER: 'yyyyy@qq.com',
+    EMAIL_AUTH_PASS: '123456',
+    EMAIL_HOST: 'smtp.qq.com',
+    EMAIL_PORT: 465,
+})
+customEmail.send('你好', '你好，我很可爱 - 自定义邮件')
 
 // 【推荐】钉钉机器人。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access
 const ACCESS_TOKEN = 'xxxxxxxxxxxxxxxxxx'
