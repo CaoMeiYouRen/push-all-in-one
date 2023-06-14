@@ -168,6 +168,10 @@ npm run commit
 
 如果觉得这个项目有用的话请给一颗⭐️，非常感谢
 
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=CaoMeiYouRen/push-all-in-one&type=Date)](https://star-history.com/#CaoMeiYouRen/push-all-in-one&Date)
+
 ## 📝 License
 
 Copyright © 2022 [CaoMeiYouRen](https://github.com/CaoMeiYouRen).<br />
