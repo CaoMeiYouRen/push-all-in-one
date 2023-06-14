@@ -8,7 +8,6 @@
         "sourceMap": false, //用于debug
         "rootDir": "./src", //仅用来控制输出的目录结构--outDir。
         "outDir": "./dist", //重定向输出目录。
-        "watch": false, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
         "declaration": true, //生成类型文件
         "importHelpers": true,
         "esModuleInterop": true,
