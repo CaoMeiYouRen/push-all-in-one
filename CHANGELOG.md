@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.1.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.1.0...v3.1.1) (2023-06-14)
+
+
+### 🐛 Bug 修复
+
+* 修复 tsconfig.json 配置问题 ([6cfec72](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6cfec72))
+
 # [3.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.0.1...v3.1.0) (2023-03-12)
 
 
