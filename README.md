@@ -22,7 +22,6 @@
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
-
 ### 🏠 [主页](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
 
 [https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
@@ -32,19 +31,18 @@
 
 [https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
 
-
-## 依赖要求
+## 📦 依赖要求
 
 
 - node >=12
 
-## 安装
+## 🚀 安装
 
 ```sh
 npm i push-all-in-one -S
 ```
 
-## 使用
+## 👨‍💻 使用
 
 ```ts
 import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
@@ -116,7 +114,7 @@ const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
 pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
 ```
 
-## 开发
+## 🛠️ 开发
 
 本项目采用 TypeScript 开发，使用 rollup 打包，可以完美实现类型提示和摇树优化，对于未使用到的模块，会在编译阶段去除。
 
@@ -124,7 +122,7 @@ pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
 npm run dev
 ```
 
-## debug
+## 🐛 debug
 
 本项目使用 `debug` 这个包来 debug ，如果要开启调试则设置环境变量为 `DEBUG=push:*` 即可，例如
 
@@ -132,41 +130,46 @@ npm run dev
 cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts # 因为一些原因该文件未上传，可自行编写测试用例
 ```
 
-## 编译
+## 🔧 编译
 
 ```sh
 npm run build
 ```
 
-## Lint
+## 🔍 Lint
 
 ```sh
 npm run lint
 ```
 
-## Commit
+## 💾 Commit
 
 ```sh
 npm run commit
 ```
 
+## 👤 作者
 
-## 作者
-
-
-👤 **CaoMeiYouRen**
+**CaoMeiYouRen**
 
 * Website: [https://blog.cmyr.ltd/](https://blog.cmyr.ltd/)
 * GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
 
-
-## 🤝贡献
+## 🤝 贡献
 
 欢迎 贡献、提问或提出新功能！<br />如有问题请查看 [issues page](https://github.com/CaoMeiYouRen/push-all-in-one/issues). <br/>贡献或提出新功能可以查看[contributing guide](https://github.com/CaoMeiYouRen/push-all-in-one/blob/master/CONTRIBUTING.md).
 
-## 💰支持
+## 💰 支持
 
 如果觉得这个项目有用的话请给一颗⭐️，非常感谢
+
+<a href="https://afdian.net/@CaoMeiYouRen">
+  <img src="https://cdn.jsdelivr.net/gh/CaoMeiYouRen/image-hosting-01@master/images/202306192324870.png" width="312px" height="78px" alt="在爱发电支持我">
+</a>
+
+<a href="https://patreon.com/CaoMeiYouRen">
+    <img src="https://cdn.jsdelivr.net/gh/CaoMeiYouRen/image-hosting-01@master/images/202306142054108.svg" width="312px" height="78px" alt="become a patreon"/>
+</a>
 
 ## 🌟 Star History
 
