@@ -22,11 +22,11 @@ export type TelegramOption = {
  */
 export class Telegram implements Send {
 
-    TELEGRAM_BOT_TOKEN: string
-    TELEGRAM_CHAT_ID: string
-    TELEGRAM_SEND_SILENTLY?: boolean = false
-    TELEGRAM_PROTECT_CONTENT?: boolean = false
-    TELEGRAM_MESSAGE_THREAD_ID?: string
+    private TELEGRAM_BOT_TOKEN: string
+    private TELEGRAM_CHAT_ID: string
+    private TELEGRAM_SEND_SILENTLY?: boolean = false
+    private TELEGRAM_PROTECT_CONTENT?: boolean = false
+    private TELEGRAM_MESSAGE_THREAD_ID?: string
 
     constructor(option: TelegramOption) {
         Debugger('option: %O', option)
