@@ -1,5 +1,18 @@
 # push-all-in-one
 
+# [3.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.1.1...v3.2.0) (2023-09-16)
+
+
+### ✨ 新功能
+
+* **src/push:** 新增 Discord Webhook 推送 ([7ac075c](https://github.com/CaoMeiYouRen/push-all-in-one/commit/7ac075c))
+* 新增 Telegram Bot 推送 ([18c292d](https://github.com/CaoMeiYouRen/push-all-in-one/commit/18c292d))
+
+
+### 🐛 Bug 修复
+
+* 修复 discord 的导出；修复 conventional-changelog-cli 的版本问题 ([edd9f25](https://github.com/CaoMeiYouRen/push-all-in-one/commit/edd9f25))
+
 ## [3.1.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.1.0...v3.1.1) (2023-06-14)
 
 
