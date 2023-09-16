@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer 等多种推送方式。
+> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -45,7 +45,7 @@ npm i push-all-in-one -S
 ## 👨‍💻 使用
 
 ```ts
-import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer } from 'push-all-in-one'
+import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
@@ -112,6 +112,12 @@ xiZhi.send('你好', '你好，我很可爱 - XiZhi')
 const PUSH_DEER_PUSH_KEY = 'xxxxxxxxxx'
 const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
 pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
+
+// Discord Webhook 推送，官方文档：https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+const DISCORD_USERNAME = 'Discord Bot'
+const discord = new Discord(DISCORD_WEBHOOK, DISCORD_USERNAME)
+discord.send('你好，我很可爱 - Discord')
 ```
 
 ## 🛠️ 开发

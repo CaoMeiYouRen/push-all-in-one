@@ -36,7 +36,8 @@
     "Qmsg",
     "xi-zhi",
     "PushDeer",
-    "pushdeer"
+    "pushdeer",
+    "Discord"
   ],
   "scripts": {
     "lint": "cross-env NODE_ENV=production eslint src *.js --fix --ext .ts,.js",
