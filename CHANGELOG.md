@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [3.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.2.0...v3.3.0) (2023-10-07)
+
+
+### ✨ 新功能
+
+* 增加 请求代理支持 ([fc84fa6](https://github.com/CaoMeiYouRen/push-all-in-one/commit/fc84fa6))
+
 # [3.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.1.1...v3.2.0) (2023-09-16)
 
 
