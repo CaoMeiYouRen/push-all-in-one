@@ -1,6 +1,8 @@
 import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import qs from 'qs'
 import debug from 'debug'
+import { HttpsProxyAgent } from 'https-proxy-agent'
+import { SocksProxyAgent } from 'socks-proxy-agent'
 
 const Debugger = debug('push:ajax')
 
@@ -33,6 +35,23 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
             data = qs.stringify(data)
         }
 
+        let httpAgent = null
+        let httpsAgent = null
+        if (!process.env.NO_PROXY) {
+            if (url?.startsWith('http://') || baseURL?.startsWith('http://')) {
+                if (process.env.HTTP_PROXY) {
+                    httpAgent = new HttpsProxyAgent(process.env.HTTP_PROXY)
+                } else if (process.env.SOCKS_PROXY) {
+                    httpAgent = new SocksProxyAgent(process.env.SOCKS_PROXY)
+                }
+            } else if (url?.startsWith('https://') || baseURL?.startsWith('https://')) {
+                if (process.env.HTTPS_PROXY) {
+                    httpsAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY)
+                } else if (process.env.SOCKS_PROXY) {
+                    httpsAgent = new SocksProxyAgent(process.env.SOCKS_PROXY)
+                }
+            }
+        }
         const response = await axios(url, {
             baseURL,
             method,
@@ -40,6 +59,9 @@ export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
             params: query,
             data,
             timeout: 10000,
+            httpAgent,
+            httpsAgent,
+            proxy: false,
         })
         Debugger('response data: %O', response.data)
         return response

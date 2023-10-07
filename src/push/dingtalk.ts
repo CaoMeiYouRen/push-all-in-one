@@ -1,10 +1,10 @@
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import CryptoJS from 'crypto-js'
-import { Send } from '../interfaces/send'
 import { MessageTemplateAbs } from './dingtalk/template'
 import { Text } from './dingtalk/Text'
 import { Markdown } from './dingtalk/Markdown'
+import { Send } from '@/interfaces/send'
 import { warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
 

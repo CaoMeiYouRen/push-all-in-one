@@ -53,6 +53,7 @@
     "start": "node ./dist/index",
     "release": "semantic-release",
     "commit": "git add . && git cz",
+    "test": "npm run test:e2e",
     "test:e2e": "cross-env DEBUG=push:* NODE_ENV=development mocha -r ts-node/register test/register.ts test/**/*.test.ts -R nyan -t 30000",
     "test:debug": "cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts",
     "prepare": "husky install"
@@ -110,8 +111,10 @@
     "axios": "^1.2.1",
     "crypto-js": "^4.0.0",
     "debug": "^4.3.1",
+    "https-proxy-agent": "^7.0.2",
     "nodemailer": "^6.9.1",
-    "qs": "^6.10.3"
+    "qs": "^6.10.3",
+    "socks-proxy-agent": "^8.0.2"
   },
   "config": {
     "commitizen": {
