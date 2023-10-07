@@ -30,7 +30,7 @@
                 "logLevel": "none"
             },
             "ae-wrong-input-file-type": {
-                "logLevel": "warning"
+                "logLevel": "none"
             }
         },
         "tsdocMessageReporting": {
