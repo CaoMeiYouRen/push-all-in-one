@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot 等多种推送方式。
+> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -45,7 +45,7 @@ npm i push-all-in-one -S
 ## 👨‍💻 使用
 
 ```ts
-import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord } from 'push-all-in-one'
+import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram } from 'push-all-in-one'
 
 // Server酱。官方文档：https://sct.ftqq.com/
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
@@ -118,6 +118,13 @@ const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxx
 const DISCORD_USERNAME = 'Discord Bot'
 const discord = new Discord(DISCORD_WEBHOOK, DISCORD_USERNAME)
 discord.send('你好，我很可爱 - Discord')
+
+// Telegram Bot 推送。官方文档：https://core.telegram.org/bots/api#making-requests
+const telegram = new Telegram({
+    TELEGRAM_BOT_TOKEN: '111111:xxxxxxxxxxxxxx',
+    TELEGRAM_CHAT_ID: 100000,
+})
+telegram.send('你好，我很可爱 - Telegram')
 
 // OneBot 推送。官方文档：https://github.com/botuniverse/onebot-11
 // 本项目实现的版本为 OneBot 11

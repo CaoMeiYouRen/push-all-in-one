@@ -1,7 +1,7 @@
 {
   "name": "push-all-in-one",
   "version": "3.4.0",
-  "description": "Push All In One！支持 Server酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot 等多种推送方式",
+  "description": "Push All In One！支持 Server酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式",
   "author": "CaoMeiYouRen",
   "license": "MIT",
   "main": "dist/index.js",
@@ -38,7 +38,8 @@
     "PushDeer",
     "pushdeer",
     "Discord",
-    "OneBot"
+    "OneBot",
+    "Telegram"
   ],
   "scripts": {
     "lint": "cross-env NODE_ENV=production eslint src *.js --fix --ext .ts,.js",
