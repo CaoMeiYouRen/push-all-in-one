@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [3.4.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.3.0...v3.4.0) (2023-10-22)
+
+
+### ✨ 新功能
+
+* 增加了 OneBot 推送支持 ([223184e](https://github.com/CaoMeiYouRen/push-all-in-one/commit/223184e))
+
 # [3.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.2.0...v3.3.0) (2023-10-07)
 
 
