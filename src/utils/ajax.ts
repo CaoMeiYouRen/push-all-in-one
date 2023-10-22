@@ -24,7 +24,7 @@ interface AjaxConfig {
  * @param config
  * @returns
  */
-export async function ajax(config: AjaxConfig): Promise<AxiosResponse<any>> {
+export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T>> {
     try {
         Debugger('ajax config: %O', config)
         const { url, query = {}, method = 'GET', baseURL = '' } = config

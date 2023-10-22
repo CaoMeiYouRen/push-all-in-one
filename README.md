@@ -18,7 +18,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord 等多种推送方式。
+> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -118,12 +118,18 @@ const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxx
 const DISCORD_USERNAME = 'Discord Bot'
 const discord = new Discord(DISCORD_WEBHOOK, DISCORD_USERNAME)
 discord.send('你好，我很可爱 - Discord')
+
+// OneBot 推送。官方文档：https://github.com/botuniverse/onebot-11
+// 本项目实现的版本为 OneBot 11
+// 在 mirai 环境下实现的插件版本可参考：https://github.com/yyuueexxiinngg/onebot-kotlin
+const oneBot = new OneBot('http://127.0.0.1:5700', 'xxxxxxxxxxx')
+oneBot.send('你好，我很可爱 - OneBot 11', 'private', 10001)
 ```
 
 **代理支持**
 
 | 环境变量    | 作用                                | 例子                   |
-| ----------- | ----------------------------------- | ---------------------- |
+|-------------|-------------------------------------|------------------------|
 | NO_PROXY    | 设置是否禁用代理                    | true                   |
 | HTTP_PROXY  | 设置 http 代理                      | http://127.0.0.1:8101  |
 | HTTPS_PROXY | 设置 https 代理                     | http://127.0.0.1:8101  |
@@ -135,7 +141,7 @@ discord.send('你好，我很可爱 - Discord')
 // 在 nodejs 项目中可通过直接设置环境变量来设置代理
 process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // 当请求是 http 的时候走 HTTP_PROXY
 process.env.HTTPS_PROXY = 'http://127.0.0.1:8101' // 当请求是 https 的时候走 HTTPS_PROXY
-process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // 当 HTTP_PROXY 和 HTTPS_PROXY 均为设置时走 SOCKS_PROXY
+process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // 当 HTTP_PROXY 和 HTTPS_PROXY 均未设置时走 SOCKS_PROXY
 // process.env.NO_PROXY = true // 设置 NO_PROXY 可禁用代理
 ```
 
