@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.4.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.0...v3.4.1) (2023-10-22)
+
+
+### 🐛 Bug 修复
+
+* 完善 Telegram 文档；优化部分逻辑 ([1361062](https://github.com/CaoMeiYouRen/push-all-in-one/commit/1361062))
+
 # [3.4.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.3.0...v3.4.0) (2023-10-22)
 
 
