@@ -113,10 +113,10 @@
     "axios": "^1.2.1",
     "crypto-js": "^4.0.0",
     "debug": "^4.3.1",
-    "https-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "5.0.1",
     "nodemailer": "^6.9.1",
     "qs": "^6.10.3",
-    "socks-proxy-agent": "^8.0.2"
+    "socks-proxy-agent": "^5.0.1"
   },
   "config": {
     "commitizen": {

@@ -15,3 +15,5 @@ updates:
     ignore:
       - dependency-name: "conventional-changelog-cli"
       - dependency-name: "semantic-release"
+      - dependency-name: "https-proxy-agent"
+      - dependency-name: "socks-proxy-agent"
