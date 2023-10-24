@@ -38,7 +38,7 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
         let httpAgent = null
         let httpsAgent = null
         Debugger('NO_PROXY: %s', process.env.NO_PROXY)
-        if (!process.env.NO_PROXY) {
+        if (process.env.NO_PROXY !== 'true') {
             Debugger('HTTP_PROXY: %s', process.env.HTTP_PROXY)
             Debugger('HTTPS_PROXY: %s', process.env.HTTPS_PROXY)
             Debugger('SOCKS_PROXY: %s', process.env.SOCKS_PROXY)
