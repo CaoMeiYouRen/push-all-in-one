@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.4.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.1...v3.4.2) (2023-10-22)
+
+
+### 🐛 Bug 修复
+
+* 修复 https-proxy-agent 和 socks-proxy-agent 版本过高在 node12 下无法运行的问题 ([8468ce0](https://github.com/CaoMeiYouRen/push-all-in-one/commit/8468ce0))
+
 ## [3.4.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.0...v3.4.1) (2023-10-22)
 
 
