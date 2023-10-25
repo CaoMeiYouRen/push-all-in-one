@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.4.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.2...v3.4.3) (2023-10-24)
+
+
+### 🐛 Bug 修复
+
+* 增加 英文版文档；优化 NO_PROXY 逻辑 ([4dc2961](https://github.com/CaoMeiYouRen/push-all-in-one/commit/4dc2961))
+
 ## [3.4.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.1...v3.4.2) (2023-10-22)
 
 
