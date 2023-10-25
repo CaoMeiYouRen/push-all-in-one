@@ -27,13 +27,13 @@
 > Kind reminder: For security reasons,* **all** *push methods should be used on the* **server-side***! Do not use them on the* **client-side (web page)***! Using them on the web page will also cause additional cross-domain issues.
 
 
-## 🏠 [Homepage](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+## 🏠 Homepage
 
 [https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
 
-## ✨ [Demo](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+## ✨ Demo
 
-[https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+[https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
 
 ## 📦 Dependency Requirements
 
@@ -116,13 +116,13 @@ const PUSH_DEER_PUSH_KEY = 'xxxxxxxxxx'
 const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
 pushDeer.send('Hello', 'Hello, I am cute - PushDeer', 'markdown')
 
-// Discord Webhook push. Official documentation: https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
+// [Recommended] Discord Webhook push. Official documentation: https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
 const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxx'
 const DISCORD_USERNAME = 'Discord Bot'
 const discord = new Discord(DISCORD_WEBHOOK, DISCORD_USERNAME)
 discord.send('Hello, I am cute - Discord')
 
-// Telegram Bot push. Official documentation: https://core.telegram.org/bots/api#making-requests
+// [Recommended] Telegram Bot push. Official documentation: https://core.telegram.org/bots/api#making-requests
 const telegram = new Telegram({
     TELEGRAM_BOT_TOKEN: '111111:xxxxxxxxxxxxxx',
     TELEGRAM_CHAT_ID: 100000,

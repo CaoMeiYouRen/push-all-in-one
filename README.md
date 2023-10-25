@@ -25,13 +25,13 @@
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
-## 🏠 [主页](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+## 🏠 主页
 
 [https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
 
-## ✨ [Demo](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+## ✨ Demo
 
-[https://github.com/CaoMeiYouRen/push-all-in-one#readme](https://github.com/CaoMeiYouRen/push-all-in-one#readme)
+[https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
 
 ## 📦 依赖要求
 
@@ -115,13 +115,13 @@ const PUSH_DEER_PUSH_KEY = 'xxxxxxxxxx'
 const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
 pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
 
-// Discord Webhook 推送，官方文档：https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
+// 【推荐】Discord Webhook 推送，官方文档：https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
 const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxx'
 const DISCORD_USERNAME = 'Discord Bot'
 const discord = new Discord(DISCORD_WEBHOOK, DISCORD_USERNAME)
 discord.send('你好，我很可爱 - Discord')
 
-// Telegram Bot 推送。官方文档：https://core.telegram.org/bots/api#making-requests
+// 【推荐】Telegram Bot 推送。官方文档：https://core.telegram.org/bots/api#making-requests
 const telegram = new Telegram({
     TELEGRAM_BOT_TOKEN: '111111:xxxxxxxxxxxxxx',
     TELEGRAM_CHAT_ID: 100000,
