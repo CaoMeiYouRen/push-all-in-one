@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.4.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.3...v3.4.4) (2023-10-25)
+
+
+### 🐛 Bug 修复
+
+* 优化文档中推荐的推送方式；增加具体的代码案例 ([0d40b2c](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0d40b2c)), closes [#128](https://github.com/CaoMeiYouRen/push-all-in-one/issues/128)
+
 ## [3.4.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.2...v3.4.3) (2023-10-24)
 
 
