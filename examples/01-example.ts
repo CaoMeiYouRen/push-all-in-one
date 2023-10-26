@@ -37,7 +37,7 @@ export async function batchPushAllInOne(title: string, desp?: string): Promise<P
             EMAIL_HOST: process.env.EMAIL_HOST,
             EMAIL_PORT: Number(process.env.EMAIL_PORT),
         })
-        pushs.push(customEmail.send(title, desp) as any)
+        pushs.push(customEmail.send(title, desp).then((result) => ({ data: result.response, status: 200, statusText: 'OK', headers: {}, config: {} })))
         info('自定义邮件 已加入推送队列')
     } else {
         info('未配置 自定义邮件，已跳过')

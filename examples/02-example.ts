@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, MsgType, TemplateType, CustomEmailType, OneBotMsgType, ChannelType, PushDeerPushType, QmsgPushType } from '../src'
 
 export type PushConfig = Required<{
@@ -85,7 +86,7 @@ export declare type PushAllInOneConfig<T extends PushType = PushType> = T extend
  * @param desp
  * @param pushConfig
  */
-export async function runPushAllInOne(title: string, desp: string, pushConfig: PushAllInOneConfig<PushType>): Promise<any> {
+export async function runPushAllInOne(title: string, desp: string, pushConfig: PushAllInOneConfig<PushType>): Promise<AxiosResponse<any, any>> {
     switch (pushConfig.type) {
         case 'ServerChanTurbo': {
             const { SCTKEY } = pushConfig.config
