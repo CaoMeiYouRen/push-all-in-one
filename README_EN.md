@@ -135,6 +135,7 @@ telegram.send('Hello, I am cute - Telegram')
 const oneBot = new OneBot('http://127.0.0.1:5700', 'xxxxxxxxxxx')
 oneBot.send('Hello, I am cute - OneBot 11', 'private', 10001)
 ```
+For more examples, please refer to [examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
 
 **Proxy support**
 

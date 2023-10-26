@@ -135,6 +135,8 @@ const oneBot = new OneBot('http://127.0.0.1:5700', 'xxxxxxxxxxx')
 oneBot.send('你好，我很可爱 - OneBot 11', 'private', 10001)
 ```
 
+更多例子请参考 [examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
+
 **代理支持**
 
 | 环境变量    | 作用                                | 例子                   |
