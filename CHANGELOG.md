@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.4.5](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.4...v3.4.5) (2024-01-28)
+
+
+### 🐛 Bug 修复
+
+* 更新 readme ([8da3b7d](https://github.com/CaoMeiYouRen/push-all-in-one/commit/8da3b7d))
+
 ## [3.4.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.3...v3.4.4) (2023-10-25)
 
 
