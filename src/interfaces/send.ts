@@ -7,5 +7,20 @@
  * @interface Send
  */
 export interface Send {
+    /**
+     * 代理地址。支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
+     *
+     * @author CaoMeiYouRen
+     * @date 2024-04-20
+     */
+    proxyUrl?: string
+
+    /**
+     * 发送新消息
+     *
+     * @author CaoMeiYouRen
+     * @date 2024-04-20
+     * @param args
+     */
     send(...args: any[]): Promise<any>
 }

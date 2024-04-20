@@ -140,10 +140,9 @@ For more examples, please refer to [examples](https://github.com/CaoMeiYouRen/pu
 **Proxy support**
 
 | Environment variable | Function                                    | Example                |
-|----------------------|---------------------------------------------|------------------------|
+| -------------------- | ------------------------------------------- | ---------------------- |
 | NO_PROXY             | Set whether to disable the proxy            | true                   |
-| HTTP_PROXY           | Set http proxy                              | http://127.0.0.1:8101  |
-| HTTPS_PROXY          | Set https proxy                             | http://127.0.0.1:8101  |
+| HTTP_PROXY           | Set http/https proxy                        | http://127.0.0.1:8101  |
 | SOCKS_PROXY          | Set http/https proxy through socks protocol | socks://127.0.0.1:8100 |
 
 This project supports request proxies through environment variables.
@@ -151,17 +150,16 @@ This project supports request proxies through environment variables.
 ```ts
 // In nodejs projects, you can set proxies by directly setting environment variables
 process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // Use HTTP_PROXY when the request is http
-process.env.HTTPS_PROXY = 'http://127.0.0.1:8101' // Use HTTPS_PROXY when the request is https
-process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // Use SOCKS_PROXY when neither HTTP_PROXY nor HTTPS_PROXY are set
+process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // Use SOCKS_PROXY when neither HTTP_PROXY set
 // process.env.NO_PROXY = true // Set NO_PROXY to disable proxies
 ```
 
 You can manually set environment variables in the command line.
 
 ```sh
-set HTTPS_PROXY='http://127.0.0.1:8101' # Windows
-export HTTPS_PROXY='http://127.0.0.1:8101' # Linux
-cross-env HTTPS_PROXY='http://127.0.0.1:8101' # Use the cross-env package to cross platforms
+set HTTP_PROXY='http://127.0.0.1:8101' # Windows
+export HTTP_PROXY='http://127.0.0.1:8101' # Linux
+cross-env HTTP_PROXY='http://127.0.0.1:8101' # Use the cross-env package to cross platforms
 ```
 
 ## 🛠️  Development

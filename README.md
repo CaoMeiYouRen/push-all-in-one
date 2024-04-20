@@ -130,8 +130,10 @@ pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
 
 // 【推荐】Discord Webhook 推送，官方文档：https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
 const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxx'
-const DISCORD_USERNAME = 'Discord Bot'
+const DISCORD_USERNAME = 'My Bot'
 const discord = new Discord(DISCORD_WEBHOOK, DISCORD_USERNAME)
+// Discord 也支持以下方式添加代理地址
+// discord.proxyUrl = 'http://127.0.0.1:8101'
 discord.send('你好，我很可爱 - Discord')
 
 // 【推荐】Telegram Bot 推送。官方文档：https://core.telegram.org/bots/api#making-requests
@@ -139,6 +141,8 @@ const telegram = new Telegram({
     TELEGRAM_BOT_TOKEN: '111111:xxxxxxxxxxxxxx',
     TELEGRAM_CHAT_ID: 100000,
 })
+// Telegram 也支持以下方式添加代理地址
+// telegram.proxyUrl = 'http://127.0.0.1:8101'
 telegram.send('你好，我很可爱 - Telegram')
 
 // OneBot 推送。官方文档：https://github.com/botuniverse/onebot-11
@@ -152,29 +156,27 @@ oneBot.send('你好，我很可爱 - OneBot 11', 'private', 10001)
 
 **代理支持**
 
-| 环境变量    | 作用                                | 例子                   |
-|-------------|-------------------------------------|------------------------|
-| NO_PROXY    | 设置是否禁用代理                    | true                   |
-| HTTP_PROXY  | 设置 http 代理                      | http://127.0.0.1:8101  |
-| HTTPS_PROXY | 设置 https 代理                     | http://127.0.0.1:8101  |
-| SOCKS_PROXY | 通过 socks 协议设置 http/https 代理 | socks://127.0.0.1:8100 |
+| 环境变量    | 作用                                       | 例子                   |
+| ----------- | ------------------------------------------ | ---------------------- |
+| NO_PROXY    | 设置是否禁用代理                           | true                   |
+| HTTP_PROXY  | 设置 http/https 代理                       | http://127.0.0.1:8101  |
+| SOCKS_PROXY | 通过 socks/socks5 协议设置 http/https 代理 | socks://127.0.0.1:8100 |
 
 本项目通过环境变量来支持请求代理
 
 ```ts
 // 在 nodejs 项目中可通过直接设置环境变量来设置代理
-process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // 当请求是 http 的时候走 HTTP_PROXY
-process.env.HTTPS_PROXY = 'http://127.0.0.1:8101' // 当请求是 https 的时候走 HTTPS_PROXY
-process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // 当 HTTP_PROXY 和 HTTPS_PROXY 均未设置时走 SOCKS_PROXY
+process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // 当请求是 http/https 的时候走 HTTP_PROXY
+process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // 当 HTTP_PROXY 设置时走 SOCKS_PROXY
 // process.env.NO_PROXY = true // 设置 NO_PROXY 可禁用代理
 ```
 
 在命令行中可手动设置环境变量
 
 ```sh
-set HTTPS_PROXY='http://127.0.0.1:8101' # Windows
-export HTTPS_PROXY='http://127.0.0.1:8101' # Linux
-cross-env HTTPS_PROXY='http://127.0.0.1:8101' # 通过 cross-env 这个包来跨平台
+set HTTP_PROXY='http://127.0.0.1:8101' # Windows
+export HTTP_PROXY='http://127.0.0.1:8101' # Linux
+cross-env HTTP_PROXY='http://127.0.0.1:8101' # 通过 cross-env 这个包来跨平台
 ```
 
 ## 🛠️ 开发

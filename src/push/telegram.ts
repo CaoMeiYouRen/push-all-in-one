@@ -120,6 +120,8 @@ export class Telegram implements Send {
      */
     private TELEGRAM_MESSAGE_THREAD_ID?: string
 
+    proxyUrl?: string
+
     constructor(option: TelegramOption) {
         Debugger('option: %O', option)
         Object.assign(this, option)
@@ -137,6 +139,7 @@ export class Telegram implements Send {
         return ajax<TelegramResponse>({
             url,
             method: 'POST',
+            proxyUrl: this.proxyUrl,
             data: {
                 chat_id: this.TELEGRAM_CHAT_ID,
                 text,

@@ -32,6 +32,8 @@ export class Discord implements Send {
      */
     private DISCORD_USERNAME?: string
 
+    proxyUrl?: string
+
     /**
      *
      * @author CaoMeiYouRen
@@ -62,6 +64,7 @@ export class Discord implements Send {
         return ajax({
             url: this.DISCORD_WEBHOOK,
             method: 'POST',
+            proxyUrl: this.proxyUrl,
             data: {
                 username: this.DISCORD_USERNAME,
                 content,
