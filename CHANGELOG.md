@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [3.5.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.5...v3.5.0) (2024-04-20)
+
+
+### ✨ 新功能
+
+* 优化 Discord/Telegram 请求的代理配置方式 ([47aa1a4](https://github.com/CaoMeiYouRen/push-all-in-one/commit/47aa1a4))
+
 ## [3.4.5](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.4...v3.4.5) (2024-01-28)
 
 
