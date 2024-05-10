@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.5.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.0...v3.5.1) (2024-05-10)
+
+
+### 🐛 Bug 修复
+
+* 回退 HTTPS_PROXY 环境变量 ([9ee2b53](https://github.com/CaoMeiYouRen/push-all-in-one/commit/9ee2b53))
+
 # [3.5.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.4.5...v3.5.0) (2024-04-20)
 
 
