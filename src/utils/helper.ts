@@ -25,11 +25,11 @@ export function error(text: any): void {
  * @param url
  * @returns
  */
-export const isHttpURL = (url: string) => /^(https?:\/\/)/.test(url)
+export const isHttpURL = (url: string): boolean => /^(https?:\/\/)/.test(url)
 
 /**
  * 检测是否为 socks/socks5 开头的 url
  * @param url
  * @returns
  */
-export const isSocksUrl = (url: string) => /^(socks5?:\/\/)/.test(url)
+export const isSocksUrl = (url: string): boolean => /^(socks5?:\/\/)/.test(url)

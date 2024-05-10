@@ -160,6 +160,7 @@ oneBot.send('你好，我很可爱 - OneBot 11', 'private', 10001)
 | ----------- | ------------------------------------------ | ---------------------- |
 | NO_PROXY    | 设置是否禁用代理                           | true                   |
 | HTTP_PROXY  | 设置 http/https 代理                       | http://127.0.0.1:8101  |
+| HTTPS_PROXY | 设置 http/https 代理                       | http://127.0.0.1:8101  |
 | SOCKS_PROXY | 通过 socks/socks5 协议设置 http/https 代理 | socks://127.0.0.1:8100 |
 
 本项目通过环境变量来支持请求代理
@@ -167,6 +168,7 @@ oneBot.send('你好，我很可爱 - OneBot 11', 'private', 10001)
 ```ts
 // 在 nodejs 项目中可通过直接设置环境变量来设置代理
 process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // 当请求是 http/https 的时候走 HTTP_PROXY
+process.env.HTTPS_PROXY = 'http://127.0.0.1:8101' // 当请求是 http/https 的时候走 HTTPS_PROXY，HTTPS_PROXY 优先
 process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // 当 HTTP_PROXY 设置时走 SOCKS_PROXY
 // process.env.NO_PROXY = true // 设置 NO_PROXY 可禁用代理
 ```

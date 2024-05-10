@@ -4,6 +4,7 @@ import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlu
 import { warn } from '../src/utils/helper'
 
 export function info(text: any): void {
+    // eslint-disable-next-line no-console
     console.info(colors.cyan(text))
 }
 

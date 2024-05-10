@@ -143,13 +143,15 @@ For more examples, please refer to [examples](https://github.com/CaoMeiYouRen/pu
 | -------------------- | ------------------------------------------- | ---------------------- |
 | NO_PROXY             | Set whether to disable the proxy            | true                   |
 | HTTP_PROXY           | Set http/https proxy                        | http://127.0.0.1:8101  |
+| HTTPS_PROXY          | Set http/https proxy                        | http://127.0.0.1:8101  |
 | SOCKS_PROXY          | Set http/https proxy through socks protocol | socks://127.0.0.1:8100 |
 
 This project supports request proxies through environment variables.
 
 ```ts
 // In nodejs projects, you can set proxies by directly setting environment variables
-process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // Use HTTP_PROXY when the request is http
+process.env.HTTP_PROXY = 'http://127.0.0.1:8101' // Use HTTP_PROXY when the request is http/https
+process.env.HTTPS_PROXY = 'http://127.0.0.1:8101' // Use HTTPS_PROXY when the request is http/https
 process.env.SOCKS_PROXY = 'socks://127.0.0.1:8100' // Use SOCKS_PROXY when neither HTTP_PROXY set
 // process.env.NO_PROXY = true // Set NO_PROXY to disable proxies
 ```
@@ -163,6 +165,7 @@ cross-env HTTP_PROXY='http://127.0.0.1:8101' # Use the cross-env package to cros
 ```
 
 ## 🛠️  Development
+
 This project is developed using TypeScript and packaged using rollup. It can perfectly achieve type prompts and tree shaking optimization. For unused modules, they will be removed during the compilation phase.
 
 ```sh
