@@ -18,3 +18,8 @@ updates:
       - dependency-name: "https-proxy-agent"
       - dependency-name: "socks-proxy-agent"
       - dependency-name: "eslint"
+        versions:
+          - ">= 9.0.0"
+      - dependency-name: semantic-release
+        versions:
+          - ">= 21.0.1"
