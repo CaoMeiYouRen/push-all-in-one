@@ -1,25 +1,36 @@
 name: Test
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "latest"
       - name: Setup Node.js@lts environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - name: Cache multiple paths
-        uses: actions/cache@v2
+          cache: "pnpm"
+      - name: Cache Dependency
+        uses: actions/cache@v4
         with:
           path: |
             ~/.npm
+            ~/.yarn
+            ~/.cache/pnpm
             ~/cache
             !~/cache/exclude
             **/node_modules
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
-      - run: yarn
-      - run: npm run lint
-      - run: npm run build
-      - run: npm run start
+          key: pnpm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          restore-keys: pnpm-${{ runner.os }}
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm run lint
+      - run: pnpm run build

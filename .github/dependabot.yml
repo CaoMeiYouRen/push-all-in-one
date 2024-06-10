@@ -17,5 +17,4 @@ updates:
       - dependency-name: "semantic-release"
       - dependency-name: "https-proxy-agent"
       - dependency-name: "socks-proxy-agent"
-      - dependency-name: "@typescript-eslint/eslint-plugin"
-      - dependency-name: "@typescript-eslint/parser"
+      - dependency-name: "eslint"

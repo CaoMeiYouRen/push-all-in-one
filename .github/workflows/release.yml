@@ -4,29 +4,43 @@ on:
     branches:
       - master
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "latest"
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - name: Cache multiple paths
-        uses: actions/cache@v2
+          cache: "pnpm"
+      - name: Cache Dependency
+        uses: actions/cache@v4
         with:
           path: |
             ~/.npm
+            ~/.yarn
+            ~/.cache/pnpm
             ~/cache
             !~/cache/exclude
             **/node_modules
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
-      - run: yarn
-      - run: npm run lint
-      - run: npm run build
+          key: pnpm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          restore-keys: pnpm-${{ runner.os }}
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm run lint
+      - run: pnpm run build
       - env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run release
+        run: pnpm run release
