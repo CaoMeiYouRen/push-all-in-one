@@ -72,7 +72,7 @@ devDependencies:
     version: 4.1.7
   '@types/lodash':
     specifier: ^4.14.168
-    version: 4.14.182
+    version: 4.17.5
   '@types/mocha':
     specifier: ^10.0.1
     version: 10.0.1
@@ -1040,8 +1040,8 @@ packages:
     resolution: {integrity: sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==}
     dev: true
 
-  /@types/lodash@4.14.182:
-    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
+  /@types/lodash@4.17.5:
+    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
     dev: true
 
   /@types/mdast@3.0.15:
