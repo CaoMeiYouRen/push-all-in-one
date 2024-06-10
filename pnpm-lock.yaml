@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@colors/colors':
     specifier: ^1.5.0
-    version: 1.5.0
+    version: 1.6.0
   axios:
     specifier: ^1.2.1
     version: 1.2.2(debug@4.3.5)
@@ -214,6 +214,13 @@ packages:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
     requiresBuild: true
+    dev: true
+    optional: true
+
+  /@colors/colors@1.6.0:
+    resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
+    engines: {node: '>=0.1.90'}
+    dev: false
 
   /@commitlint/cli@19.3.0(@types/node@20.14.2)(typescript@5.2.2):
     resolution: {integrity: sha512-LgYWOwuDR7BSTQ9OLZ12m7F/qhNY+NpAyPBgo4YNMkACE7lGuUnuQq1yi9hz1KA4+3VqpOYl8H1rY/LYK43v7g==}
