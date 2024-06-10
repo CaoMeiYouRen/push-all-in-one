@@ -22,7 +22,7 @@ dependencies:
     version: 5.0.1
   nodemailer:
     specifier: ^6.9.1
-    version: 6.9.1
+    version: 6.9.13
   qs:
     specifier: ^6.10.3
     version: 6.11.0
@@ -84,7 +84,7 @@ devDependencies:
     version: 20.8.3
   '@types/nodemailer':
     specifier: ^6.4.7
-    version: 6.4.7
+    version: 6.4.15
   '@types/qs':
     specifier: ^6.9.5
     version: 6.9.7
@@ -1074,8 +1074,8 @@ packages:
     resolution: {integrity: sha512-jxiZQFpb+NlH5kjW49vXxvxTjeeqlbsnTAdBTKpzEdPs9itay7MscYXz3Fo9VYFEsfQ6LJFitHad3faerLAjCw==}
     dev: true
 
-  /@types/nodemailer@6.4.7:
-    resolution: {integrity: sha512-f5qCBGAn/f0qtRcd4SEn88c8Fp3Swct1731X4ryPKqS61/A3LmmzN8zaEz7hneJvpjFbUUgY7lru/B/7ODTazg==}
+  /@types/nodemailer@6.4.15:
+    resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
     dependencies:
       '@types/node': 20.8.3
     dev: true
@@ -4801,8 +4801,8 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /nodemailer@6.9.1:
-    resolution: {integrity: sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA==}
+  /nodemailer@6.9.13:
+    resolution: {integrity: sha512-7o38Yogx6krdoBf3jCAqnIN4oSQFx+fMa0I7dK1D+me9kBxx12D+/33wSb+fhOCtIxvYJ+4x4IMEhmhCKfAiOA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
