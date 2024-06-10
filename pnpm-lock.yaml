@@ -117,7 +117,7 @@ devDependencies:
     version: 8.57.0
   eslint-config-cmyr:
     specifier: ^1.1.30
-    version: 1.1.30(@typescript-eslint/eslint-plugin@7.5.0)(@typescript-eslint/parser@7.12.0)(eslint-plugin-import@2.26.0)(eslint@8.57.0)(typescript@5.2.2)
+    version: 1.1.31(@typescript-eslint/eslint-plugin@7.5.0)(@typescript-eslint/parser@7.12.0)(eslint-plugin-import@2.26.0)(eslint@8.57.0)(typescript@5.2.2)
   eslint-plugin-import:
     specifier: ^2.25.4
     version: 2.26.0(@typescript-eslint/parser@7.12.0)(eslint@8.57.0)
@@ -2498,8 +2498,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /eslint-config-cmyr@1.1.30(@typescript-eslint/eslint-plugin@7.5.0)(@typescript-eslint/parser@7.12.0)(eslint-plugin-import@2.26.0)(eslint@8.57.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-79sOX0nqYqg/lytlUvK4q6DMGRhLJ5uCWdjg/bIJZzLgWNb4lw0a0V2Ulg2z3Pvt0g/26ZY6d/t5WQ2Ki7qYlw==}
+  /eslint-config-cmyr@1.1.31(@typescript-eslint/eslint-plugin@7.5.0)(@typescript-eslint/parser@7.12.0)(eslint-plugin-import@2.26.0)(eslint@8.57.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-A7t9y24zMXEe5autUYq4iaULnoDvd3M+MlYoCCCAzOE5o/kS+5aoCpmFvXVkSwJEyZ9Qo/LePSiqq0uai2xrfg==}
     engines: {node: '>=12'}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': '>=3'
