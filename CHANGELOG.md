@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.5.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.1...v3.5.2) (2024-06-10)
+
+
+### 🐛 Bug 修复
+
+* 修复 typescript 中使用找不到声明文件 ([314c051](https://github.com/CaoMeiYouRen/push-all-in-one/commit/314c051)), closes [CaoMeiYouRen/push-all-in-one#144](https://github.com/CaoMeiYouRen/push-all-in-one/issues/144)
+
 ## [3.5.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.0...v3.5.1) (2024-05-10)
 
 
