@@ -111,7 +111,7 @@ devDependencies:
     version: 3.3.0(@types/node@20.14.2)(typescript@5.4.5)
   cz-conventional-changelog-cmyr:
     specifier: ^1.1.0
-    version: 1.1.0(@types/node@20.14.2)(typescript@5.4.5)
+    version: 1.1.1(@types/node@20.14.2)(typescript@5.4.5)
   eslint:
     specifier: ^8.42.0
     version: 8.57.0
@@ -2258,8 +2258,8 @@ packages:
       type-fest: 1.4.0
     dev: true
 
-  /cz-conventional-changelog-cmyr@1.1.0(@types/node@20.14.2)(typescript@5.4.5):
-    resolution: {integrity: sha512-iFPBWJ0D4mw/CBhNXBvYGwxlxO2SnGUHyEgmxb1mtTMqEt7++w+NF8XPYKm7Eu7b4tCE0BhrVipzIWv9YamG/A==}
+  /cz-conventional-changelog-cmyr@1.1.1(@types/node@20.14.2)(typescript@5.4.5):
+    resolution: {integrity: sha512-P4AKDlnpXYQC747QHjpRF4dQ7D8+XQrJ3Jd3uaR2bIt9N54Oje8DGpbdM3aEO6I4x+nwY4eIQmTIWuyArPIeuA==}
     engines: {node: '>=12'}
     dependencies:
       '@lint-md/core': 2.0.0
@@ -2268,7 +2268,7 @@ packages:
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
-      word-wrap: 1.2.3
+      word-wrap: 1.2.5
     optionalDependencies:
       '@commitlint/load': 19.2.0(@types/node@20.14.2)(typescript@5.4.5)
     transitivePeerDependencies:
