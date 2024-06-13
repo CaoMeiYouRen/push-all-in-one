@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.5.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.2...v3.5.3) (2024-06-13)
+
+
+### 🐛 Bug 修复
+
+* 修复：在 esm 模式下， https-proxy-agent/socks-proxy-agent 的导入错误问题 ([eb68501](https://github.com/CaoMeiYouRen/push-all-in-one/commit/eb68501)), closes [#178](https://github.com/CaoMeiYouRen/push-all-in-one/issues/178)
+
 ## [3.5.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.1...v3.5.2) (2024-06-10)
 
 
