@@ -1,8 +1,8 @@
 import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import qs from 'qs'
 import debug from 'debug'
-import { HttpsProxyAgent } from 'https-proxy-agent'
-import { SocksProxyAgent } from 'socks-proxy-agent'
+import HttpsProxyAgent from 'https-proxy-agent'
+import SocksProxyAgent from 'socks-proxy-agent'
 import { isHttpURL, isSocksUrl } from './helper'
 
 const Debugger = debug('push:ajax')
@@ -44,15 +44,15 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
             Debugger('HTTPS_PROXY: %s', process.env.HTTPS_PROXY)
             Debugger('SOCKS_PROXY: %s', process.env.SOCKS_PROXY)
             if (isHttpURL(proxyUrl)) {
-                httpAgent = new HttpsProxyAgent(proxyUrl)
+                httpAgent = HttpsProxyAgent(proxyUrl)
             } else if (isSocksUrl(proxyUrl)) {
-                httpAgent = new SocksProxyAgent(proxyUrl)
+                httpAgent = SocksProxyAgent(proxyUrl)
             } else if (process.env.HTTPS_PROXY) {
-                httpAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY)
+                httpAgent = HttpsProxyAgent(process.env.HTTPS_PROXY)
             } else if (process.env.HTTP_PROXY) {
-                httpAgent = new HttpsProxyAgent(process.env.HTTP_PROXY)
+                httpAgent = HttpsProxyAgent(process.env.HTTP_PROXY)
             } else if (process.env.SOCKS_PROXY) {
-                httpAgent = new SocksProxyAgent(process.env.SOCKS_PROXY)
+                httpAgent = SocksProxyAgent(process.env.SOCKS_PROXY)
             }
         }
         const response = await axios(url, {
