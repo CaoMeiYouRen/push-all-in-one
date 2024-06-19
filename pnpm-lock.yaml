@@ -22,7 +22,7 @@ dependencies:
     version: 5.0.1
   nodemailer:
     specifier: ^6.9.1
-    version: 6.9.13
+    version: 6.9.14
   qs:
     specifier: ^6.10.3
     version: 6.12.1
@@ -4983,8 +4983,8 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /nodemailer@6.9.13:
-    resolution: {integrity: sha512-7o38Yogx6krdoBf3jCAqnIN4oSQFx+fMa0I7dK1D+me9kBxx12D+/33wSb+fhOCtIxvYJ+4x4IMEhmhCKfAiOA==}
+  /nodemailer@6.9.14:
+    resolution: {integrity: sha512-Dobp/ebDKBvz91sbtRKhcznLThrKxKt97GI2FAlAyy+fk19j73Uz3sBXolVtmcXjaorivqsbbbjDY+Jkt4/bQA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
