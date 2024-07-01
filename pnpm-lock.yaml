@@ -28,7 +28,7 @@ importers:
         version: 6.9.14
       qs:
         specifier: ^6.10.3
-        version: 6.12.1
+        version: 6.12.2
       socks-proxy-agent:
         specifier: ^5.0.1
         version: 5.0.1
@@ -2996,8 +2996,8 @@ packages:
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
-  qs@6.12.1:
-    resolution: {integrity: sha512-zWmv4RSuB9r2mYQw3zxQuHWeU+42aKi1wWig/j4ele4ygELZ7PEO6MM7rim9oAQH2A5MWfsAVf/jPvTPgCbvUQ==}
+  qs@6.12.2:
+    resolution: {integrity: sha512-x+NLUpx9SYrcwXtX7ob1gnkSems4i/mGZX5SlYxwIau6RrUSODO89TR/XDGGpn5RPWSYIB+aSfuSlV5+CmbTBg==}
     engines: {node: '>=0.6'}
 
   queue-microtask@1.2.3:
@@ -7017,7 +7017,7 @@ snapshots:
 
   q@1.5.1: {}
 
-  qs@6.12.1:
+  qs@6.12.2:
     dependencies:
       side-channel: 1.0.6
 
