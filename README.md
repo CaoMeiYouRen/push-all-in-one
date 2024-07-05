@@ -25,18 +25,7 @@
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
-> **《草梅定时推送》第二次内测公告**<br/>
-> 电脑端访问地址：https://push.cmyr.ltd/<br/>
-> 手机端访问地址：https://push-mp.cmyr.ltd/<br/>
-> APP 端访问地址：https://uni-admin.cmyr.ltd/app/timing-push-mp <br/>
-> 本网站主要功能为基于 push-all-in-one 开发的定时推送功能。<br/>
-> 本次内测为删档内测，草梅友仁不保证数据在后续内测可以保留。但可能会提供数据导出方案。<br/>
-> 本次内测为长期测试，暂无结束时间。具体结束日期可等待后续公告。<br/>
-> 内测期间草梅友仁可能会多次重启后台服务器，因此可能会造成部分数据缺失，如遇到该问题请联系草梅友仁。<br/>
-> 新用户建议阅读文档后开始使用<br/>
-> 交流群：807530287<br/>
-> 问题反馈地址：https://support.qq.com/products/621054 <br/> 
-> 2024 年 01 月 26 日<br/>
+> 基于 push-all-in-one 和 hono 开发的云函数推送服务——[push-all-in-cloud](https://github.com/CaoMeiYouRen/push-all-in-cloud) 。支持 nodejs/docker/vercel 等部署方式 ，可一键部署到 vercel 。
 
 ## 🏠 主页
 
