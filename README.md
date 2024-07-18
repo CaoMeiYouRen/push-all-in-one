@@ -54,7 +54,7 @@ npm i push-all-in-one -S
 ```ts
 import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram } from 'push-all-in-one'
 
-// Server酱。官方文档：https://sct.ftqq.com/
+// Server酱。官方文档：https://sct.ftqq.com/r/13172
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
 const serverChanTurbo = new ServerChanTurbo(SCTKEY)
 serverChanTurbo.send('你好', '你好，我很可爱')
