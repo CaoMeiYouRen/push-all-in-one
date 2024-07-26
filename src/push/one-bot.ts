@@ -95,7 +95,7 @@ export class OneBot implements Send {
                 Authorization: `Bearer ${this.ONE_BOT_ACCESS_TOKEN}`,
             },
             data: {
-                auto_escape: true,
+                auto_escape: false,
                 message_type: msgType,
                 message,
                 group_id: msgType === 'group' ? recieverId : '',
