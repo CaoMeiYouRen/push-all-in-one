@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [3.5.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.3...v3.5.4) (2024-07-26)
+
+
+### 🐛 Bug 修复
+
+* 修复 onebot 推送渠道无法解析 CQ 码的问题 ([ee2c613](https://github.com/CaoMeiYouRen/push-all-in-one/commit/ee2c613))
+
 ## [3.5.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.2...v3.5.3) (2024-06-13)
 
 
