@@ -59,7 +59,7 @@ importers:
         version: 5.0.7(rollup@2.79.1)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
-        version: 11.1.6(rollup@2.79.1)(tslib@2.6.3)(typescript@5.5.4)
+        version: 11.1.6(rollup@2.79.1)(tslib@2.7.0)(typescript@5.5.4)
       '@semantic-release/changelog':
         specifier: ^6.0.1
         version: 6.0.3(semantic-release@21.1.2)
@@ -164,7 +164,7 @@ importers:
         version: 2.0.0(@types/node@22.5.0)(typescript@5.5.4)
       tslib:
         specifier: ^2.6.2
-        version: 2.6.3
+        version: 2.7.0
       typescript:
         specifier: ^5.0.2
         version: 5.5.4
@@ -3571,8 +3571,8 @@ packages:
   tsconfig@7.0.0:
     resolution: {integrity: sha512-vZXmzPrL+EmC4T/4rVlT2jNVMWCi/O4DIiSj3UHg1OE5kCKbk4mfrXc6dZksLgRM/TZlKnousKH9bbTazUWRRw==}
 
-  tslib@2.6.3:
-    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+  tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -4240,14 +4240,14 @@ snapshots:
     optionalDependencies:
       rollup: 2.79.1
 
-  '@rollup/plugin-typescript@11.1.6(rollup@2.79.1)(tslib@2.6.3)(typescript@5.5.4)':
+  '@rollup/plugin-typescript@11.1.6(rollup@2.79.1)(tslib@2.7.0)(typescript@5.5.4)':
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@2.79.1)
       resolve: 1.22.1
       typescript: 5.5.4
     optionalDependencies:
       rollup: 2.79.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@rollup/pluginutils@5.0.2(rollup@2.79.1)':
     dependencies:
@@ -7320,7 +7320,7 @@ snapshots:
 
   rxjs@7.5.6:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   sade@1.8.1:
     dependencies:
@@ -7749,7 +7749,7 @@ snapshots:
       strip-bom: 3.0.0
       strip-json-comments: 2.0.1
 
-  tslib@2.6.3: {}
+  tslib@2.7.0: {}
 
   type-check@0.4.0:
     dependencies:
