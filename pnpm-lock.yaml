@@ -25,7 +25,7 @@ importers:
         version: 5.0.1
       nodemailer:
         specifier: ^6.9.1
-        version: 6.9.14
+        version: 6.9.15
       qs:
         specifier: ^6.10.3
         version: 6.13.0
@@ -2687,8 +2687,8 @@ packages:
   node-emoji@1.11.0:
     resolution: {integrity: sha512-wo2DpQkQp7Sjm2A0cq+sN7EHKO6Sl0ctXeBdFZrL9T9+UywORbufTcTZxom8YqpLQt/FqNMUkOpkZrJVYSKD3A==}
 
-  nodemailer@6.9.14:
-    resolution: {integrity: sha512-Dobp/ebDKBvz91sbtRKhcznLThrKxKt97GI2FAlAyy+fk19j73Uz3sBXolVtmcXjaorivqsbbbjDY+Jkt4/bQA==}
+  nodemailer@6.9.15:
+    resolution: {integrity: sha512-AHf04ySLC6CIfuRtRiEYtGEXgRfa6INgWGluDhnxTZhHSKvrBu7lc1VVchQ0d8nPc4cFaZoPq8vkyNoZr0TpGQ==}
     engines: {node: '>=6.0.0'}
 
   normalize-package-data@2.5.0:
@@ -6841,7 +6841,7 @@ snapshots:
     dependencies:
       lodash: 4.17.21
 
-  nodemailer@6.9.14: {}
+  nodemailer@6.9.15: {}
 
   normalize-package-data@2.5.0:
     dependencies:
