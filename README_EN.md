@@ -214,7 +214,7 @@ Welcome to contribute, ask questions or propose new features! <br />If you have 
 
 If you find this project useful, please give it a ⭐️. Thank you very much.
 
-<a href="https://afdian.net/@CaoMeiYouRen">
+<a href="https://afdian.com/@CaoMeiYouRen">
   <img src="https://cdn.jsdelivr.net/gh/CaoMeiYouRen/image-hosting-01@master/images/202306192324870.png" width="312px" height="78px" alt="Support me on Afdian">
 </a>
 
