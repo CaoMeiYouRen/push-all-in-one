@@ -7,6 +7,7 @@ import json from '@rollup/plugin-json'
 import analyzer from 'rollup-plugin-analyzer'
 import alias from '@rollup/plugin-alias'
 import replace from '@rollup/plugin-replace'
+import dts from 'rollup-plugin-dts'
 import _ from 'lodash'
 import { dependencies, name } from './package.json'
 const external = Object.keys(dependencies) // 默认不打包 dependencies
@@ -36,7 +37,7 @@ function getPlugins({ isBrowser = false, isMin = false, isDeclaration = false })
     )
     plugins.push(alias({
         entries: [
-            { find: '@', replacement: path.resolve(__dirname, '../src') },
+            { find: '@', replacement: path.resolve(__dirname, './src') },
         ],
     }))
     plugins.push(
@@ -81,11 +82,11 @@ export default [
             format: 'esm',
             name: outputName,
         },
-        plugins: getPlugins({
-            isBrowser: false,
-            isDeclaration: true,
-            isMin: false,
-        }),
+        plugins: [alias({
+            entries: [
+                { find: '@', replacement: path.resolve(__dirname, './src') },
+            ],
+        }), dts()],
     },
     {
         input: 'src/index.ts',
