@@ -1,5 +1,17 @@
 # push-all-in-one
 
+# [3.6.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.4...v3.6.0) (2024-10-04)
+
+
+### ♻ 代码重构
+
+* 优化 ServerChanTurbo 的附加参数声明 ([c45d984](https://github.com/CaoMeiYouRen/push-all-in-one/commit/c45d984))
+
+
+### ✨ 新功能
+
+* 新增 Server 酱³ 支持 ([5ecc0d1](https://github.com/CaoMeiYouRen/push-all-in-one/commit/5ecc0d1))
+
 ## [3.5.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.3...v3.5.4) (2024-07-26)
 
 
