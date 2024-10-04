@@ -24,7 +24,7 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式。
+> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式。
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
 
@@ -52,12 +52,18 @@ npm i push-all-in-one -S
 ## 👨‍💻 使用
 
 ```ts
-import { ServerChanTurbo, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram } from 'push-all-in-one'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram } from 'push-all-in-one'
 
-// Server酱。官方文档：https://sct.ftqq.com/r/13172
+// Server酱·Turbo。官方文档：https://sct.ftqq.com/r/13172
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
 const serverChanTurbo = new ServerChanTurbo(SCTKEY)
 serverChanTurbo.send('你好', '你好，我很可爱')
+
+// 【推荐】Server酱³
+// Server酱3。官方文档：https://sc3.ft07.com/doc
+const sendkey = 'sctpXXXXXXXXXXXXXXXXXXXXXXXX'
+const serverChanV3 = new ServerChanV3(sendkey)
+serverChanV3.send('你好', '你好，我很可爱 - 来自 Server酱³')
 
 // 【推荐】自定义邮件，基于 nodemailer 实现，官方文档: https://github.com/nodemailer/nodemailer
 const customEmail = new CustomEmail({
@@ -115,7 +121,7 @@ const XI_ZHI_KEY = 'xxxxxxxxxxxxx'
 const xiZhi = new XiZhi(XI_ZHI_KEY)
 xiZhi.send('你好', '你好，我很可爱 - XiZhi')
 
-// 【推荐】PushDeer 推送，官方文档：https://github.com/easychen/pushdeer
+// PushDeer 推送，官方文档：https://github.com/easychen/pushdeer
 const PUSH_DEER_PUSH_KEY = 'xxxxxxxxxx'
 const pushDeer = new PushDeer(PUSH_DEER_PUSH_KEY)
 pushDeer.send('你好', '你好，我很可爱 - PushDeer', 'markdown')
