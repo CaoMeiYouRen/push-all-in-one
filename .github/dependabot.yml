@@ -16,7 +16,11 @@ updates:
       - dependency-name: "conventional-changelog-cli"
       - dependency-name: "semantic-release"
       - dependency-name: "https-proxy-agent"
+        versions:
+          - ">= 8.0.0"
       - dependency-name: "socks-proxy-agent"
+        versions:
+          - ">= 9.0.0"
       - dependency-name: "eslint"
         versions:
           - ">= 9.0.0"
