@@ -7,7 +7,7 @@ import { Markdown } from './dingtalk/Markdown'
 import { Send } from '@/interfaces/send'
 import { warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
-import { base64Encode, hmacSha256Encode } from '@/utils/crypto'
+import { generateSignature } from '@/utils/crypto'
 
 const Debugger = debug('push:dingtalk')
 
@@ -45,7 +45,7 @@ export class Dingtalk implements Send {
     private getSign(timeStamp: number): string {
         let signStr = ''
         if (this.SECRET) {
-            signStr = base64Encode(hmacSha256Encode(`${timeStamp}\n${this.SECRET}`, this.SECRET))
+            signStr = generateSignature(timeStamp, this.SECRET, this.SECRET)
             Debugger('Sign string is %s, result is %s', `${timeStamp}\n${this.SECRET}`, signStr)
         }
         return signStr

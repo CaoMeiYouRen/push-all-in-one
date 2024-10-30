@@ -36,3 +36,4 @@ sessions
 #public
 dist
 temp
+coverage
