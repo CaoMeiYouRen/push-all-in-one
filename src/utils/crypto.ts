@@ -10,7 +10,7 @@ import crypto from 'crypto'
  * @param suiteTicket
  * @param suiteSecret
  */
-export function generateSignature(timestamp: string | number, suiteTicket: string, suiteSecret: crypto.BinaryLike | crypto.KeyObject) {
+export function generateSignature(timestamp: string | number, suiteTicket: string, suiteSecret: crypto.BinaryLike | crypto.KeyObject): string {
     // 创建要签名的字符串
     const stringToSign = `${timestamp}\n${suiteTicket}`
 
