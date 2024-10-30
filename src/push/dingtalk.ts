@@ -1,12 +1,13 @@
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
-import CryptoJS from 'crypto-js'
+
 import { MessageTemplateAbs } from './dingtalk/template'
 import { Text } from './dingtalk/Text'
 import { Markdown } from './dingtalk/Markdown'
 import { Send } from '@/interfaces/send'
 import { warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
+import { base64Encode, hmacSha256Encode } from '@/utils/crypto'
 
 const Debugger = debug('push:dingtalk')
 
@@ -44,7 +45,7 @@ export class Dingtalk implements Send {
     private getSign(timeStamp: number): string {
         let signStr = ''
         if (this.SECRET) {
-            signStr = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(`${timeStamp}\n${this.SECRET}`, this.SECRET))
+            signStr = base64Encode(hmacSha256Encode(`${timeStamp}\n${this.SECRET}`, this.SECRET))
             Debugger('Sign string is %s, result is %s', `${timeStamp}\n${this.SECRET}`, signStr)
         }
         return signStr
