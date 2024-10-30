@@ -1,5 +1,4 @@
 import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
-import qs from 'qs'
 import debug from 'debug'
 import HttpsProxyAgent from 'https-proxy-agent'
 import SocksProxyAgent from 'socks-proxy-agent'
@@ -34,7 +33,7 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
         let { data = {} } = config
 
         if (headers['Content-Type'] === 'application/x-www-form-urlencoded' && typeof data === 'object') {
-            data = qs.stringify(data)
+            data = new URLSearchParams(data as Record<string, string>).toString()
         }
 
         let httpAgent = null

@@ -6,12 +6,12 @@ import { ajax } from '@/utils/ajax'
 const Debugger = debug('push:qmsg')
 
 /**
- * 推送类型，见 [Qmsg](https://qmsg.zendee.cn/api.html)。
+ * 推送类型，见 [Qmsg](https://qmsg.zendee.cn/docs)。
  */
 export type QmsgPushType = 'send' | 'group'
 
 /**
- * Qmsg酱。使用说明见 [Qmsg酱](https://qmsg.zendee.cn/api.html)
+ * Qmsg酱。使用说明见 [Qmsg酱](https://qmsg.zendee.cn/docs)
  *
  * @author CaoMeiYouRen
  * @date 2022-02-17

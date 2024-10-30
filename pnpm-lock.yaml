@@ -23,9 +23,6 @@ importers:
       nodemailer:
         specifier: ^6.9.1
         version: 6.9.16
-      qs:
-        specifier: ^6.10.3
-        version: 6.13.0
       socks-proxy-agent:
         specifier: ^5.0.1
         version: 5.0.1
@@ -66,9 +63,6 @@ importers:
       '@types/nodemailer':
         specifier: ^6.4.7
         version: 6.4.16
-      '@types/qs':
-        specifier: ^6.9.5
-        version: 6.9.16
       '@typescript-eslint/eslint-plugin':
         specifier: 7.18.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)
@@ -1183,9 +1177,6 @@ packages:
 
   '@types/normalize-package-data@2.4.1':
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
-
-  '@types/qs@6.9.16':
-    resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -3965,10 +3956,6 @@ packages:
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
-  qs@6.13.0:
-    resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
-    engines: {node: '>=0.6'}
-
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -6004,8 +5991,6 @@ snapshots:
       '@types/node': 22.8.4
 
   '@types/normalize-package-data@2.4.1': {}
-
-  '@types/qs@6.9.16': {}
 
   '@types/stack-utils@2.0.3': {}
 
@@ -9269,10 +9254,6 @@ snapshots:
   pure-rand@6.1.0: {}
 
   q@1.5.1: {}
-
-  qs@6.13.0:
-    dependencies:
-      side-channel: 1.0.6
 
   queue-microtask@1.2.3: {}
 
