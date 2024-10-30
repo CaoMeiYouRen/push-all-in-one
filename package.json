@@ -19,7 +19,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "keywords": [
     "push",
