@@ -26,7 +26,7 @@
 
 > Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式。
 >
-> 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！网页端使用还将额外产生跨域问题。
+> 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！
 
 > 基于 push-all-in-one 和 hono 开发的云函数推送服务——[push-all-in-cloud](https://github.com/CaoMeiYouRen/push-all-in-cloud) 。支持 nodejs/docker/vercel 等部署方式 ，可一键部署到 vercel 。
 
@@ -41,7 +41,7 @@
 ## 📦 依赖要求
 
 
-- node >=12
+- node >=18
 
 ## 🚀 安装
 
@@ -61,8 +61,8 @@ serverChanTurbo.send('你好', '你好，我很可爱')
 
 // 【推荐】Server酱³
 // Server酱3。官方文档：https://sc3.ft07.com/doc
-const sendkey = 'sctpXXXXXXXXXXXXXXXXXXXXXXXX'
-const serverChanV3 = new ServerChanV3(sendkey)
+const SERVER_CHAN_V3_KEY = 'sctpXXXXXXXXXXXXXXXXXXXXXXXX'
+const serverChanV3 = new ServerChanV3(SERVER_CHAN_V3_KEY)
 serverChanV3.send('你好', '你好，我很可爱 - 来自 Server酱³')
 
 // 【推荐】自定义邮件，基于 nodemailer 实现，官方文档: https://github.com/nodemailer/nodemailer
@@ -181,7 +181,7 @@ cross-env HTTP_PROXY='http://127.0.0.1:8101' # 通过 cross-env 这个包来跨�
 
 ## 🛠️ 开发
 
-本项目采用 TypeScript 开发，使用 rollup 打包，可以完美实现类型提示和摇树优化，对于未使用到的模块，会在编译阶段去除。
+本项目采用 TypeScript 开发，使用 tsup 打包，可以完美实现类型提示和摇树优化，对于未使用到的模块，会在编译阶段去除。
 
 ```sh
 npm run dev
