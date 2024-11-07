@@ -14,7 +14,6 @@ updates:
       timezone: "Asia/Shanghai"
     ignore:
       - dependency-name: "conventional-changelog-cli"
-      - dependency-name: "semantic-release"
       - dependency-name: "https-proxy-agent"
         versions:
           - ">= 8.0.0"
