@@ -31,6 +31,8 @@ export class ServerChanV3 implements Send {
      */
     private sendkey: string
 
+    private uid: string = ''
+
     /**
      * @author CaoMeiYouRen
      * @date 2024-10-04
@@ -41,6 +43,10 @@ export class ServerChanV3 implements Send {
         Debugger('set sendkey: "%s"', sendkey)
         if (!this.sendkey) {
             throw new Error('sendkey 是必须的！')
+        }
+        this.uid = this.sendkey.match(/^sctp(\d+)t/)?.[1]
+        if (!this.uid) {
+            throw new Error('sendkey 不合法！')
         }
     }
 
@@ -55,7 +61,7 @@ export class ServerChanV3 implements Send {
             ...options,
         }
         return ajax({
-            url: `https://${this.sendkey}.push.ft07.com/send`,
+            url: `https://${this.uid}.push.ft07.com/send/${this.sendkey}.send`,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
