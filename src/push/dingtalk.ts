@@ -22,6 +22,9 @@ export interface DingtalkConfig {
     DINGTALK_SECRET?: string
 }
 
+export interface DingtalkOption {
+}
+
 export interface DingtalkResponse {
     errcode: number
     errmsg: string
