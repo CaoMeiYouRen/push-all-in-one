@@ -47,6 +47,22 @@ export type QmsgOption = (QmsgPrivateMsgOption | QmsgGroupMsgOption) & {
     bot?: string
 }
 
+export interface QmsgResponse {
+    /**
+     * 本次请求是否成功
+     */
+    success: boolean
+    /**
+     * 本次请求结果描述
+     */
+    reason: string
+    /**
+     * 错误代码。错误代码目前不可靠，如果要判断是否成功请使用success
+     */
+    code: number
+    info: any
+}
+
 /**
  * Qmsg酱。使用说明见 [Qmsg酱](https://qmsg.zendee.cn/docs)
  *
@@ -77,7 +93,7 @@ export class Qmsg implements Send {
      * @param [desp] 消息描述
      * @param [option] QmsgOption 选项
      */
-    async send(title: string, desp: string, option: QmsgOption): Promise<SendResponse> {
+    async send(title: string, desp: string, option: QmsgOption): Promise<SendResponse<QmsgResponse>> {
         Debugger('title: "%s", desp: "%s", option: "%o"', title, desp, option)
         const { qq, type = 'send', bot } = option || {}
         const msg = `${title}${desp ? `\n${desp}` : ''}`
