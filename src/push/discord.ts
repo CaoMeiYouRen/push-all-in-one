@@ -78,11 +78,11 @@ export class Discord implements Send {
      * @param [desp] 消息的描述。最多 2000 个字符
      * @param [option] 额外选项
      */
-    async send(title: string, desp: string = '', option?: DiscordOption): Promise<SendResponse<DiscordResponse>> {
+    async send(title: string, desp?: string, option?: DiscordOption): Promise<SendResponse<DiscordResponse>> {
         Debugger('title: "%s", desp: "%s", option: %o', title, desp, option)
         const { username, avatar_url, ...args } = option || {}
         const proxyUrl = this.proxyUrl
-        const content = `${title}\n${desp}`.trim()
+        const content = `${title}${desp ? `\n${desp}` : ''}`
         return ajax({
             url: this.DISCORD_WEBHOOK,
             method: 'POST',

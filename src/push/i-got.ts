@@ -91,8 +91,7 @@ export class IGot implements Send {
      * @author CaoMeiYouRen
      * @date 2021-03-03
      * @param title 请求标题
-     * @param [content] 请求正文
-     * @param [url] 推送携带的url
+     * @param [desp] 请求正文
      * @param [option] 额外选项
      * @returns
      */

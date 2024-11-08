@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
