@@ -93,6 +93,7 @@ export class IGot implements Send {
      * @param title 请求标题
      * @param [content] 请求正文
      * @param [url] 推送携带的url
+     * @param [option] 额外选项
      * @returns
      */
     send(title: string, desp?: string, option?: IGotOption): Promise<SendResponse<IGotResponse>> {
