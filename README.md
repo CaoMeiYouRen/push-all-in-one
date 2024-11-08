@@ -1,6 +1,6 @@
-<p>
+<!-- <p>
    <strong>中文</strong> | <a href="./README_EN.md">English</a>
-</p>
+</p> -->
 <h1 align="center">push-all-in-one </h1>
 <p>
   <a href="https://www.npmjs.com/package/push-all-in-one" target="_blank">
