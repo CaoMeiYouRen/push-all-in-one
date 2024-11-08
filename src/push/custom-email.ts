@@ -83,11 +83,11 @@ export class CustomEmail implements Send {
 
     /**
      *
-     *
      * @author CaoMeiYouRen
-     * @date 2023-03-12
+     * @date 2024-11-08
      * @param title 消息的标题
      * @param [desp] 消息的内容，支持 html
+     * @param [option] 选项，可以覆盖默认的同名配置
      */
     async send(title: string, desp?: string, option?: CustomEmailOption): Promise<SendResponse<SMTPTransport.SentMessageInfo>> {
         Debugger('title: "%s", desp: "%s", option: %o', title, desp, option)

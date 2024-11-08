@@ -60,7 +60,7 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
             headers,
             params: query,
             data,
-            timeout: 10000,
+            timeout: 60000,
             httpAgent,
             httpsAgent: httpAgent,
             proxy: false,

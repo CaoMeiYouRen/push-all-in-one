@@ -2,6 +2,7 @@ import path from 'path'
 import type { Config } from 'jest'
 
 const config: Config = {
+    testTimeout: 20000,
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1',
     },

@@ -1,6 +1,5 @@
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
-
 import { MessageTemplateAbs } from './dingtalk/template'
 import { Text } from './dingtalk/Text'
 import { Markdown } from './dingtalk/Markdown'
@@ -31,8 +30,6 @@ export interface DingtalkResponse {
 /**
  * 钉钉机器人推送
  * 在 [dingtalk-robot-sdk](https://github.com/ineo6/dingtalk-robot-sdk) 的基础上重构了一下，用法几乎完全一致。
- * 参考文档 [钉钉开放平台 - 自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)
- *
  * @author CaoMeiYouRen
  * @date 2021-02-27
  * @export
@@ -48,6 +45,12 @@ export class Dingtalk implements Send {
     private SECRET?: string
     private webhook: string = 'https://oapi.dingtalk.com/robot/send'
 
+    /**
+     * 参考文档 [钉钉开放平台 - 自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)
+     * @author CaoMeiYouRen
+     * @date 2024-11-08
+     * @param config
+     */
     constructor(config: DingtalkConfig) {
         const { DINGTALK_ACCESS_TOKEN, DINGTALK_SECRET } = config
         this.ACCESS_TOKEN = DINGTALK_ACCESS_TOKEN
