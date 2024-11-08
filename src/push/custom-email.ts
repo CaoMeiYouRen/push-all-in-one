@@ -1,5 +1,6 @@
 import debug from 'debug'
 import nodemailer from 'nodemailer'
+import SMTPTransport from 'nodemailer/lib/smtp-transport'
 import { Send } from '../interfaces/send'
 import { SendResponse } from '@/interfaces/response'
 
@@ -33,6 +34,8 @@ export interface CustomEmailConfig {
     EMAIL_PORT: number
 }
 
+export type CustomEmailOption = Pick<CustomEmailConfig, 'EMAIL_TYPE' | 'EMAIL_TO_ADDRESS'>
+
 /**
  * 自定义邮件。官方文档: https://github.com/nodemailer/nodemailer
  *
@@ -43,7 +46,9 @@ export interface CustomEmailConfig {
  */
 export class CustomEmail implements Send {
 
-    config: CustomEmailConfig
+    private config: CustomEmailConfig
+
+    private transporter: nodemailer.Transporter<SMTPTransport.SentMessageInfo, SMTPTransport.Options>
 
     constructor(config: CustomEmailConfig) {
         this.config = config
@@ -53,6 +58,27 @@ export class CustomEmail implements Send {
                 throw new Error(`CustomEmailConfig 的 "${key}" 字段是必须的！`)
             }
         })
+        const { EMAIL_AUTH_USER, EMAIL_AUTH_PASS, EMAIL_HOST, EMAIL_PORT } = this.config
+        this.transporter = nodemailer.createTransport({
+            host: EMAIL_HOST,
+            port: Number(EMAIL_PORT),
+            auth: {
+                user: EMAIL_AUTH_USER,
+                pass: EMAIL_AUTH_PASS,
+            },
+        })
+    }
+
+    /**
+     * 释放资源（需要支持 Symbol.dispose）
+     *
+     * @author CaoMeiYouRen
+     * @date 2024-11-08
+     */
+    [Symbol.dispose](): void {
+        if (this.transporter) {
+            this.transporter.close()
+        }
     }
 
     /**
@@ -63,27 +89,25 @@ export class CustomEmail implements Send {
      * @param title 消息的标题
      * @param [desp] 消息的内容，支持 html
      */
-    async send(title: string, desp?: string): Promise<SendResponse> {
-        Debugger('title: "%s", desp: "%s"', title, desp)
-        const { EMAIL_TYPE, EMAIL_TO_ADDRESS, EMAIL_AUTH_USER, EMAIL_AUTH_PASS, EMAIL_HOST, EMAIL_PORT } = this.config
-        const transporter = nodemailer.createTransport({
-            host: EMAIL_HOST,
-            port: Number(EMAIL_PORT),
-            auth: {
-                user: EMAIL_AUTH_USER,
-                pass: EMAIL_AUTH_PASS,
-            },
-        })
-        if (!await transporter.verify()) {
+    async send(title: string, desp?: string, option?: CustomEmailOption): Promise<SendResponse<SMTPTransport.SentMessageInfo>> {
+        Debugger('title: "%s", desp: "%s", option: %o', title, desp, option)
+        const { EMAIL_TYPE, EMAIL_TO_ADDRESS, EMAIL_AUTH_USER } = this.config
+
+        if (!await this.transporter.verify()) {
             throw new Error('自定义邮件的发件配置无效')
         }
-        const response = await transporter.sendMail({
-            from: EMAIL_AUTH_USER,
-            to: EMAIL_TO_ADDRESS,
+        const from = EMAIL_AUTH_USER
+        const to = option?.EMAIL_TO_ADDRESS || EMAIL_TO_ADDRESS
+        const type = option?.EMAIL_TYPE || EMAIL_TYPE
+        const response = await this.transporter.sendMail({
+            from,
+            to,
             subject: title,
-            [EMAIL_TYPE]: desp,
+            [type]: desp,
         })
-        transporter.close()
+        if (!Symbol.dispose) { // 如果不支持 Symbol.dispose ，则手动释放
+            this.transporter.close()
+        }
         Debugger('CustomEmail Response: %o', response)
         if (response.response?.includes('250 OK')) {
             return {
