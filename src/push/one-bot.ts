@@ -20,7 +20,7 @@ export interface OneBotConfig {
     ONE_BOT_ACCESS_TOKEN?: string
 }
 
-export interface PrivateMsgOption {
+export interface OneBotPrivateMsgOption {
     /**
      * 消息类型
      */
@@ -31,7 +31,7 @@ export interface PrivateMsgOption {
     user_id: number
 }
 
-export interface GroupMsgOption {
+export interface OneBotGroupMsgOption {
     /**
      * 消息类型
      */
@@ -43,7 +43,7 @@ export interface GroupMsgOption {
 
 }
 
-export type OneBotOption = (PrivateMsgOption | GroupMsgOption) & {
+export type OneBotOption = (OneBotPrivateMsgOption | OneBotGroupMsgOption) & {
     /**
      * 消息内容是否作为纯文本发送（即不解析 CQ 码），只在 message 字段是字符串时有效
      */
@@ -121,13 +121,14 @@ export class OneBot implements Send {
 
     /**
      *
+     *
      * @author CaoMeiYouRen
      * @date 2024-11-08
-     * @param message 要发送的消息
-     * @param msgType 消息类型
-     * @param recieverId 用户/群组 ID，即 QQ 号或群号
+     * @param title 消息标题
+     * @param desp 消息正文
+     * @param option 额外推送选项
      */
-    async send(title: string, desp?: string, option?: OneBotOption): Promise<SendResponse<OneBotResponse>> {
+    async send(title: string, desp: string, option: OneBotOption): Promise<SendResponse<OneBotResponse>> {
         Debugger('title: "%s", desp: "%s", option: "%o"', title, desp, option)
         const { message_type, ...args } = option || {}
         const message = `${title}${desp ? `\n${desp}` : ''}`

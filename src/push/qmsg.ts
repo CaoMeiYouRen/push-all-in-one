@@ -10,6 +10,43 @@ const Debugger = debug('push:qmsg')
  */
 export type QmsgPushType = 'send' | 'group'
 
+export interface QmsgConfig {
+    /**
+     * 推送的 key。在 [Qmsg 酱管理台](https://qmsg.zendee.cn/user) 查看
+     */
+    QMSG_KEY: string
+}
+
+export interface QmsgPrivateMsgOption {
+    /**
+     * send 表示发送消息给指定的QQ号，group 表示发送消息给指定的QQ群。默认为 send
+     */
+    type: 'send'
+    /**
+     * 指定要接收消息的QQ号或者QQ群。多个以英文逗号分割，例如：12345,12346
+     */
+    qq: string
+}
+
+export interface QmsgGroupMsgOption {
+    /**
+     * send 表示发送消息给指定的QQ号，group 表示发送消息给指定的QQ群。默认为 send
+     */
+    type: 'group'
+    /**
+     * 指定要接收消息的QQ号或者QQ群。多个以英文逗号分割，例如：12345,12346
+     */
+    qq: string
+
+}
+
+export type QmsgOption = (QmsgPrivateMsgOption | QmsgGroupMsgOption) & {
+    /**
+     * 机器人的QQ号。指定使用哪个机器人来发送消息，不指定则会自动随机选择一个在线的机器人发送消息。该参数仅私有云有效
+     */
+    bot?: string
+}
+
 /**
  * Qmsg酱。使用说明见 [Qmsg酱](https://qmsg.zendee.cn/docs)
  *
@@ -21,12 +58,11 @@ export type QmsgPushType = 'send' | 'group'
 export class Qmsg implements Send {
 
     private QMSG_KEY: string
-    private QMSG_BOT?: string
 
-    constructor(QMSG_KEY: string, QMSG_BOT?: string) {
+    constructor(config: QmsgConfig) {
+        const { QMSG_KEY } = config
         this.QMSG_KEY = QMSG_KEY
-        this.QMSG_BOT = QMSG_BOT
-        Debugger('set QMSG_KEY: "%s", QMSG_BOT:  "%s"', QMSG_KEY, QMSG_BOT)
+        Debugger('set QMSG_KEY: "%s"', QMSG_KEY)
         if (!this.QMSG_KEY) {
             throw new Error('QMSG_KEY 是必须的！')
         }
@@ -34,22 +70,24 @@ export class Qmsg implements Send {
 
     /**
      *
-     *
+     * 发送消息
      * @author CaoMeiYouRen
-     * @date 2024-10-30
-     * @param msg 要推送的消息内容
-     * @param [qq] 指定要接收消息的QQ号或者QQ群。多个以英文逗号分割，例如：12345,12346
-     * @param [type='send'] send 表示发送消息给指定的QQ号，group 表示发送消息给指定的QQ群。默认为 send
+     * @date 2024-11-08
+     * @param title 消息标题
+     * @param [desp] 消息描述
+     * @param [option] QmsgOption 选项
      */
-    async send(msg: string, qq?: string, type: QmsgPushType = 'send'): Promise<SendResponse> {
-        Debugger('msg: "%s", qq: "%s", type: "%s"', msg, qq, type)
+    async send(title: string, desp: string, option: QmsgOption): Promise<SendResponse> {
+        Debugger('title: "%s", desp: "%s", option: "%o"', title, desp, option)
+        const { qq, type = 'send', bot } = option || {}
+        const msg = `${title}${desp ? `\n${desp}` : ''}`
         return ajax({
             url: `https://qmsg.zendee.cn/${type}/${this.QMSG_KEY}`,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             method: 'POST',
-            data: { msg, qq, bot: this.QMSG_BOT },
+            data: { msg, qq, bot },
         })
     }
 

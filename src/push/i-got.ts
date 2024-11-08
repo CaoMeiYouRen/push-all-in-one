@@ -90,8 +90,8 @@ export class IGot implements Send {
      *
      * @author CaoMeiYouRen
      * @date 2024-11-08
-     * @param title 请求标题
-     * @param [desp] 请求正文
+     * @param title 消息标题
+     * @param [desp] 消息正文
      * @param [option] 额外选项
      * @returns
      */

@@ -81,20 +81,19 @@ export class PushPlus implements Send {
             throw new Error('PUSH_PLUS_TOKEN 是必须的！')
         }
     }
+
     /**
-     *
+     * 发送消息
      *
      * @author CaoMeiYouRen
-     * @date 2021-06-06
-     * @param title
-     * @param [content] 消息标题
-     * @param [template='html'] 具体消息内容，根据不同template支持不同格式
-     * @param [channel='wechat'] 发送渠道
-     * @returns
+     * @date 2024-11-08
+     * @param title 消息标题
+     * @param [desp=''] 消息内容
+     * @param [option] 额外推送选项
      */
     send(title: string, desp: string = '', option?: PushPlusOption): Promise<SendResponse<PushPlusResponse>> {
         Debugger('title: "%s", desp: "%s", option: "%o"', title, desp, option)
-        const { template, channel, ...args } = option || {}
+        const { template = 'html', channel = 'wechat', ...args } = option || {}
         const content = desp || title
         return ajax({
             url: 'http://www.pushplus.plus/send',
