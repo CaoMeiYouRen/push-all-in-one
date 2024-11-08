@@ -2,7 +2,7 @@ import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import debug from 'debug'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { SocksProxyAgent } from 'socks-proxy-agent'
-import { isHttpURL, isSocksUrl } from './helper'
+import { isHttpURL, isSocksUrl, logger } from './helper'
 
 const Debugger = debug('push:ajax')
 
@@ -69,13 +69,8 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
         return response
     } catch (error) {
         if (error?.response) {
-            console.error(error.response)
+            logger.error(error.response)
             return error.response
-        }
-        if (error.toJSON) {
-            console.error(error.toJSON())
-        } else {
-            console.error(error)
         }
         throw error
     }

@@ -20,6 +20,11 @@ export function error(text: any): void {
     console.error(text)
 }
 
+export const logger = {
+    warn,
+    error,
+}
+
 /**
  * 检测是否为 http/https 开头的 url
  * @param url

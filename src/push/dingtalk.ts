@@ -12,7 +12,24 @@ import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:dingtalk')
 
+export interface DingtalkConfig {
+    /**
+     * 钉钉机器人 access_token。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access
+     */
+    DINGTALK_ACCESS_TOKEN: string
+    /**
+     * 加签安全秘钥（HmacSHA256）
+     */
+    DINGTALK_SECRET?: string
+}
+
+export interface DingtalkResponse {
+    errcode: number
+    errmsg: string
+}
+
 /**
+ * 钉钉机器人推送
  * 在 [dingtalk-robot-sdk](https://github.com/ineo6/dingtalk-robot-sdk) 的基础上重构了一下，用法几乎完全一致。
  * 参考文档 [钉钉开放平台 - 自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)
  *
@@ -31,10 +48,11 @@ export class Dingtalk implements Send {
     private SECRET?: string
     private webhook: string = 'https://oapi.dingtalk.com/robot/send'
 
-    constructor(ACCESS_TOKEN: string, SECRET?: string) {
-        this.ACCESS_TOKEN = ACCESS_TOKEN
-        this.SECRET = SECRET
-        Debugger('ACCESS_TOKEN: %s , SECRET: %s', ACCESS_TOKEN, SECRET)
+    constructor(config: DingtalkConfig) {
+        const { DINGTALK_ACCESS_TOKEN, DINGTALK_SECRET } = config
+        this.ACCESS_TOKEN = DINGTALK_ACCESS_TOKEN
+        this.SECRET = DINGTALK_SECRET
+        Debugger('DINGTALK_ACCESS_TOKEN: %s , DINGTALK_SECRET: %s', this.ACCESS_TOKEN, this.SECRET)
         if (!this.ACCESS_TOKEN) {
             throw new Error('ACCESS_TOKEN 是必须的！')
         }
@@ -52,7 +70,7 @@ export class Dingtalk implements Send {
         return signStr
     }
 
-    private async push(message: MessageTemplateAbs): Promise<AxiosResponse> {
+    private async push(message: MessageTemplateAbs): Promise<AxiosResponse<DingtalkResponse>> {
         const timestamp = Date.now()
         const sign = this.getSign(timestamp)
         const result = await ajax({
@@ -85,7 +103,7 @@ export class Dingtalk implements Send {
      * @param [desp] 消息的内容，支持 Markdown
      * @returns
      */
-    async send(title: string, desp?: string): Promise<SendResponse> {
+    async send(title: string, desp?: string): Promise<SendResponse<DingtalkResponse>> {
         Debugger('title: "%s", desp: "%s"', title, desp)
         if (!desp) {
             return this.push(new Text(title))
