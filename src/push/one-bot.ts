@@ -122,7 +122,7 @@ export class OneBot implements Send {
     /**
      *
      * @author CaoMeiYouRen
-     * @date 2023-10-22
+     * @date 2024-11-08
      * @param message 要发送的消息
      * @param msgType 消息类型
      * @param recieverId 用户/群组 ID，即 QQ 号或群号
