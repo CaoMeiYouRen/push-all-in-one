@@ -14,7 +14,7 @@ export interface ServerChanTurboConfig {
      * Server酱 Turbo 的 SCTKEY
      * 请前往 https://sct.ftqq.com/sendkey 领取
      */
-    SERVER_CHAN_TURBO_SCTKEY: string
+    SERVER_CHAN_TURBO_SENDKEY: string
 }
 
 /**
@@ -82,11 +82,11 @@ export class ServerChanTurbo implements Send {
      * @param config 请前往 https://sct.ftqq.com/sendkey 领取
      */
     constructor(config: ServerChanTurboConfig) {
-        const { SERVER_CHAN_TURBO_SCTKEY } = config
-        this.SCTKEY = SERVER_CHAN_TURBO_SCTKEY
+        const { SERVER_CHAN_TURBO_SENDKEY } = config
+        this.SCTKEY = SERVER_CHAN_TURBO_SENDKEY
         Debugger('set SCTKEY: "%s"', this.SCTKEY)
         if (!this.SCTKEY) {
-            throw new Error('SERVER_CHAN_TURBO_SCTKEY 是必须的！')
+            throw new Error('SERVER_CHAN_TURBO_SENDKEY 是必须的！')
         }
     }
     /**

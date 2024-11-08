@@ -1,18 +1,30 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
-import { MarkdownMsg } from './wechat/MarkdownMsg'
-import { TextMsg } from './wechat/TextMsg'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:wechat-robot')
 
-export type MsgType = 'text' | 'markdown'
-type Msg = TextMsg | MarkdownMsg
+export type WechatRobotMsgType = 'text' | 'markdown' | 'image' | 'news' | 'file' | 'voice' | 'template_card'
+
+export interface WechatRobotConfig {
+    // 企业微信机器人的key
+    WECHAT_ROBOT_KEY: string
+}
+
+export interface WechatRobotOption {
+    msgtype?: WechatRobotMsgType
+    [key: string]: any
+}
+
+export interface WechatRobotResponse {
+    // 企业微信机器人返回的错误码，为0表示成功，非0表示调用失败
+    errcode: number
+    errmsg: string
+}
 
 /**
- * 企业微信群机器人。文档: [如何使用群机器人](https://work.weixin.qq.com/help?person_id=1&doc_id=13376)
+ * 企业微信群机器人。文档: [如何使用群机器人](https://developer.work.weixin.qq.com/document/path/91770)
  *
  * @author CaoMeiYouRen
  * @date 2021-02-28
@@ -21,56 +33,43 @@ type Msg = TextMsg | MarkdownMsg
  */
 export class WechatRobot implements Send {
 
-    private WX_ROBOT_KEY: string
+    private WECHAT_ROBOT_KEY: string
 
-    constructor(WX_ROBOT_KEY: string) {
-        this.WX_ROBOT_KEY = WX_ROBOT_KEY
-        Debugger('set WX_ROBOT_KEY: "%s"', WX_ROBOT_KEY)
-        if (!this.WX_ROBOT_KEY) {
-            throw new Error('WX_ROBOT_KEY 是必须的！')
+    constructor(config: WechatRobotConfig) {
+        const { WECHAT_ROBOT_KEY } = config
+        this.WECHAT_ROBOT_KEY = WECHAT_ROBOT_KEY
+        Debugger('set WECHAT_ROBOT_KEY: "%s"', WECHAT_ROBOT_KEY)
+        if (!this.WECHAT_ROBOT_KEY) {
+            throw new Error('WECHAT_ROBOT_KEY 是必须的！')
         }
     }
 
-    private async push(message: Msg): Promise<AxiosResponse> {
+    /**
+     *
+     *
+     * @author CaoMeiYouRen
+     * @date 2024-11-08
+     * @param title 消息标题
+     * @param [desp] 消息内容。text内容，最长不超过2048个字节；markdown内容，最长不超过4096个字节；必须是utf8编码
+     * @param [option] 额外推送选项
+     */
+    async send(title: string, desp?: string, option?: WechatRobotOption): Promise<SendResponse<WechatRobotResponse>> {
+        Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
+        const { msgtype = 'text', ...args } = option || {}
+        const sep = msgtype === 'markdown' ? '\n\n' : '\n'
+        const content = `${title}${desp ? `${sep}${desp}` : ''}`
         return ajax({
             url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send',
             headers: {
                 'Content-Type': 'application/json',
             },
             method: 'POST',
-            query: { key: this.WX_ROBOT_KEY },
-            data: { ...message },
+            query: { key: this.WECHAT_ROBOT_KEY },
+            data: {
+                msgtype,
+                [msgtype]: { content },
+                ...args,
+            },
         })
     }
-    /**
-     *
-     *
-     * @author CaoMeiYouRen
-     * @date 2021-02-28
-     * @param content 要发送的内容。text内容，最长不超过2048个字节；markdown内容，最长不超过4096个字节；必须是utf8编码
-     * @param [msgtype='text'] 消息类型
-     * @returns
-     */
-    async send(content: string, msgtype: MsgType = 'text'): Promise<SendResponse> {
-        Debugger('content: "%s", msgtype: "%s"', content, msgtype)
-        switch (msgtype) {
-            case 'text':
-                return this.push(new TextMsg({
-                    msgtype: 'text',
-                    text: {
-                        content,
-                    },
-                }))
-            case 'markdown':
-                return this.push(new MarkdownMsg({
-                    msgtype: 'markdown',
-                    markdown: {
-                        content,
-                    },
-                }))
-            default:
-                break
-        }
-    }
-
 }
