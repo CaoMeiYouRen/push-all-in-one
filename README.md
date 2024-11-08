@@ -105,7 +105,7 @@ const PUSH_PLUS_TOKEN = 'xxxxxxxxxxxxxxxxxxxxx'
 const pushplus = new PushPlus(PUSH_PLUS_TOKEN)
 pushplus.send('你好', '你好，我很可爱')
 
-// iGot 推送，官方文档：https://wahao.github.io/Bark-MP-helper
+// iGot 推送，官方文档：http://hellyw.com/#/
 const I_GOT_KEY = 'xxxxxxxxxx'
 const iGot = new IGot(I_GOT_KEY)
 iGot.send('你好', '你好，我很可爱', 'https://github.com/CaoMeiYouRen/push-all-in-one')
