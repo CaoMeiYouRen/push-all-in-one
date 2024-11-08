@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:qmsg')
 
@@ -41,7 +41,7 @@ export class Qmsg implements Send {
      * @param [qq] 指定要接收消息的QQ号或者QQ群。多个以英文逗号分割，例如：12345,12346
      * @param [type='send'] send 表示发送消息给指定的QQ号，group 表示发送消息给指定的QQ群。默认为 send
      */
-    async send(msg: string, qq?: string, type: QmsgPushType = 'send'): Promise<AxiosResponse<any>> {
+    async send(msg: string, qq?: string, type: QmsgPushType = 'send'): Promise<SendResponse> {
         Debugger('msg: "%s", qq: "%s", type: "%s"', msg, qq, type)
         return ajax({
             url: `https://qmsg.zendee.cn/${type}/${this.QMSG_KEY}`,

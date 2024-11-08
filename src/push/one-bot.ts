@@ -1,8 +1,8 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { warn } from '@/utils/helper'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:one-bot')
 
@@ -84,7 +84,7 @@ export class OneBot implements Send {
      * @param msgType 消息类型
      * @param recieverId 用户/群组 ID，即 QQ 号或群号
      */
-    async send(message: string, msgType: OneBotMsgType, recieverId: number): Promise<AxiosResponse<OneBotResponse>> {
+    async send(message: string, msgType: OneBotMsgType, recieverId: number): Promise<SendResponse<OneBotResponse>> {
         Debugger('message: "%s", msgType: "%s", recieverId: "%s"', message, msgType, recieverId)
         return ajax<OneBotResponse>({
             baseURL: this.ONE_BOT_BASE_URL,

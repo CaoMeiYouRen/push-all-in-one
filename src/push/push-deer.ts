@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:push-deer')
 
@@ -60,7 +60,7 @@ export class PushDeer implements Send {
      * @param [desp=''] 消息内容第二部分
      * @param [type='markdown'] 格式。文本=text，markdown，图片=image，默认为markdown。type 为 image 时，text 中为要发送图片的URL
      */
-    async send(text: string, desp: string = '', type: PushDeerPushType = 'markdown'): Promise<AxiosResponse<any>> {
+    async send(text: string, desp: string = '', type: PushDeerPushType = 'markdown'): Promise<SendResponse> {
         Debugger('text: "%s", desp: "%s", type: "%s"', text, desp, type)
         return ajax({
             baseURL: this.PUSH_DEER_ENDPOINT,

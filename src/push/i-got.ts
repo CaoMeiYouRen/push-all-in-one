@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:i-got')
 
@@ -44,7 +44,7 @@ export class IGot implements Send {
      * @param [url] 推送携带的url
      * @returns
      */
-    send(title: string, content?: string, url?: string): Promise<AxiosResponse<any>> {
+    send(title: string, content?: string, url?: string): Promise<SendResponse> {
         Debugger('title: "%s", content: "%s", url: "%s"', title, content, url)
         return ajax({
             url: `https://push.hellyw.com/${this.I_GOT_KEY}`,

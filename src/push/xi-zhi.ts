@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:xi-zhi')
 
@@ -23,7 +23,7 @@ export class XiZhi implements Send {
             throw new Error('XI_ZHI_KEY 是必须的！')
         }
     }
-    async send(title: string, content: string = ''): Promise<AxiosResponse<any>> {
+    async send(title: string, content: string = ''): Promise<SendResponse> {
         Debugger('title: "%s", content: "%s"', title, content)
         return ajax({
             url: `https://xizhi.qqoq.net/${this.XI_ZHI_KEY}.send`,

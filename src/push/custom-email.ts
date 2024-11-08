@@ -1,7 +1,7 @@
 import debug from 'debug'
 import nodemailer from 'nodemailer'
-import SMTPTransport from 'nodemailer/lib/smtp-transport'
 import { Send } from '../interfaces/send'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:custom-email')
 
@@ -63,7 +63,7 @@ export class CustomEmail implements Send {
      * @param title 消息的标题
      * @param [desp] 消息的内容，支持 html
      */
-    async send(title: string, desp?: string): Promise<SMTPTransport.SentMessageInfo> {
+    async send(title: string, desp?: string): Promise<SendResponse> {
         Debugger('title: "%s", desp: "%s"', title, desp)
         const { EMAIL_TYPE, EMAIL_TO_ADDRESS, EMAIL_AUTH_USER, EMAIL_AUTH_PASS, EMAIL_HOST, EMAIL_PORT } = this.config
         const transporter = nodemailer.createTransport({
@@ -85,7 +85,17 @@ export class CustomEmail implements Send {
         })
         transporter.close()
         Debugger('CustomEmail Response: %o', response)
-        return response
+        if (response.response?.includes('250 OK')) {
+            return {
+                status: 200,
+                statusText: 'OK',
+                data: response,
+            }
+        }
+        return {
+            status: 500,
+            statusText: 'Internal Server Error',
+            data: response,
+        }
     }
-
 }

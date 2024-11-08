@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:push-plus')
 
@@ -49,7 +50,7 @@ export class PushPlus implements Send {
      * @param [channel='wechat'] 发送渠道
      * @returns
      */
-    send(title: string, content?: string, template: TemplateType = 'html', channel: ChannelType = 'wechat'): Promise<AxiosResponse<any>> {
+    send(title: string, content?: string, template: TemplateType = 'html', channel: ChannelType = 'wechat'): Promise<SendResponse> {
         Debugger('title: "%s", content: "%s", template: "%s", channel: "%s"', title, content, template, channel)
         return ajax({
             url: 'http://www.pushplus.plus/send',

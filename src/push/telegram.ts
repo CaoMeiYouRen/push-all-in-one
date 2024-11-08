@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:telegram')
 
@@ -133,7 +133,7 @@ export class Telegram implements Send {
         }
     }
 
-    async send(text: string): Promise<AxiosResponse<TelegramResponse>> {
+    async send(text: string): Promise<SendResponse<TelegramResponse>> {
         const url = `https://api.telegram.org/bot${this.TELEGRAM_BOT_TOKEN}/sendMessage`
         Debugger('text: %s, url: %s', text, url)
         return ajax<TelegramResponse>({

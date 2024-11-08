@@ -4,6 +4,7 @@ import { Send } from '../interfaces/send'
 import { MarkdownMsg } from './wechat/MarkdownMsg'
 import { TextMsg } from './wechat/TextMsg'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:wechat-robot')
 
@@ -30,7 +31,7 @@ export class WechatRobot implements Send {
         }
     }
 
-    private async push(message: Msg): Promise<AxiosResponse<any>> {
+    private async push(message: Msg): Promise<AxiosResponse> {
         return ajax({
             url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send',
             headers: {
@@ -50,7 +51,7 @@ export class WechatRobot implements Send {
      * @param [msgtype='text'] 消息类型
      * @returns
      */
-    async send(content: string, msgtype: MsgType = 'text'): Promise<AxiosResponse<any>> {
+    async send(content: string, msgtype: MsgType = 'text'): Promise<SendResponse> {
         Debugger('content: "%s", msgtype: "%s"', content, msgtype)
         switch (msgtype) {
             case 'text':

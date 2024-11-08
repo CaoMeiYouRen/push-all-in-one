@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:discord')
 
@@ -60,7 +60,7 @@ export class Discord implements Send {
      * @param content 要发送的内容
      * @return
      */
-    async send(content: string): Promise<AxiosResponse<any>> {
+    async send(content: string): Promise<SendResponse> {
         return ajax({
             url: this.DISCORD_WEBHOOK,
             method: 'POST',

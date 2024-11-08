@@ -8,6 +8,7 @@ import { Send } from '@/interfaces/send'
 import { warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
 import { generateSignature } from '@/utils/crypto'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:dingtalk')
 
@@ -51,7 +52,7 @@ export class Dingtalk implements Send {
         return signStr
     }
 
-    private async push(message: MessageTemplateAbs): Promise<AxiosResponse<any>> {
+    private async push(message: MessageTemplateAbs): Promise<AxiosResponse> {
         const timestamp = Date.now()
         const sign = this.getSign(timestamp)
         const result = await ajax({
@@ -84,7 +85,7 @@ export class Dingtalk implements Send {
      * @param [desp] 消息的内容，支持 Markdown
      * @returns
      */
-    async send(title: string, desp?: string): Promise<AxiosResponse<any>> {
+    async send(title: string, desp?: string): Promise<SendResponse> {
         Debugger('title: "%s", desp: "%s"', title, desp)
         if (!desp) {
             return this.push(new Text(title))

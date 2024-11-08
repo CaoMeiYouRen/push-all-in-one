@@ -1,8 +1,8 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { error, warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:wechat-app')
 export type WechatAppMsgType = 'text' | 'markdown'
@@ -108,7 +108,7 @@ export class WechatApp implements Send {
      * @param content 消息内容，最长不超过2048个字节，超过将截断（支持id转译）
      * @param [msgtype='text'] 消息类型，text | markdown
      */
-    async send(content: string, msgtype: WechatAppMsgType = 'text'): Promise<AxiosResponse<any>> {
+    async send(content: string, msgtype: WechatAppMsgType = 'text'): Promise<SendResponse> {
         Debugger('content: %s, msgtype: "%s"', content, msgtype)
         if (!this.ACCESS_TOKEN || Date.now() >= this.expiresTime) {
             this.ACCESS_TOKEN = await this.getAccessToken()

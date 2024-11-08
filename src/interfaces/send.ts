@@ -1,3 +1,5 @@
+import { SendResponse } from './response'
+
 /**
  * 要求所有 push 方法都至少实现了 send 接口
  *
@@ -23,4 +25,5 @@ export interface Send {
      * @param args
      */
     send(...args: any[]): Promise<any>
+    send<T = any, D = any>(title: string, desp?: string, options?: T): Promise<SendResponse<D>>
 }

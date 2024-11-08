@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:server-chan-turbo')
 
@@ -81,7 +81,7 @@ export class ServerChanTurbo implements Send {
      * @param text 消息的标题
      * @param desp 消息的内容，支持 Markdown
      */
-    async send(text: string, desp: string = '', options: ServerChanTurboOptions = {}): Promise<AxiosResponse<any>> {
+    async send(text: string, desp: string = '', options: ServerChanTurboOptions = {}): Promise<SendResponse> {
         Debugger('text: "%s", desp: "%s", options: %O', text, desp, options)
         if (options.noip === 1 || options.noip === true) {
             options.noip = '1'
