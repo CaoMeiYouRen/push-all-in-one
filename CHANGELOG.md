@@ -1,5 +1,48 @@
 # push-all-in-one
 
+# [4.0.0-beta.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.6.0...v4.0.0-beta.1) (2024-11-09)
+
+
+### ♻ 代码重构
+
+* 修改文档；修改代码示例；优化 部分代码的类型声明 ([1f481bf](https://github.com/CaoMeiYouRen/push-all-in-one/commit/1f481bf))
+* 移除 crypto-js，迁移到原生的 crypto ([0ba1b0d](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0ba1b0d))
+* 调整 send 接口 返回值类型 为 SendResponse ([90db419](https://github.com/CaoMeiYouRen/push-all-in-one/commit/90db419))
+* 调整 自定义邮件/Discord/IGot 的接口类型声明 ([2c30bc6](https://github.com/CaoMeiYouRen/push-all-in-one/commit/2c30bc6))
+* 重构 Discord 为新版接口 ([d087a64](https://github.com/CaoMeiYouRen/push-all-in-one/commit/d087a64))
+* 重构 iGot 推送 为新版接口 ([7f73e1e](https://github.com/CaoMeiYouRen/push-all-in-one/commit/7f73e1e))
+* 重构 OneBot 推送为 新版接口 ([b636613](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b636613))
+* 重构 PushDeer 推送 为新版接口 ([2c85ecf](https://github.com/CaoMeiYouRen/push-all-in-one/commit/2c85ecf))
+* 重构 PushPlus 为新版接口 ([72b3457](https://github.com/CaoMeiYouRen/push-all-in-one/commit/72b3457))
+* 重构 Qmsg 酱 为新版接口 ([284a56d](https://github.com/CaoMeiYouRen/push-all-in-one/commit/284a56d))
+* 重构 ServerChanTurbo/ServerChanV3 到新版接口 ([3ae9c5b](https://github.com/CaoMeiYouRen/push-all-in-one/commit/3ae9c5b))
+* 重构 Telegram 到新版接口 ([138cba8](https://github.com/CaoMeiYouRen/push-all-in-one/commit/138cba8))
+* 重构 WechatApp/WechatRobot 到新版接口 ([8d4d7a5](https://github.com/CaoMeiYouRen/push-all-in-one/commit/8d4d7a5))
+* 重构 息知推送 到新版接口 ([24ffb17](https://github.com/CaoMeiYouRen/push-all-in-one/commit/24ffb17))
+* 重构 自定义邮件类 为新版接口；优化资源的释放 ([bd912f1](https://github.com/CaoMeiYouRen/push-all-in-one/commit/bd912f1))
+* 重构 钉钉机器人 推送，迁移到 新版接口；优化 日志输出 ([82bfab4](https://github.com/CaoMeiYouRen/push-all-in-one/commit/82bfab4))
+* 重构 钉钉机器人推送 的类型声明 ([7463ca4](https://github.com/CaoMeiYouRen/push-all-in-one/commit/7463ca4))
+
+
+### ✨ 新功能
+
+* 最低 Node.js 版本要求提升到 18，以支持原生 esm ([6d0a6d1](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6d0a6d1))
+* 新增 runPushAllInOne 函数 ([664ca21](https://github.com/CaoMeiYouRen/push-all-in-one/commit/664ca21))
+
+
+### 🐛 Bug 修复
+
+* qmsg 酱 增加 bot 参数 ([95b5433](https://github.com/CaoMeiYouRen/push-all-in-one/commit/95b5433))
+* 修复 代理依赖升级导致的错误；优化 Server 酱³ 调用方式为 安全模式 ([40b9888](https://github.com/CaoMeiYouRen/push-all-in-one/commit/40b9888))
+* 升级 https-proxy-agent、socks-proxy-agent 版本 ([b9d24aa](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b9d24aa))
+* 移除 qs，迁移到原生 URLSearchParams；修复 Qmsg 文档链接 ([447fe60](https://github.com/CaoMeiYouRen/push-all-in-one/commit/447fe60))
+* 迁移测试到 jest；修复 生成钉钉签名 错误的问题 ([4c5adc4](https://github.com/CaoMeiYouRen/push-all-in-one/commit/4c5adc4))
+
+
+### 💥 BREAKING CHANGES
+
+* 最低 Node.js 版本要求提升到 18，以支持原生 esm
+
 # [3.6.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.5.4...v3.6.0) (2024-10-04)
 
 
