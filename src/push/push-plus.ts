@@ -5,9 +5,9 @@ import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:push-plus')
 
-export type TemplateType = 'html' | 'txt' | 'json' | 'markdown' | 'cloudMonitor' | 'jenkins' | 'route'
+export type PushPlusTemplateType = 'html' | 'txt' | 'json' | 'markdown' | 'cloudMonitor' | 'jenkins' | 'route'
 
-export type ChannelType = 'wechat' | 'webhook' | 'cp' | 'sms' | 'mail'
+export type PushPlusChannelType = 'wechat' | 'webhook' | 'cp' | 'sms' | 'mail'
 
 export interface PushPlusConfig {
     /**
@@ -20,11 +20,11 @@ export interface PushPlusOption {
     /**
      * 模板类型
      */
-    template: TemplateType
+    template?: PushPlusTemplateType
     /**
      * 渠道类型
      */
-    channel: ChannelType
+    channel?: PushPlusChannelType
     /**
      * 群组编码，不填仅发送给自己；channel为webhook时无效
      */

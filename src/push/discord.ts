@@ -21,11 +21,11 @@ export type DiscordOption = {
     /**
      * 机器人显示的名称
      */
-    username: string
+    username?: string
     /**
      * 机器人头像的 Url
      */
-    avatar_url: string
+    avatar_url?: string
     [key: string]: any
 }
 

@@ -39,7 +39,7 @@ export class XiZhi implements Send {
         }
     }
 
-    async send(title: string, desp?: string): Promise<SendResponse<XiZhiResponse>> {
+    async send(title: string, desp?: string, option?: XiZhiOption): Promise<SendResponse<XiZhiResponse>> {
         Debugger('title: "%s", desp: "%s"', title, desp)
         return ajax({
             url: `https://xizhi.qqoq.net/${this.XI_ZHI_KEY}.send`,

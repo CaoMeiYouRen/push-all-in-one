@@ -109,7 +109,7 @@ export class Dingtalk implements Send {
      * @param [desp] 消息的内容，支持 Markdown
      * @returns
      */
-    async send(title: string, desp?: string): Promise<SendResponse<DingtalkResponse>> {
+    async send(title: string, desp?: string, option?: DingtalkOption): Promise<SendResponse<DingtalkResponse>> {
         Debugger('title: "%s", desp: "%s"', title, desp)
         if (!desp) {
             return this.push(new Text(title))
