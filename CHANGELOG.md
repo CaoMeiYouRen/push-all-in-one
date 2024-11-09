@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.0.0-beta.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.0.0-beta.1...v4.0.0-beta.2) (2024-11-09)
+
+
+### 🐛 Bug 修复
+
+* 修复 接口类型未导出的问题；修复 部分类型声明的大小写问题 ([9535ebc](https://github.com/CaoMeiYouRen/push-all-in-one/commit/9535ebc))
+
 # [4.0.0-beta.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.6.0...v4.0.0-beta.1) (2024-11-09)
 
 
