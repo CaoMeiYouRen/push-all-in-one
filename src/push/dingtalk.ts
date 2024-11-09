@@ -65,10 +65,10 @@ export class Dingtalk implements Send {
         this.SECRET = DINGTALK_SECRET
         Debugger('DINGTALK_ACCESS_TOKEN: %s , DINGTALK_SECRET: %s', this.ACCESS_TOKEN, this.SECRET)
         if (!this.ACCESS_TOKEN) {
-            throw new Error('ACCESS_TOKEN 是必须的！')
+            throw new Error('DINGTALK_ACCESS_TOKEN 是必须的！')
         }
         if (!this.SECRET) {
-            warn('未提供 SECRET ！')
+            warn('未提供 DINGTALK_SECRET ！')
         }
     }
 

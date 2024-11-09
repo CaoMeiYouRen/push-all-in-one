@@ -68,11 +68,11 @@ export class ServerChanV3 implements Send {
         this.sendkey = sendkey
         Debugger('set sendkey: "%s"', sendkey)
         if (!this.sendkey) {
-            throw new Error('sendkey 是必须的！')
+            throw new Error('SERVER_CHAN_V3_SENDKEY 是必须的！')
         }
         this.uid = this.sendkey.match(/^sctp(\d+)t/)?.[1]
         if (!this.uid) {
-            throw new Error('sendkey 不合法！')
+            throw new Error('SERVER_CHAN_V3_SENDKEY 不合法！')
         }
     }
 
