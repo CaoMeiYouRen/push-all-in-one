@@ -11,6 +11,8 @@ import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:dingtalk')
 
+export type DINGTALK_MSG_TYPE = 'text' | 'markdown' | 'link' | 'actionCard' | 'feedCard'
+
 export interface DingtalkConfig {
     /**
      * 钉钉机器人 access_token。官方文档：https://developers.dingtalk.com/document/app/custom-robot-access
@@ -23,6 +25,7 @@ export interface DingtalkConfig {
 }
 
 export interface DingtalkOption {
+    [key: string]: any
 }
 
 export interface DingtalkResponse {
@@ -110,7 +113,7 @@ export class Dingtalk implements Send {
      * @returns
      */
     async send(title: string, desp?: string, option?: DingtalkOption): Promise<SendResponse<DingtalkResponse>> {
-        Debugger('title: "%s", desp: "%s"', title, desp)
+        Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
         if (!desp) {
             return this.push(new Text(title))
         }
