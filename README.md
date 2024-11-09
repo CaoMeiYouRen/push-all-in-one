@@ -26,7 +26,11 @@
 
 > Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式。
 >
+> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, pushplus, iGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, and more.
+>
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！
+>
+> Friendly Reminder: For security reasons, **all** push methods should be used on the **server side**! Do not use them on the **client side (web page)**!
 
 > 基于 push-all-in-one 和 hono 开发的云函数推送服务——[push-all-in-cloud](https://github.com/CaoMeiYouRen/push-all-in-cloud) 。支持 nodejs/docker/vercel 等部署方式 ，可一键部署到 vercel 。
 
@@ -38,18 +42,18 @@
 
 [https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
 
-## 📦 依赖要求
+## 📦 依赖要求/Requirements
 
 
 - node >=18
 
-## 🚀 安装
+## 🚀 安装/Installation
 
 ```sh
 npm i push-all-in-one -S
 ```
 
-## 👨‍💻 使用
+## 👨‍💻 使用/Usage
 
 所有推送方式均实现了 `send(title: string, desp?: string, options?: any):` 方法。
 
@@ -155,23 +159,27 @@ pushDeer.send('你好', '你好，我很可爱 - PushDeer', {
 })
 
 // 【推荐】Discord Webhook 推送，官方文档：https://support.discord.com/hc/zh-tw/articles/228383668-%E4%BD%BF%E7%94%A8%E7%B6%B2%E7%B5%A1%E9%89%A4%E6%89%8B-Webhooks-
+// [Recommended] Discord Webhook push. Official documentation: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
 const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxx'
 const DISCORD_USERNAME = 'My Bot'
 const PROXY_URL = 'http://127.0.0.1:8101'
 const discord = new Discord({ DISCORD_WEBHOOK, PROXY_URL })
 // Discord 也支持以下方式添加代理地址
+// Discord also supports adding proxy addresses in the following ways
 // discord.proxyUrl = 'http://127.0.0.1:8101'
 discord.send('你好，我很可爱 - Discord', '', {
     username: DISCORD_USERNAME,
 })
 
 // 【推荐】Telegram Bot 推送。官方文档：https://core.telegram.org/bots/api#making-requests
+// [Recommended] Telegram Bot push. Official documentation: https://core.telegram.org/bots/api#making-requests
 const telegram = new Telegram({
     TELEGRAM_BOT_TOKEN: '111111:xxxxxxxxxxxxxx',
     TELEGRAM_CHAT_ID: 100000,
     // PROXY_URL: 'http://127.0.0.1:8101',
 })
 // Telegram 也支持以下方式添加代理地址
+// Telegram also supports adding proxy addresses in the following ways
 // telegram.proxyUrl = 'http://127.0.0.1:8101'
 telegram.send('你好，我很可爱 - Telegram', '', {
     disable_notification: true,
@@ -218,7 +226,7 @@ export HTTP_PROXY='http://127.0.0.1:8101' # Linux
 cross-env HTTP_PROXY='http://127.0.0.1:8101' # 通过 cross-env 这个包来跨平台
 ```
 
-## 🛠️ 开发
+## 🛠️ 开发/Development
 
 本项目采用 TypeScript 开发，使用 tsup 打包，可以完美实现类型提示和摇树优化，对于未使用到的模块，会在编译阶段去除。
 
@@ -234,7 +242,7 @@ npm run dev
 cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts # 因为一些原因该文件未上传，可自行编写测试用例
 ```
 
-## 🔧 编译
+## 🔧 编译/Build
 
 ```sh
 npm run build
@@ -252,20 +260,24 @@ npm run lint
 npm run commit
 ```
 
-## 👤 作者
+## 👤 作者/Author
 
 **CaoMeiYouRen**
 
 * Website: [https://blog.cmyr.ltd/](https://blog.cmyr.ltd/)
 * GitHub: [@CaoMeiYouRen](https://github.com/CaoMeiYouRen)
 
-## 🤝 贡献
+## 🤝 贡献/Contribution
 
 欢迎 贡献、提问或提出新功能！<br />如有问题请查看 [issues page](https://github.com/CaoMeiYouRen/push-all-in-one/issues). <br/>贡献或提出新功能可以查看[contributing guide](https://github.com/CaoMeiYouRen/push-all-in-one/blob/master/CONTRIBUTING.md).
 
-## 💰 支持
+Welcome to contribute, ask questions or propose new features! <br />If you have any questions, please check the  [issues page](https://github.com/CaoMeiYouRen/push-all-in-one/issues). <br/> For contributions or new feature proposals, please refer to the [contributing guide](https://github.com/CaoMeiYouRen/push-all-in-one/blob/master/CONTRIBUTING.md).
 
-如果觉得这个项目有用的话请给一颗⭐️，非常感谢
+## 💰 支持/Support
+
+如果觉得这个项目有用的话请给一颗⭐️，非常感谢。
+
+If you find this project useful, please give it a ⭐️. Thank you very much.
 
 <a href="https://afdian.com/@CaoMeiYouRen">
   <img src="https://cdn.jsdelivr.net/gh/CaoMeiYouRen/image-hosting-01@master/images/202306192324870.png" width="312px" height="78px" alt="在爱发电支持我">
