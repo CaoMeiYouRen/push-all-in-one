@@ -1,27 +1,19 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { MessageTemplateAbs } from './template'
-
-class Text extends MessageTemplateAbs {
-    content: string
-    constructor(content: string) {
-        super()
-        this.msgtype = 'text'
-        this.canAt = true
-        this.setContent(content)
+/**
+ * 文本消息
+ *
+ * @author CaoMeiYouRen
+ * @date 2024-11-09
+ * @export
+ * @interface Text
+ */
+export interface Text {
+    msgtype: 'text'
+    text: {
+        content: string
     }
-
-    setContent(content: string) {
-        this.content = content
-        return this
-    }
-
-    get() {
-        return this.render({
-            text: {
-                content: this.content,
-            },
-        })
+    at?: {
+        atMobiles?: string[]
+        atUserIds?: string[]
+        isAtAll?: boolean
     }
 }
-
-export { Text }

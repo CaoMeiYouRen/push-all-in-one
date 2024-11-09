@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios'
 import colors from '@colors/colors'
-import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, PushPlusTemplateType, CustomEmailType, OneBotMsgType, WechatRobotMsgType, WechatAppMsgType, PushPlusChannelType } from '../src'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, PushPlusTemplateType, CustomEmailType, WechatRobotMsgType, WechatAppMsgType, PushPlusChannelType } from '../src'
 import { warn } from '../src/utils/helper'
 import { SendResponse } from '../src/interfaces/response'
 
@@ -64,7 +64,7 @@ export async function batchPushAllInOne(title: string, desp?: string): Promise<P
             DINGTALK_ACCESS_TOKEN: env.DINGTALK_ACCESS_TOKEN,
             DINGTALK_SECRET: env.DINGTALK_SECRET,
         })
-        pushs.push(dingtalk.send(title, desp))
+        pushs.push(dingtalk.send(title, desp, { msgtype: 'markdown' }))
         info('钉钉机器人 已加入推送队列')
     } else {
         info('未配置 钉钉机器人，已跳过')

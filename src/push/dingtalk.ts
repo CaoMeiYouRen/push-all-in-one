@@ -1,8 +1,10 @@
 import { AxiosResponse } from 'axios'
 import debug from 'debug'
-import { MessageTemplateAbs } from './dingtalk/template'
-import { Text } from './dingtalk/Text'
-import { Markdown } from './dingtalk/Markdown'
+import { Markdown } from './dingtalk/markdown'
+import { Text } from './dingtalk/text'
+import { Link } from './dingtalk/link'
+import { FeedCard } from './dingtalk/feed-card'
+import { ActionCard } from './dingtalk/action-card'
 import { Send } from '@/interfaces/send'
 import { warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
@@ -24,9 +26,9 @@ export interface DingtalkConfig {
     DINGTALK_SECRET?: string
 }
 
-export interface DingtalkOption {
+export type DingtalkOption = {
     [key: string]: any
-}
+} & Partial<(Text | Markdown | Link | FeedCard | ActionCard)>
 
 export interface DingtalkResponse {
     errcode: number
@@ -79,7 +81,7 @@ export class Dingtalk implements Send {
         return signStr
     }
 
-    private async push(message: MessageTemplateAbs): Promise<AxiosResponse<DingtalkResponse>> {
+    private async push(data: DingtalkOption): Promise<AxiosResponse<DingtalkResponse>> {
         const timestamp = Date.now()
         const sign = this.getSign(timestamp)
         const result = await ajax({
@@ -93,7 +95,7 @@ export class Dingtalk implements Send {
                 sign,
                 access_token: this.ACCESS_TOKEN,
             },
-            data: message.get(),
+            data,
         })
         Debugger('Result is %s, %s。', result.data.errcode, result.data.errmsg)
         if (result.data.errcode === 310000) {
@@ -114,11 +116,58 @@ export class Dingtalk implements Send {
      */
     async send(title: string, desp?: string, option?: DingtalkOption): Promise<SendResponse<DingtalkResponse>> {
         Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
-        if (!desp) {
-            return this.push(new Text(title))
+        switch (option.msgtype) {
+            case 'text':
+                return this.push({
+                    msgtype: 'text',
+                    text: {
+                        content: `${title}${desp ? `\n${desp}` : ''}`,
+                    },
+                    ...option,
+                })
+            case 'markdown':
+                return this.push({
+                    msgtype: 'markdown',
+                    markdown: {
+                        title,
+                        text: `# ${title}${desp ? `\n\n${desp}` : ''}`,
+                    },
+                    ...option,
+                })
+            case 'link':
+                return this.push({
+                    msgtype: 'link',
+                    link: {
+                        title,
+                        text: desp || '',
+                        picUrl: option?.link?.picUrl || '',
+                        messageUrl: option.link?.messageUrl || '',
+                    },
+                    ...option,
+                })
+            case 'actionCard':
+                return this.push({
+                    msgtype: 'actionCard',
+                    actionCard: {
+                        title,
+                        text: desp || '',
+                        btnOrientation: option?.actionCard?.btnOrientation || '0',
+                        btns: (option?.actionCard as any)?.btns,
+                        singleTitle: (option?.actionCard as any)?.singleTitle,
+                        singleURL: (option?.actionCard as any)?.singleURL,
+                    },
+                    ...option,
+                })
+            case 'feedCard':
+                return this.push({
+                    msgtype: 'feedCard',
+                    feedCard: {
+                        links: option?.feedCard?.links || [],
+                    },
+                    ...option,
+                })
+            default:
+                throw new Error('msgtype is required!')
         }
-        const markDown = new Markdown()
-        markDown.setTitle(title).add(`# ${title}`).add(`${desp}`)
-        return this.push(markDown)
     }
 }

@@ -93,7 +93,7 @@ const dingtalk = new Dingtalk({
     DINGTALK_ACCESS_TOKEN,
     DINGTALK_SECRET,
 })
-dingtalk.send('你好', '你好，我很可爱 - 钉钉机器人')
+dingtalk.send('你好', '你好，我很可爱 - 钉钉机器人', { msgtype: 'markdown' })
 
 // 企业微信群机器人。官方文档：https://developer.work.weixin.qq.com/document/path/91770
 // 企业微信群机器人的使用需要两人以上加入企业，如果个人使用微信推送建议使用 企业微信应用+微信插件 推送。虽然需要配置的内容更多了，但是无需下载企业微信，网页端即可完成操作。
