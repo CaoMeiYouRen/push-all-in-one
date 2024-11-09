@@ -106,8 +106,8 @@ export async function batchPushAllInOne(title: string, desp?: string): Promise<P
             PUSH_PLUS_TOKEN: env.PUSH_PLUS_TOKEN,
         })
         pushs.push(pushplus.send(title, desp, {
-            template: env.PUSH_PLUS_TEMPLATE as PushPlusTemplateType || 'html',
-            channel: env.PUSH_PLUS_CHANNEL as PushPlusChannelType || 'wechat',
+            template: env.PUSH_PLUS_TEMPLATE_TYPE as PushPlusTemplateType || 'html',
+            channel: env.PUSH_PLUS_CHANNEL_TYPE as PushPlusChannelType || 'wechat',
         }))
         info('pushplus 推送 已加入推送队列')
     } else {
@@ -199,8 +199,8 @@ export async function batchPushAllInOne(title: string, desp?: string): Promise<P
             ONE_BOT_ACCESS_TOKEN: env.ONE_BOT_ACCESS_TOKEN,
         })
         pushs.push(oneBot.send(title, desp || '', {
-            message_type: 'group',
-            group_id: Number(env.ONE_BOT_GROUP_ID),
+            message_type: 'private',
+            user_id: Number(env.ONE_BOT_USER_ID),
         }))
         info('OneBot 推送 已加入推送队列')
     } else {
