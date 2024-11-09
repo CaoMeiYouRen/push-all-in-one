@@ -116,12 +116,14 @@ export class CustomEmail implements Send {
                 status: 200,
                 statusText: 'OK',
                 data: response,
+                headers: {},
             }
         }
         return {
             status: 500,
             statusText: 'Internal Server Error',
             data: response,
+            headers: {},
         }
     }
 }

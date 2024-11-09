@@ -202,9 +202,9 @@ export async function batchPushAllInOne(title: string, desp?: string): Promise<P
             message_type: 'group',
             group_id: Number(env.ONE_BOT_GROUP_ID),
         }))
-        info('Discord 推送 已加入推送队列')
+        info('OneBot 推送 已加入推送队列')
     } else {
-        info('未配置 Discord 推送，已跳过')
+        info('未配置 OneBot 推送，已跳过')
     }
 
     if (pushs.length === 0) {

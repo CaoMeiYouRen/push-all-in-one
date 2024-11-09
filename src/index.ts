@@ -14,3 +14,5 @@ export * from './push/wechat-robot'
 export * from './push/xi-zhi'
 
 export * from './one'
+export * from './interfaces/response'
+export * from './interfaces/send'

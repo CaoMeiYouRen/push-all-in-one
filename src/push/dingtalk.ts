@@ -13,7 +13,7 @@ import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:dingtalk')
 
-export type DINGTALK_MSG_TYPE = 'text' | 'markdown' | 'link' | 'actionCard' | 'feedCard'
+export type DingtalkMsgType = 'text' | 'markdown' | 'link' | 'actionCard' | 'feedCard'
 
 export interface DingtalkConfig {
     /**
