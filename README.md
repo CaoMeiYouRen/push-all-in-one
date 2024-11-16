@@ -62,7 +62,18 @@ npm i push-all-in-one -S
 调用方式举例：
 
 ```ts
-import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram } from 'push-all-in-one'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, runPushAllInOne } from 'push-all-in-one'
+
+// 通过 runPushAllInOne 统一调用
+runPushAllInOne('测试推送', '测试推送', {
+    type: 'ServerChanTurbo',
+    config: {
+        SERVER_CHAN_TURBO_SENDKEY: '',
+    },
+    option: {
+    },
+})
+
 
 // Server酱·Turbo。官方文档：https://sct.ftqq.com/r/13172
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
