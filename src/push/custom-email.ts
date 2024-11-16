@@ -2,7 +2,7 @@ import debug from 'debug'
 import nodemailer from 'nodemailer'
 import SMTPTransport from 'nodemailer/lib/smtp-transport'
 import Mail from 'nodemailer/lib/mailer'
-import { Send } from '../interfaces/send'
+import { Send } from '@/interfaces/send'
 import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:custom-email')

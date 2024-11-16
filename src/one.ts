@@ -1,5 +1,5 @@
-import { CustomEmail, Dingtalk, Discord, IGot, OneBot, PushDeer, PushPlus, Qmsg, ServerChanTurbo, ServerChanV3, Telegram, WechatApp, WechatRobot, XiZhi } from '../src'
-import { SendResponse } from '../src/interfaces/response'
+import { CustomEmail, Dingtalk, Discord, IGot, OneBot, PushDeer, PushPlus, Qmsg, ServerChanTurbo, ServerChanV3, Telegram, WechatApp, WechatRobot, XiZhi } from './index'
+import { SendResponse } from '@/interfaces/response'
 
 const PushAllInOne = {
     CustomEmail,

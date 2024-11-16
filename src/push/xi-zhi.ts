@@ -1,5 +1,5 @@
 import debug from 'debug'
-import { Send } from '../interfaces/send'
+import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
 
