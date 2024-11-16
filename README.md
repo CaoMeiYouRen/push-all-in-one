@@ -31,8 +31,15 @@
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！
 >
 > Friendly Reminder: For security reasons, **all** push methods should be used on the **server side**! Do not use them on the **client side (web page)**!
-
+>
 > 基于 push-all-in-one 和 hono 开发的云函数推送服务——[push-all-in-cloud](https://github.com/CaoMeiYouRen/push-all-in-cloud) 。支持 nodejs/docker/vercel 等部署方式 ，可一键部署到 vercel 。
+
+**重大更新提示：** `push-all-in-one` v4 版本不兼容 v3 及以下低版本，请查看 [CHANGELOG](./CHANGELOG.md) 了解改动。
+**BREAKING CHANGES**: `push-all-in-one` v4 version is not compatible with v3 and lower versions. Please refer to [CHANGELOG](./CHANGELOG.md) for changes.
+
+建议根据 TypeScript 的类型提示进行修改。
+
+Suggest modifying according to TypeScript's type prompts.
 
 ## 🏠 主页
 
