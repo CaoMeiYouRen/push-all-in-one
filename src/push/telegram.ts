@@ -1,11 +1,11 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '../interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:telegram')
 
-export interface TelegramOption {
+export interface TelegramConfig {
     /**
      * 机器人令牌
      * 您可以从 https://t.me/BotFather 获取 Token。
@@ -21,26 +21,36 @@ export interface TelegramOption {
      */
     TELEGRAM_CHAT_ID: number
     /**
+     * 代理地址
+     */
+    PROXY_URL?: string
+}
+
+/**
+ * 参考 https://core.telegram.org/bots/api#sendmessage
+ *
+ * @author CaoMeiYouRen
+ * @date 2024-11-09
+ * @export
+ * @interface TelegramOption
+ */
+export interface TelegramOption {
+    /**
      * 静默发送
      * 静默地发送消息。消息发布后用户会收到无声通知。
-     * @author CaoMeiYouRen
-     * @date 2023-10-22
      */
-    TELEGRAM_SEND_SILENTLY?: boolean
+    disable_notification?: boolean
     /**
      * 阻止转发/保存
      * 如果启用，Telegram 中的机器人消息将受到保护，不会被转发和保存。
-     * @author CaoMeiYouRen
-     * @date 2023-10-22
      */
-    TELEGRAM_PROTECT_CONTENT?: boolean
+    protect_content?: boolean
     /**
      * 话题 ID
      * 可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用
-     * @author CaoMeiYouRen
-     * @date 2023-10-22
      */
-    TELEGRAM_MESSAGE_THREAD_ID?: string
+    message_thread_id?: string
+    [key: string]: any
 }
 
 interface From {
@@ -95,47 +105,36 @@ export class Telegram implements Send {
      * @private
      */
     private TELEGRAM_CHAT_ID: number
-    /**
-     * 静默发送
-     * 静默地发送消息。消息发布后用户会收到无声通知。
-     * @author CaoMeiYouRen
-     * @date 2023-10-22
-     * @private
-     */
-    private TELEGRAM_SEND_SILENTLY?: boolean = false
-    /**
-     * 阻止转发/保存
-     * 如果启用，Telegram 中的机器人消息将受到保护，不会被转发和保存。
-     * @author CaoMeiYouRen
-     * @date 2023-10-22
-     * @private
-     */
-    private TELEGRAM_PROTECT_CONTENT?: boolean = false
-    /**
-     * 话题 ID
-     * 可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用
-     * @author CaoMeiYouRen
-     * @date 2023-10-22
-     * @private
-     */
-    private TELEGRAM_MESSAGE_THREAD_ID?: string
 
     proxyUrl?: string
 
-    constructor(option: TelegramOption) {
-        Debugger('option: %O', option)
-        Object.assign(this, option)
+    constructor(config: TelegramConfig) {
+        Debugger('config: %O', config)
+        Object.assign(this, config)
         if (!this.TELEGRAM_BOT_TOKEN) {
             throw new Error('TELEGRAM_BOT_TOKEN 是必须的！')
         }
         if (!this.TELEGRAM_CHAT_ID) {
             throw new Error('TELEGRAM_CHAT_ID 是必须的！')
         }
+        if (config.PROXY_URL) {
+            this.proxyUrl = config.PROXY_URL
+        }
     }
 
-    async send(text: string): Promise<AxiosResponse<TelegramResponse>> {
+    /**
+     * 发送消息
+     *
+     * @author CaoMeiYouRen
+     * @date 2024-11-09
+     * @param title 消息标题
+     * @param [desp] 消息正文，和 title 相加后不超过 4096 个字符
+     * @param [option] 其他参数
+     */
+    async send(title: string, desp?: string, option?: TelegramOption): Promise<SendResponse<TelegramResponse>> {
         const url = `https://api.telegram.org/bot${this.TELEGRAM_BOT_TOKEN}/sendMessage`
-        Debugger('text: %s, url: %s', text, url)
+        Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
+        const text = `${title}${desp ? `\n${desp}` : ''}`
         return ajax<TelegramResponse>({
             url,
             method: 'POST',
@@ -143,9 +142,6 @@ export class Telegram implements Send {
             data: {
                 chat_id: this.TELEGRAM_CHAT_ID,
                 text,
-                disable_notification: this.TELEGRAM_SEND_SILENTLY,
-                protect_content: this.TELEGRAM_PROTECT_CONTENT,
-                message_thread_id: this.TELEGRAM_MESSAGE_THREAD_ID,
             },
         })
     }

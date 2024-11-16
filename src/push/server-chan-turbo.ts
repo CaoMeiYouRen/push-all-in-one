@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
 import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
+import { SendResponse } from '@/interfaces/response'
 
 const Debugger = debug('push:server-chan-turbo')
 
@@ -9,10 +9,18 @@ export type ChannelValue = 98 | 66 | 1 | 2 | 3 | 8 | 0 | 88 | 18 | 9
 
 export type Channel = `${ChannelValue}` | `${ChannelValue}|${ChannelValue}`
 
+export interface ServerChanTurboConfig {
+    /**
+     * Server酱 Turbo 的 SCTKEY
+     * 请前往 https://sct.ftqq.com/sendkey 领取
+     */
+    SERVER_CHAN_TURBO_SENDKEY: string
+}
+
 /**
  * 附加参数
  */
-export type ServerChanTurboOptions = {
+export type ServerChanTurboOption = {
     /**
      *  消息卡片内容，选填。最大长度 64。如果不指定，将自动从 desp 中截取生成。
      */
@@ -42,6 +50,20 @@ export type ServerChanTurboOptions = {
     openid?: string
 }
 
+export interface ServerChanTurboResponse {
+    // 0 表示成功，其他值表示失败
+    code: number
+    message: string
+    data: {
+        // 推送消息的 ID
+        pushid: string
+        // 推送消息的阅读凭证
+        readkey: string
+        error: string
+        errno: number
+    }
+}
+
 /**
  * Server 酱·Turbo
  * 文档 https://sct.ftqq.com/
@@ -56,14 +78,15 @@ export class ServerChanTurbo implements Send {
     /**
      *
      * @author CaoMeiYouRen
-     * @date 2021-02-27
-     * @param SCTKEY 请前往 https://sct.ftqq.com/sendkey 领取
+     * @date 2024-11-08
+     * @param config 请前往 https://sct.ftqq.com/sendkey 领取
      */
-    constructor(SCTKEY: string) {
-        this.SCTKEY = SCTKEY
-        Debugger('set SCTKEY: "%s"', SCTKEY)
+    constructor(config: ServerChanTurboConfig) {
+        const { SERVER_CHAN_TURBO_SENDKEY } = config
+        this.SCTKEY = SERVER_CHAN_TURBO_SENDKEY
+        Debugger('set SCTKEY: "%s"', this.SCTKEY)
         if (!this.SCTKEY) {
-            throw new Error('SCTKEY 是必须的！')
+            throw new Error('SERVER_CHAN_TURBO_SENDKEY 是必须的！')
         }
     }
     /**
@@ -77,19 +100,20 @@ export class ServerChanTurbo implements Send {
      * 发送消息
      *
      * @author CaoMeiYouRen
-     * @date 2021-02-25
-     * @param text 消息的标题
-     * @param desp 消息的内容，支持 Markdown
+     * @date 2024-11-08
+     * @param title 消息的标题
+     * @param [desp=''] 消息的内容，支持 Markdown
+     * @param [option={}] 额外发送选项
      */
-    async send(text: string, desp: string = '', options: ServerChanTurboOptions = {}): Promise<AxiosResponse<any>> {
-        Debugger('text: "%s", desp: "%s", options: %O', text, desp, options)
-        if (options.noip === 1 || options.noip === true) {
-            options.noip = '1'
+    async send(title: string, desp: string = '', option: ServerChanTurboOption = {}): Promise<SendResponse<ServerChanTurboResponse>> {
+        Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
+        if (option.noip === 1 || option.noip === true) {
+            option.noip = '1'
         }
         const data = {
-            text,
+            text: title,
             desp,
-            ...options,
+            ...option,
         }
         return ajax({
             url: `https://sctapi.ftqq.com/${this.SCTKEY}.send`,

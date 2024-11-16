@@ -1,9 +1,8 @@
 import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
-import qs from 'qs'
 import debug from 'debug'
-import HttpsProxyAgent from 'https-proxy-agent'
-import SocksProxyAgent from 'socks-proxy-agent'
-import { isHttpURL, isSocksUrl } from './helper'
+import { HttpsProxyAgent } from 'https-proxy-agent'
+import { SocksProxyAgent } from 'socks-proxy-agent'
+import { isHttpURL, isSocksUrl, logger } from './helper'
 
 const Debugger = debug('push:ajax')
 
@@ -34,7 +33,7 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
         let { data = {} } = config
 
         if (headers['Content-Type'] === 'application/x-www-form-urlencoded' && typeof data === 'object') {
-            data = qs.stringify(data)
+            data = new URLSearchParams(data as Record<string, string>).toString()
         }
 
         let httpAgent = null
@@ -44,15 +43,15 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
             Debugger('HTTPS_PROXY: %s', process.env.HTTPS_PROXY)
             Debugger('SOCKS_PROXY: %s', process.env.SOCKS_PROXY)
             if (isHttpURL(proxyUrl)) {
-                httpAgent = HttpsProxyAgent(proxyUrl)
+                httpAgent = new HttpsProxyAgent(proxyUrl)
             } else if (isSocksUrl(proxyUrl)) {
-                httpAgent = SocksProxyAgent(proxyUrl)
+                httpAgent = new SocksProxyAgent(proxyUrl)
             } else if (process.env.HTTPS_PROXY) {
-                httpAgent = HttpsProxyAgent(process.env.HTTPS_PROXY)
+                httpAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY)
             } else if (process.env.HTTP_PROXY) {
-                httpAgent = HttpsProxyAgent(process.env.HTTP_PROXY)
+                httpAgent = new HttpsProxyAgent(process.env.HTTP_PROXY)
             } else if (process.env.SOCKS_PROXY) {
-                httpAgent = SocksProxyAgent(process.env.SOCKS_PROXY)
+                httpAgent = new SocksProxyAgent(process.env.SOCKS_PROXY)
             }
         }
         const response = await axios(url, {
@@ -61,7 +60,7 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
             headers,
             params: query,
             data,
-            timeout: 10000,
+            timeout: 60000,
             httpAgent,
             httpsAgent: httpAgent,
             proxy: false,
@@ -70,13 +69,8 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
         return response
     } catch (error) {
         if (error?.response) {
-            console.error(error.response)
+            logger.error(error.response)
             return error.response
-        }
-        if (error.toJSON) {
-            console.error(error.toJSON())
-        } else {
-            console.error(error)
         }
         throw error
     }

@@ -1,3 +1,5 @@
+import { SendResponse } from './response'
+
 /**
  * 要求所有 push 方法都至少实现了 send 接口
  *
@@ -14,13 +16,14 @@ export interface Send {
      * @date 2024-04-20
      */
     proxyUrl?: string
-
     /**
-     * 发送新消息
+     * 发送消息
      *
      * @author CaoMeiYouRen
-     * @date 2024-04-20
-     * @param args
+     * @date 2024-11-09
+     * @param title 消息标题
+     * @param [desp] 消息描述
+     * @param [options] 发送选项
      */
-    send(...args: any[]): Promise<any>
+    send(title: string, desp?: string, options?: any): Promise<SendResponse<any>>
 }
