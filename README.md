@@ -57,7 +57,7 @@ npm i push-all-in-one -S
 
 所有推送方式均实现了 `send(title: string, desp?: string, options?: any):` 方法。
 
-`title` 为 `消息标题`，`desp` 为 `消息描述`，`options` 为该推送方式的`额外推送选项`。具体请参考各个推送渠道的注释。
+`title` 为 `消息标题`，`desp` 为 `消息描述`，`options` 为该推送方式的`额外推送选项`，具体请参考各个推送渠道的注释。
 
 调用方式举例：
 
