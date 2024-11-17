@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:push-deer')
 
@@ -19,12 +21,55 @@ export interface PushDeerConfig {
     PUSH_DEER_ENDPOINT?: string
 }
 
+export type PushDeerConfigSchema = ConfigSchema<PushDeerConfig>
+
+export const pushDeerConfigSchema: PushDeerConfigSchema = {
+    PUSH_DEER_PUSH_KEY: {
+        type: 'string',
+        title: 'pushkey',
+        description: '请参考 https://github.com/easychen/pushdeer 获取',
+        required: true,
+    },
+    PUSH_DEER_ENDPOINT: {
+        type: 'string',
+        title: '使用自架版时的服务器端地址',
+        description: '例如 http://127.0..1:8800。默认为 https://api2.pushdeer.com',
+        required: false,
+        default: 'https://api2.pushdeer.com',
+    },
+} as const
+
 export interface PushDeerOption {
     /**
      * 格式。文本=text，markdown，图片=image，默认为markdown。type 为 image 时，text 中为要发送图片的URL
      */
     type?: PushDeerPushType
 }
+
+export type PushDeerOptionSchema = OptionSchema<PushDeerOption>
+export const pushDeerOptionSchema: PushDeerOptionSchema = {
+    type: {
+        type: 'select',
+        title: '格式',
+        description: '文本=text，markdown，图片=image，默认为markdown。type 为 image 时，text 中为要发送图片的URL',
+        required: false,
+        default: 'markdown',
+        options: [
+            {
+                label: '文本',
+                value: 'text',
+            },
+            {
+                label: 'Markdown',
+                value: 'markdown',
+            },
+            {
+                label: '图片',
+                value: 'image',
+            },
+        ],
+    },
+} as const
 
 export interface PushDeerResponse {
     /**
@@ -52,6 +97,9 @@ export interface PushDeerResponse {
  * @class PushDeer
  */
 export class PushDeer implements Send {
+
+    static configSchema = pushDeerConfigSchema
+    static optionSchema = pushDeerOptionSchema
 
     /**
      * pushkey，请参考 https://github.com/easychen/pushdeer 获取
@@ -82,9 +130,8 @@ export class PushDeer implements Send {
         this.PUSH_DEER_PUSH_KEY = PUSH_DEER_PUSH_KEY
         this.PUSH_DEER_ENDPOINT = PUSH_DEER_ENDPOINT || 'https://api2.pushdeer.com'
         Debugger('set PUSH_DEER_PUSH_KEY: "%s", PUSH_DEER_ENDPOINT: "%s"', PUSH_DEER_PUSH_KEY, PUSH_DEER_ENDPOINT)
-        if (!this.PUSH_DEER_PUSH_KEY) {
-            throw new Error('PUSH_DEER_PUSH_KEY 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, PushDeer.configSchema)
     }
 
     /**

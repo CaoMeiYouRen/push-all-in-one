@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:server-chan-turbo')
 
@@ -16,6 +18,16 @@ export interface ServerChanTurboConfig {
      */
     SERVER_CHAN_TURBO_SENDKEY: string
 }
+
+export type ServerChanTurboConfigSchema = ConfigSchema<ServerChanTurboConfig>
+export const serverChanTurboConfigSchema: ServerChanTurboConfigSchema = {
+    SERVER_CHAN_TURBO_SENDKEY: {
+        type: 'string',
+        title: 'SCTKEY',
+        description: 'Server酱 Turbo 的 SCTKEY。请前往 https://sct.ftqq.com/sendkey 领取',
+        required: true,
+    },
+} as const
 
 /**
  * 附加参数
@@ -50,6 +62,39 @@ export type ServerChanTurboOption = {
     openid?: string
 }
 
+export type ServerChanTurboOptionSchema = OptionSchema<{
+    short?: string
+    openid?: string
+    channel?: string
+    noip?: boolean
+}>
+export const serverChanTurboOptionSchema: ServerChanTurboOptionSchema = {
+    short: {
+        type: 'string',
+        title: '消息卡片内容',
+        description: '选填。最大长度 64。如果不指定，将自动从 desp 中截取生成。',
+        required: false,
+    },
+    noip: {
+        type: 'boolean',
+        title: '是否隐藏调用 IP',
+        description: '选填。如果不指定，则显示；为 1/true 则隐藏。',
+        required: false,
+    },
+    channel: {
+        type: 'string',
+        title: '消息通道',
+        description: '选填。动态指定本次推送使用的消息通道，支持最多两个通道，多个通道值用竖线 "|" 隔开。',
+        required: false,
+    },
+    openid: {
+        type: 'string',
+        title: '消息抄送的 openid',
+        description: '选填。只支持测试号和企业微信应用消息通道。多个 openid 用 "," 隔开。企业微信应用消息通道的 openid 参数，内容为接收人在企业微信中的 UID，多个人请 "|" 隔开。',
+        required: false,
+    },
+}
+
 export interface ServerChanTurboResponse {
     // 0 表示成功，其他值表示失败
     code: number
@@ -75,6 +120,9 @@ export interface ServerChanTurboResponse {
  */
 export class ServerChanTurbo implements Send {
 
+    static configSchema = serverChanTurboConfigSchema
+    static optionSchema = serverChanTurboOptionSchema
+
     /**
      *
      * @author CaoMeiYouRen
@@ -85,9 +133,8 @@ export class ServerChanTurbo implements Send {
         const { SERVER_CHAN_TURBO_SENDKEY } = config
         this.SCTKEY = SERVER_CHAN_TURBO_SENDKEY
         Debugger('set SCTKEY: "%s"', this.SCTKEY)
-        if (!this.SCTKEY) {
-            throw new Error('SERVER_CHAN_TURBO_SENDKEY 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, ServerChanTurbo.configSchema)
     }
     /**
      *

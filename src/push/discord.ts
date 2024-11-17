@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:discord')
 
@@ -17,6 +19,27 @@ export interface DiscordConfig {
     PROXY_URL?: string
 }
 
+export type DiscordConfigSchema = ConfigSchema<DiscordConfig>
+
+export const discordConfigSchema: DiscordConfigSchema = {
+    DISCORD_WEBHOOK: {
+        type: 'string',
+        title: 'Webhook Url',
+        description: 'Webhook Url 可在服务器设置 -> 整合 -> Webhook -> 创建 Webhook 中获取',
+        required: true,
+    },
+    PROXY_URL: {
+        type: 'string',
+        title: '代理地址',
+        description: '代理地址',
+        required: false,
+    },
+} as const
+
+/**
+ * Discord 额外选项
+ * 由于参数过多，因此请参考官方文档进行配置
+ */
 export type DiscordOption = {
     /**
      * 机器人显示的名称
@@ -26,8 +49,25 @@ export type DiscordOption = {
      * 机器人头像的 Url
      */
     avatar_url?: string
-    [key: string]: any
+    // [key: string]: any
 }
+
+export type DiscordOptionSchema = OptionSchema<DiscordOption>
+
+export const discordOptionSchema: DiscordOptionSchema = {
+    username: {
+        type: 'string',
+        title: '机器人显示的名称',
+        description: '机器人显示的名称',
+        required: false,
+    },
+    avatar_url: {
+        type: 'string',
+        title: '机器人头像的 Url',
+        description: '机器人头像的 Url',
+        required: false,
+    },
+} as const
 
 export interface DiscordResponse { }
 
@@ -40,6 +80,9 @@ export interface DiscordResponse { }
  * @class Discord
  */
 export class Discord implements Send {
+
+    static configSchema = discordConfigSchema
+    static optionSchema = discordOptionSchema
     /**
      * Webhook Url 可在服务器设置 -> 整合 -> Webhook -> 创建 Webhook 中获取
      *
@@ -64,9 +107,8 @@ export class Discord implements Send {
         if (PROXY_URL) {
             this.proxyUrl = PROXY_URL
         }
-        if (!this.DISCORD_WEBHOOK) {
-            throw new Error('DISCORD_WEBHOOK 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, Discord.configSchema)
     }
 
     /**

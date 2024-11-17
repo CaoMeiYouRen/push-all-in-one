@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:qmsg')
 
@@ -16,6 +18,16 @@ export interface QmsgConfig {
      */
     QMSG_KEY: string
 }
+export type QmsgConfigSchema = ConfigSchema<QmsgConfig>
+
+export const qmsgConfigSchema: QmsgConfigSchema = {
+    QMSG_KEY: {
+        type: 'string',
+        title: '推送的 key',
+        description: '在 [Qmsg 酱管理台](https://qmsg.zendee.cn/user) 查看',
+        required: true,
+    },
+} as const
 
 export interface QmsgPrivateMsgOption {
     /**
@@ -47,6 +59,47 @@ export type QmsgOption = (QmsgPrivateMsgOption | QmsgGroupMsgOption) & {
     bot?: string
 }
 
+export type QmsgOptionSchema = OptionSchema<{
+    // 消息类型
+    type: 'send' | 'group'
+    // 指定要接收消息的QQ号或者QQ群。多个以英文逗号分割，例如：12345,12346
+    qq: string
+    // 机器人的QQ号。指定使用哪个机器人来发送消息，不指定则会自动随机选择一个在线的机器人发送消息。该参数仅私有云有效
+    bot?: string
+}>
+
+export const qmsgOptionSchema: QmsgOptionSchema = {
+    type: {
+        type: 'select',
+        title: '消息类型',
+        description: 'send 表示发送消息给指定的QQ号，group 表示发送消息给指定的QQ群。默认为 send',
+        required: true,
+        default: 'send',
+        options: [
+            {
+                label: '私聊',
+                value: 'send',
+            },
+            {
+                label: '群聊',
+                value: 'group',
+            },
+        ],
+    },
+    qq: {
+        type: 'string',
+        title: '指定要接收消息的QQ号或者QQ群',
+        description: '多个以英文逗号分割，例如：12345,12346',
+        required: true,
+    },
+    bot: {
+        type: 'string',
+        title: '机器人的QQ号',
+        description: '指定使用哪个机器人来发送消息，不指定则会自动随机选择一个在线的机器人发送消息。该参数仅私有云有效',
+        required: false,
+    },
+} as const
+
 export interface QmsgResponse {
     /**
      * 本次请求是否成功
@@ -73,15 +126,17 @@ export interface QmsgResponse {
  */
 export class Qmsg implements Send {
 
+    static configSchema = qmsgConfigSchema
+    static optionSchema = qmsgOptionSchema
+
     private QMSG_KEY: string
 
     constructor(config: QmsgConfig) {
         const { QMSG_KEY } = config
         this.QMSG_KEY = QMSG_KEY
         Debugger('set QMSG_KEY: "%s"', QMSG_KEY)
-        if (!this.QMSG_KEY) {
-            throw new Error('QMSG_KEY 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, Qmsg.configSchema)
     }
 
     /**

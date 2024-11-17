@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:i-got')
 
@@ -11,6 +13,18 @@ export interface IGotConfig {
      */
     I_GOT_KEY: string
 }
+
+export type IGotConfigSchema = ConfigSchema<IGotConfig>
+
+export const iGotConfigSchema: IGotConfigSchema = {
+    I_GOT_KEY: {
+        type: 'string',
+        title: 'iGot 推送key',
+        description: 'iGot 推送key',
+        required: true,
+        default: '',
+    },
+} as const
 
 export interface IGotOption {
     /**
@@ -33,8 +47,48 @@ export interface IGotOption {
      * 主题； 订阅链接下有效；对推送内容分类，用户可选择性订阅
      */
     topic?: string
-    [key: string]: any
+    // [key: string]: any
 }
+
+export type IGotOptionSchema = OptionSchema<IGotOption>
+
+export const iGotOptionSchema: IGotOptionSchema = {
+    url: {
+        type: 'string',
+        title: '链接',
+        description: '链接； 点开消息后会主动跳转至此地址',
+        required: false,
+        default: '',
+    },
+    automaticallyCopy: {
+        type: 'number',
+        title: '是否自动复制',
+        description: '是否自动复制； 为1自动复制',
+        required: false,
+        default: 0,
+    },
+    urgent: {
+        type: 'number',
+        title: '紧急消息',
+        description: '紧急消息，为1表示紧急。此消息将置顶在小程序内， 同时会在推送的消息内做一定的特殊标识',
+        required: false,
+        default: 0,
+    },
+    copy: {
+        type: 'string',
+        title: '需要自动复制的文本内容',
+        description: '需要自动复制的文本内容',
+        required: false,
+        default: '',
+    },
+    topic: {
+        type: 'string',
+        title: '主题',
+        description: '主题； 订阅链接下有效；对推送内容分类，用户可选择性订阅',
+        required: false,
+        default: '',
+    },
+} as const
 
 export interface IGotResponse {
     /**
@@ -65,7 +119,8 @@ export interface IGotResponse {
  * @class IGot
  */
 export class IGot implements Send {
-
+    static configSchema = iGotConfigSchema
+    static optionSchema = iGotOptionSchema
     /**
      * 微信搜索小程序“iGot”获取推送key
      *
@@ -81,9 +136,8 @@ export class IGot implements Send {
         const { I_GOT_KEY } = config
         this.I_GOT_KEY = I_GOT_KEY
         Debugger('set I_GOT_KEY: "%s"', I_GOT_KEY)
-        if (!this.I_GOT_KEY) {
-            throw new Error('I_GOT_KEY 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, IGot.configSchema)
     }
     /**
      *

@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:telegram')
 
@@ -25,6 +27,28 @@ export interface TelegramConfig {
      */
     PROXY_URL?: string
 }
+
+export type TelegramConfigSchema = ConfigSchema<TelegramConfig>
+export const telegramConfigSchema: TelegramConfigSchema = {
+    TELEGRAM_BOT_TOKEN: {
+        type: 'string',
+        title: '机器人令牌',
+        description: '您可以从 https://t.me/BotFather 获取 Token。',
+        required: true,
+    },
+    TELEGRAM_CHAT_ID: {
+        type: 'number',
+        title: '支持对话/群组/频道的 Chat ID',
+        description: '您可以转发消息到 https://t.me/JsonDumpBot 获取 Chat ID',
+        required: true,
+    },
+    PROXY_URL: {
+        type: 'string',
+        title: '代理地址',
+        description: '代理地址',
+        required: false,
+    },
+} as const
 
 /**
  * 参考 https://core.telegram.org/bots/api#sendmessage
@@ -50,8 +74,31 @@ export interface TelegramOption {
      * 可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用
      */
     message_thread_id?: string
-    [key: string]: any
+    // [key: string]: any
 }
+
+export type TelegramOptionSchema = OptionSchema<TelegramOption>
+
+export const telegramOptionSchema: TelegramOptionSchema = {
+    disable_notification: {
+        type: 'boolean',
+        title: '静默发送',
+        description: '静默地发送消息。消息发布后用户会收到无声通知。',
+        required: false,
+    },
+    protect_content: {
+        type: 'boolean',
+        title: '阻止转发/保存',
+        description: '如果启用，Telegram 中的机器人消息将受到保护，不会被转发和保存。',
+        required: false,
+    },
+    message_thread_id: {
+        type: 'string',
+        title: '话题 ID',
+        description: '可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用',
+        required: false,
+    },
+} as const
 
 interface From {
     id: number
@@ -89,6 +136,9 @@ export interface TelegramResponse {
  */
 export class Telegram implements Send {
 
+    static configSchema = telegramConfigSchema
+    static optionSchema = telegramOptionSchema
+
     /**
      * 机器人令牌
      * 您可以从 https://t.me/BotFather 获取 Token。
@@ -111,12 +161,8 @@ export class Telegram implements Send {
     constructor(config: TelegramConfig) {
         Debugger('config: %O', config)
         Object.assign(this, config)
-        if (!this.TELEGRAM_BOT_TOKEN) {
-            throw new Error('TELEGRAM_BOT_TOKEN 是必须的！')
-        }
-        if (!this.TELEGRAM_CHAT_ID) {
-            throw new Error('TELEGRAM_CHAT_ID 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, Telegram.configSchema)
         if (config.PROXY_URL) {
             this.proxyUrl = config.PROXY_URL
         }
