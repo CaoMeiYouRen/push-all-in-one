@@ -1,5 +1,13 @@
 # push-all-in-one
 
+# [4.1.0-beta.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0-beta.1...v4.1.0-beta.2) (2024-11-17)
+
+
+### 🐛 Bug 修复
+
+* 修改 DingtalkOption 的默认值 ([b7329ec](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b7329ec))
+* 修改 部分可选字段的类型声明 ([e8a6832](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e8a6832))
+
 # [4.1.0-beta.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.0.0...v4.1.0-beta.1) (2024-11-17)
 
 
