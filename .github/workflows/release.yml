@@ -41,6 +41,7 @@ jobs:
       - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run build
+      - run: pnpm run test
       - env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
