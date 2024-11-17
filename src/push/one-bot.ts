@@ -99,14 +99,14 @@ export const oneBotOptionSchema: OneBotOptionSchema = {
     },
     user_id: {
         type: 'number',
-        title: '对方 QQ 号',
-        description: '对方 QQ 号',
+        title: ' QQ 号',
+        description: '对方 QQ 号。仅私聊有效。',
         required: false,
     },
     group_id: {
         type: 'number',
         title: '群号',
-        description: '群号',
+        description: '群号。仅群聊有效。',
         required: false,
     },
     auto_escape: {
