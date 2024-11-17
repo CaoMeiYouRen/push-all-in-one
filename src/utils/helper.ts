@@ -38,3 +38,21 @@ export const isHttpURL = (url: string): boolean => /^(https?:\/\/)/.test(url)
  * @returns
  */
 export const isSocksUrl = (url: string): boolean => /^(socks5?:\/\/)/.test(url)
+
+/**
+ * 判断是否为 null 或 undefined
+ * @param value
+ * @returns
+ */
+export function isNil(value: unknown): boolean {
+    return value === null || value === undefined
+}
+
+/**
+ * 判断是否不为 null 且不为 undefined
+ * @param value
+ * @returns
+ */
+export function isNotNil(value: unknown): boolean {
+    return !isNil(value)
+}
