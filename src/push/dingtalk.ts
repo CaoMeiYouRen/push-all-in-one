@@ -44,7 +44,7 @@ export const dingtalkConfigSchema: DingtalkConfigSchema = {
         required: false,
         default: '',
     },
-}
+} as const
 
 export type DingtalkOption = Partial<(Text | Markdown | Link | FeedCard | ActionCard)>
 
@@ -64,6 +64,7 @@ type TempDingtalkOption = {
     feedCard?: FeedCard['feedCard']
 
     at?: Text['at']
+    // [key: string]: any
 }
 
 export type DingtalkOptionSchema = OptionSchema<TempDingtalkOption>
@@ -147,7 +148,7 @@ export const dingtalkOptionSchema: DingtalkOptionSchema = {
             links: [],
         },
     },
-}
+} as const
 
 export interface DingtalkResponse {
     errcode: number

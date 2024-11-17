@@ -2,6 +2,8 @@ import debug from 'debug'
 import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:wechat-robot')
 
@@ -11,11 +13,60 @@ export interface WechatRobotConfig {
     // 企业微信机器人的key
     WECHAT_ROBOT_KEY: string
 }
+export type WechatRobotConfigSchema = ConfigSchema<WechatRobotConfig>
+export const wechatRobotConfigSchema: WechatRobotConfigSchema = {
+    WECHAT_ROBOT_KEY: {
+        type: 'string',
+        title: '企业微信机器人的key',
+        description: '企业微信机器人的key',
+        required: true,
+    },
+} as const
 
 export interface WechatRobotOption {
     msgtype?: WechatRobotMsgType
-    [key: string]: any
+    // [key: string]: any
 }
+export type WechatRobotOptionSchema = OptionSchema<WechatRobotOption>
+export const wechatRobotOptionSchema: WechatRobotOptionSchema = {
+    msgtype: {
+        type: 'select',
+        title: '消息类型',
+        description: '消息类型',
+        options: [
+            {
+                label: '文本',
+                value: 'text',
+            },
+            {
+                label: 'Markdown',
+                value: 'markdown',
+            },
+            {
+                label: '图片',
+                value: 'image',
+            },
+            {
+                label: '图文',
+                value: 'news',
+            },
+            {
+                label: '文件',
+                value: 'file',
+            },
+            {
+                label: '语音',
+                value: 'voice',
+            },
+            {
+                label: '模板卡片',
+                value: 'template_card',
+            },
+        ],
+        required: false,
+        default: 'text',
+    },
+} as const
 
 export interface WechatRobotResponse {
     // 企业微信机器人返回的错误码，为0表示成功，非0表示调用失败
@@ -33,15 +84,17 @@ export interface WechatRobotResponse {
  */
 export class WechatRobot implements Send {
 
+    static configSchema = wechatRobotConfigSchema
+    static optionSchema = wechatRobotOptionSchema
+
     private WECHAT_ROBOT_KEY: string
 
     constructor(config: WechatRobotConfig) {
         const { WECHAT_ROBOT_KEY } = config
         this.WECHAT_ROBOT_KEY = WECHAT_ROBOT_KEY
         Debugger('set WECHAT_ROBOT_KEY: "%s"', WECHAT_ROBOT_KEY)
-        if (!this.WECHAT_ROBOT_KEY) {
-            throw new Error('WECHAT_ROBOT_KEY 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, WechatRobot.configSchema)
     }
 
     /**

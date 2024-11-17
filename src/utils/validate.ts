@@ -1,4 +1,4 @@
-import { isNil } from './helper'
+import { isEmpty } from './helper'
 import { Config, ConfigSchema } from '@/interfaces/schema'
 
 /**
@@ -15,10 +15,10 @@ export function validate<T = Config>(config: T, schema: ConfigSchema<T>): void {
     Object.keys(schema).forEach((key) => {
         const item = schema[key]
         const value = config[key]
-        if (!item.required && isNil(value)) {
+        if (!item.required && isEmpty(value)) {
             return
         }
-        if (item.required && isNil(value)) {
+        if (item.required && isEmpty(value)) {
             throw new Error(`"${key}" 字段是必须的！`)
         }
         if (item.type === 'select') {

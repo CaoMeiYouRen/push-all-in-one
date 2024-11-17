@@ -3,10 +3,10 @@ import { Send } from '@/interfaces/send'
 import { ajax } from '@/utils/ajax'
 import { warn } from '@/utils/helper'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:one-bot')
-
-export type OneBotMsgType = 'private' | 'group'
 
 export interface OneBotConfig {
     /**
@@ -19,6 +19,22 @@ export interface OneBotConfig {
      */
     ONE_BOT_ACCESS_TOKEN?: string
 }
+
+export type OneBotConfigSchema = ConfigSchema<OneBotConfig>
+export const oneBotConfigSchema: OneBotConfigSchema = {
+    ONE_BOT_BASE_URL: {
+        type: 'string',
+        title: 'OneBot HTTP 基础路径',
+        description: 'OneBot HTTP 基础路径',
+        required: true,
+    },
+    ONE_BOT_ACCESS_TOKEN: {
+        type: 'string',
+        title: 'OneBot AccessToken',
+        description: '出于安全原因，请务必设置 AccessToken',
+        required: false,
+    },
+} as const
 
 export interface OneBotPrivateMsgOption {
     /**
@@ -50,6 +66,56 @@ export type OneBotOption = (OneBotPrivateMsgOption | OneBotGroupMsgOption) & {
     auto_escape?: boolean
 }
 
+export type OneBotMsgType = OneBotOption['message_type']
+
+export type OneBotOptionSchema = OptionSchema<{
+    // 消息类型，private 或 group
+    message_type: OneBotMsgType
+    // 如果为 private，对方 QQ 号
+    user_id?: number
+    // 如果为 group，群号
+    group_id?: number
+    // 消息内容是否作为纯文本发送（即不解析 CQ 码），只在 message 字段是字符串时有效
+    auto_escape?: boolean
+}>
+
+export const oneBotOptionSchema: OneBotOptionSchema = {
+    message_type: {
+        type: 'select',
+        title: '消息类型',
+        description: '消息类型',
+        required: true,
+        options: [
+            {
+                label: '私聊',
+                value: 'private',
+            },
+            {
+                label: '群聊',
+                value: 'group',
+            },
+        ],
+    },
+    user_id: {
+        type: 'number',
+        title: '对方 QQ 号',
+        description: '对方 QQ 号',
+        required: false,
+    },
+    group_id: {
+        type: 'number',
+        title: '群号',
+        description: '群号',
+        required: false,
+    },
+    auto_escape: {
+        type: 'boolean',
+        title: '消息内容是否作为纯文本发送（即不解析 CQ 码），只在 message 字段是字符串时有效',
+        description: '消息内容是否作为纯文本发送（即不解析 CQ 码），只在 message 字段是字符串时有效',
+        required: false,
+    },
+} as const
+
 export interface OneBotData {
     ClassType: string
     // 消息 ID
@@ -72,6 +138,9 @@ export interface OneBotResponse {
  * @class OneBot
  */
 export class OneBot implements Send {
+
+    static configSchema = oneBotConfigSchema
+    static optionSchema = oneBotOptionSchema
 
     /**
      *  OneBot 协议版本号
@@ -111,9 +180,8 @@ export class OneBot implements Send {
         this.ONE_BOT_BASE_URL = ONE_BOT_BASE_URL
         this.ONE_BOT_ACCESS_TOKEN = ONE_BOT_ACCESS_TOKEN
         Debugger('set ONE_BOT_BASE_URL: "%s", ONE_BOT_ACCESS_TOKEN: "%s"', ONE_BOT_BASE_URL, ONE_BOT_ACCESS_TOKEN)
-        if (!this.ONE_BOT_BASE_URL) {
-            throw new Error('ONE_BOT_BASE_URL 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, OneBot.configSchema)
         if (!this.ONE_BOT_ACCESS_TOKEN) {
             warn('未提供 ONE_BOT_ACCESS_TOKEN ！出于安全原因，请务必设置 AccessToken！')
         }

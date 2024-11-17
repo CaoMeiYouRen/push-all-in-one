@@ -56,3 +56,20 @@ export function isNil(value: unknown): boolean {
 export function isNotNil(value: unknown): boolean {
     return !isNil(value)
 }
+
+/**
+ *  判断是否为 null 或 undefined 或 空字符串
+ * @param value
+ * @returns
+ */
+export function isEmpty(value: unknown): boolean {
+    return value === null || value === undefined || value === ''
+}
+/**
+ * 判断是否不为 null 且不为 undefined 且不为 空字符串
+ * @param value
+ * @returns
+ */
+export function isNotEmpty(value: unknown): boolean {
+    return !isEmpty(value)
+}

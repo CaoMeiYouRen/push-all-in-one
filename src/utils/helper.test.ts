@@ -1,4 +1,4 @@
-import { isHttpURL, isSocksUrl, isNil, isNotNil } from './helper'
+import { isHttpURL, isSocksUrl, isNil, isNotNil, isEmpty, isNotEmpty } from './helper'
 
 describe('helper', () => {
     it('isHttpURL', () => {
@@ -20,6 +20,30 @@ describe('helper', () => {
         expect(isNotNil(null)).toBe(false)
         expect(isNotNil(undefined)).toBe(false)
         expect(isNotNil({})).toBe(true)
+    })
+    it('isEmpty', () => {
+        expect(isEmpty([])).toBe(false)
+        expect(isEmpty({})).toBe(false)
+        expect(isEmpty('')).toBe(true)
+        expect(isEmpty(0)).toBe(false)
+        expect(isEmpty(null)).toBe(true)
+        expect(isEmpty(undefined)).toBe(true)
+        expect(isEmpty({ a: 1 })).toBe(false)
+        expect(isEmpty([1])).toBe(false)
+        expect(isEmpty('test')).toBe(false)
+        expect(isEmpty(1)).toBe(false)
+    })
+    it('isNotEmpty', () => {
+        expect(isNotEmpty([])).toBe(true)
+        expect(isNotEmpty({})).toBe(true)
+        expect(isNotEmpty('')).toBe(false)
+        expect(isNotEmpty(0)).toBe(true)
+        expect(isNotEmpty(null)).toBe(false)
+        expect(isNotEmpty(undefined)).toBe(false)
+        expect(isNotEmpty({ a: 1 })).toBe(true)
+        expect(isNotEmpty([1])).toBe(true)
+        expect(isNotEmpty('test')).toBe(true)
+        expect(isNotEmpty(1)).toBe(true)
     })
 })
 
