@@ -29,10 +29,10 @@ export type Config = {
 export type ConfigSchema<T = Config> = {
     [K in keyof T]: {
         // 字段类型
-        type: IsUnion<T[K]> extends true ? 'select' : (
-            T[K] extends string ? 'string' : (
-                T[K] extends number ? 'number' : (
-                    T[K] extends boolean ? 'boolean' : (
+        type: T[K] extends boolean ? 'boolean' : (
+            IsUnion<T[K]> extends true ? 'select' : (
+                T[K] extends string ? 'string' : (
+                    T[K] extends number ? 'number' : (
                         T[K] extends any[] ? 'array' : (
                             T[K] extends object ? 'object' : (
                                 'select'
