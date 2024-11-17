@@ -50,18 +50,18 @@ export type DingtalkOption = Partial<(Text | Markdown | Link | FeedCard | Action
 
 type TempDingtalkOption = {
     msgtype?: DingtalkOption['msgtype']
-    text?: Text['text']
-    markdown?: Markdown['markdown']
-    link?: Link['link']
-    actionCard?: {
+    text?: Partial<Text['text']>
+    markdown?: Partial<Markdown['markdown']>
+    link?: Partial<Link['link']>
+    actionCard?: Partial<{
         // 首屏会话透出的展示内容
         title: string
         // markdown 格式的消息内容
         text: string
         // 0：按钮竖直排列；1：按钮横向排列
         btnOrientation?: '0' | '1'
-    } & Partial<OverallJump> & Partial<IndependentJump>
-    feedCard?: FeedCard['feedCard']
+    }> & Partial<OverallJump> & Partial<IndependentJump>
+    feedCard?: Partial<FeedCard['feedCard']>
 
     at?: Text['at']
     [key: string]: any
@@ -104,49 +104,35 @@ export const dingtalkOptionSchema: DingtalkOptionSchema = {
         title: '文本',
         description: '文本',
         required: false,
-        default: {
-            content: '',
-        },
+        default: {},
     },
     markdown: {
         type: 'object',
         title: 'Markdown',
         description: 'Markdown',
         required: false,
-        default: {
-            title: '',
-            text: '',
-        },
+        default: {},
     },
     link: {
         type: 'object',
         title: '链接',
         description: '链接',
         required: false,
-        default: {
-            text: '',
-            title: '',
-            messageUrl: '',
-        },
+        default: {},
     },
     actionCard: {
         type: 'object',
         title: '动作卡片',
         description: '动作卡片',
         required: false,
-        default: {
-            title: '',
-            text: '',
-        },
+        default: {},
     },
     feedCard: {
         type: 'object',
         title: '订阅卡片',
         description: '订阅卡片',
         required: false,
-        default: {
-            links: [],
-        },
+        default: {},
     },
 } as const
 
