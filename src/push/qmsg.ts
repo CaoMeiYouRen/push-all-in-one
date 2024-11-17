@@ -150,6 +150,9 @@ export class Qmsg implements Send {
      */
     async send(title: string, desp: string, option: QmsgOption): Promise<SendResponse<QmsgResponse>> {
         Debugger('title: "%s", desp: "%s", option: "%o"', title, desp, option)
+        // !由于 Qmsg 酱的 option 中带有必填项，所以需要校验
+        // 根据 optionSchema 验证 option
+        validate(option, Qmsg.optionSchema)
         const { qq, type = 'send', bot } = option || {}
         const msg = `${title}${desp ? `\n${desp}` : ''}`
         return ajax({
