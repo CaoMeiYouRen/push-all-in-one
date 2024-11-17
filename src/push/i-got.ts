@@ -47,7 +47,7 @@ export interface IGotOption {
      * 主题； 订阅链接下有效；对推送内容分类，用户可选择性订阅
      */
     topic?: string
-    // [key: string]: any
+    [key: string]: any
 }
 
 export type IGotOptionSchema = OptionSchema<IGotOption>

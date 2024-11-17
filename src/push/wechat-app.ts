@@ -60,7 +60,7 @@ export type WechatAppOption = {
     enable_duplicate_check?: 0 | 1
     // 表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
     duplicate_check_interval?: number
-    // [key: string]: any
+    [key: string]: any
     // 指定接收消息的成员，成员ID列表（多个接收者用‘|’分隔，最多支持1000个）。
     // 特殊情况：指定为"@all"，则向该企业应用的全部成员发送
     touser?: string

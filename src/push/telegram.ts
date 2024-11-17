@@ -74,7 +74,7 @@ export interface TelegramOption {
      * 可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用
      */
     message_thread_id?: string
-    // [key: string]: any
+    [key: string]: any
 }
 
 export type TelegramOptionSchema = OptionSchema<TelegramOption>
