@@ -4,12 +4,14 @@ import { Markdown } from './dingtalk/markdown'
 import { Text } from './dingtalk/text'
 import { Link } from './dingtalk/link'
 import { FeedCard } from './dingtalk/feed-card'
-import { ActionCard } from './dingtalk/action-card'
+import { ActionCard, IndependentJump, OverallJump } from './dingtalk/action-card'
 import { Send } from '@/interfaces/send'
 import { warn } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
 import { generateSignature } from '@/utils/crypto'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:dingtalk')
 
@@ -26,9 +28,126 @@ export interface DingtalkConfig {
     DINGTALK_SECRET?: string
 }
 
-export type DingtalkOption = {
-    [key: string]: any
-} & Partial<(Text | Markdown | Link | FeedCard | ActionCard)>
+export type DingtalkConfigSchema = ConfigSchema<DingtalkConfig>
+
+export const dingtalkConfigSchema: DingtalkConfigSchema = {
+    DINGTALK_ACCESS_TOKEN: {
+        type: 'string',
+        title: '钉钉机器人 access_token',
+        description: '钉钉机器人 access_token',
+        required: true,
+        default: '',
+    },
+    DINGTALK_SECRET: {
+        type: 'string',
+        title: '加签安全秘钥（HmacSHA256）',
+        required: false,
+        default: '',
+    },
+}
+
+export type DingtalkOption = Partial<(Text | Markdown | Link | FeedCard | ActionCard)>
+
+type TempDingtalkOption = {
+    msgtype?: DingtalkOption['msgtype']
+    text?: Text['text']
+    markdown?: Markdown['markdown']
+    link?: Link['link']
+    actionCard?: {
+        // 首屏会话透出的展示内容
+        title: string
+        // markdown 格式的消息内容
+        text: string
+        // 0：按钮竖直排列；1：按钮横向排列
+        btnOrientation?: '0' | '1'
+    } & Partial<OverallJump> & Partial<IndependentJump>
+    feedCard?: FeedCard['feedCard']
+
+    at?: Text['at']
+}
+
+export type DingtalkOptionSchema = OptionSchema<TempDingtalkOption>
+
+export const dingtalkOptionSchema: DingtalkOptionSchema = {
+    msgtype: {
+        type: 'select',
+        title: '消息类型',
+        description: '消息类型',
+        required: false,
+        default: 'text',
+        options: [
+            {
+                label: '文本',
+                value: 'text',
+            },
+            {
+                label: 'Markdown',
+                value: 'markdown',
+            },
+            {
+                label: '链接',
+                value: 'link',
+            },
+            {
+                label: '按钮',
+                value: 'actionCard',
+            },
+            {
+                label: 'FeedCard',
+                value: 'feedCard',
+            },
+        ],
+    },
+    text: {
+        type: 'object',
+        title: '文本',
+        description: '文本',
+        required: false,
+        default: {
+            content: '',
+        },
+    },
+    markdown: {
+        type: 'object',
+        title: 'Markdown',
+        description: 'Markdown',
+        required: false,
+        default: {
+            title: '',
+            text: '',
+        },
+    },
+    link: {
+        type: 'object',
+        title: '链接',
+        description: '链接',
+        required: false,
+        default: {
+            text: '',
+            title: '',
+            messageUrl: '',
+        },
+    },
+    actionCard: {
+        type: 'object',
+        title: '动作卡片',
+        description: '动作卡片',
+        required: false,
+        default: {
+            title: '',
+            text: '',
+        },
+    },
+    feedCard: {
+        type: 'object',
+        title: '订阅卡片',
+        description: '订阅卡片',
+        required: false,
+        default: {
+            links: [],
+        },
+    },
+}
 
 export interface DingtalkResponse {
     errcode: number
@@ -44,6 +163,11 @@ export interface DingtalkResponse {
  * @class Dingtalk
  */
 export class Dingtalk implements Send {
+
+    static configSchema = dingtalkConfigSchema
+
+    static optionSchema = dingtalkOptionSchema
+
     private ACCESS_TOKEN: string
     /**
      * 加签安全秘钥（HmacSHA256）
@@ -64,9 +188,8 @@ export class Dingtalk implements Send {
         this.ACCESS_TOKEN = DINGTALK_ACCESS_TOKEN
         this.SECRET = DINGTALK_SECRET
         Debugger('DINGTALK_ACCESS_TOKEN: %s , DINGTALK_SECRET: %s', this.ACCESS_TOKEN, this.SECRET)
-        if (!this.ACCESS_TOKEN) {
-            throw new Error('DINGTALK_ACCESS_TOKEN 是必须的！')
-        }
+        // 根据 configSchema 验证 config
+        validate(config, Dingtalk.configSchema)
         if (!this.SECRET) {
             warn('未提供 DINGTALK_SECRET ！')
         }

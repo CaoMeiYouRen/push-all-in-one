@@ -4,6 +4,8 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport'
 import Mail from 'nodemailer/lib/mailer'
 import { Send } from '@/interfaces/send'
 import { SendResponse } from '@/interfaces/response'
+import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
+import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:custom-email')
 
@@ -35,7 +37,112 @@ export interface CustomEmailConfig {
     EMAIL_PORT: number
 }
 
+export type CustomEmailConfigSchema = ConfigSchema<CustomEmailConfig>
+
+export const customEmailConfigSchema: CustomEmailConfigSchema = {
+    EMAIL_TYPE: {
+        type: 'select',
+        title: '邮件类型',
+        description: '邮件类型',
+        required: true,
+        default: 'text',
+        options: [
+            {
+                label: '文本',
+                value: 'text',
+            },
+            {
+                label: 'HTML',
+                value: 'html',
+            },
+        ],
+    },
+    EMAIL_TO_ADDRESS: {
+        type: 'string',
+        title: '收件邮箱',
+        description: '收件邮箱',
+        required: true,
+        default: '',
+    },
+    EMAIL_AUTH_USER: {
+        type: 'string',
+        title: '发件邮箱',
+        description: '发件邮箱',
+        required: true,
+        default: '',
+    },
+    EMAIL_AUTH_PASS: {
+        type: 'string',
+        title: '发件授权码(或密码)',
+        description: '发件授权码(或密码)',
+        required: true,
+        default: '',
+    },
+    EMAIL_HOST: {
+        type: 'string',
+        title: '发件域名',
+        description: '发件域名',
+        required: true,
+        default: '',
+    },
+    EMAIL_PORT: {
+        type: 'number',
+        title: '发件端口',
+        description: '发件端口',
+        required: true,
+        default: 465,
+    },
+} as const
+
 export type CustomEmailOption = Mail.Options
+
+type OptionalCustomEmailOption = Pick<CustomEmailOption, 'to' | 'from' | 'subject' | 'text' | 'html'>
+
+/**
+ * 由于 CustomEmailOption 的配置太多，所以不提供完整的 Schema，只提供部分配置 schema。
+ * 如需使用完整的配置，请查看官方文档
+ */
+export type CustomEmailOptionSchema = OptionSchema<{
+    [K in keyof OptionalCustomEmailOption]: string
+}>
+
+export const customEmailOptionSchema: CustomEmailOptionSchema = {
+    to: {
+        type: 'string',
+        title: '收件邮箱',
+        description: '收件邮箱',
+        required: false,
+        default: '',
+    },
+    from: {
+        type: 'string',
+        title: '发件邮箱',
+        description: '发件邮箱',
+        required: false,
+        default: '',
+    },
+    subject: {
+        type: 'string',
+        title: '邮件主题',
+        description: '邮件主题',
+        required: false,
+        default: '',
+    },
+    text: {
+        type: 'string',
+        title: '邮件内容',
+        description: '邮件内容',
+        required: false,
+        default: '',
+    },
+    html: {
+        type: 'string',
+        title: '邮件内容',
+        description: '邮件内容',
+        required: false,
+        default: '',
+    },
+} as const
 
 /**
  * 自定义邮件。官方文档: https://github.com/nodemailer/nodemailer
@@ -47,6 +154,10 @@ export type CustomEmailOption = Mail.Options
  */
 export class CustomEmail implements Send {
 
+    static configSchema = customEmailConfigSchema
+
+    static optionSchema = customEmailOptionSchema
+
     private config: CustomEmailConfig
 
     private transporter: nodemailer.Transporter<SMTPTransport.SentMessageInfo, SMTPTransport.Options>
@@ -54,11 +165,8 @@ export class CustomEmail implements Send {
     constructor(config: CustomEmailConfig) {
         this.config = config
         Debugger('CustomEmailConfig: %o', config)
-        Object.entries(config).forEach(([key, value]) => {
-            if (!value) {
-                throw new Error(`CustomEmailConfig 的 "${key}" 字段是必须的！`)
-            }
-        })
+        // 根据 configSchema 验证 config
+        validate(config, CustomEmail.configSchema)
         const { EMAIL_AUTH_USER, EMAIL_AUTH_PASS, EMAIL_HOST, EMAIL_PORT } = this.config
         this.transporter = nodemailer.createTransport({
             host: EMAIL_HOST,
