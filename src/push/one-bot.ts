@@ -83,8 +83,9 @@ export const oneBotOptionSchema: OneBotOptionSchema = {
     message_type: {
         type: 'select',
         title: '消息类型',
-        description: '消息类型',
+        description: '消息类型，private 或 group，默认为 private',
         required: true,
+        default: 'private',
         options: [
             {
                 label: '私聊',
@@ -198,7 +199,16 @@ export class OneBot implements Send {
      */
     async send(title: string, desp: string, option: OneBotOption): Promise<SendResponse<OneBotResponse>> {
         Debugger('title: "%s", desp: "%s", option: "%o"', title, desp, option)
-        const { message_type, ...args } = option || {}
+        // !由于 OneBot 的 option 中带有必填项，所以需要校验
+        // 根据 optionSchema 验证 option
+        validate(option, OneBot.optionSchema as OptionSchema<OneBotOption>)
+        if (option.message_type === 'private' && !option.user_id) {
+            throw new Error('OneBot 私聊消息类型必须提供 user_id')
+        }
+        if (option.message_type === 'group' && !option.group_id) {
+            throw new Error('OneBot 群聊消息类型必须提供 group_id')
+        }
+        const { message_type = 'private', ...args } = option || {}
         const message = `${title}${desp ? `\n${desp}` : ''}`
         return ajax<OneBotResponse>({
             baseURL: this.ONE_BOT_BASE_URL,
