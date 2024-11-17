@@ -25,7 +25,7 @@ export const wechatRobotConfigSchema: WechatRobotConfigSchema = {
 
 export interface WechatRobotOption {
     msgtype?: WechatRobotMsgType
-    // [key: string]: any
+    [key: string]: any
 }
 export type WechatRobotOptionSchema = OptionSchema<WechatRobotOption>
 export const wechatRobotOptionSchema: WechatRobotOptionSchema = {

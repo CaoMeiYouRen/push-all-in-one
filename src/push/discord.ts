@@ -49,7 +49,7 @@ export type DiscordOption = {
      * 机器人头像的 Url
      */
     avatar_url?: string
-    // [key: string]: any
+    [key: string]: any
 }
 
 export type DiscordOptionSchema = OptionSchema<DiscordOption>

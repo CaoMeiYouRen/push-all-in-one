@@ -64,7 +64,7 @@ type TempDingtalkOption = {
     feedCard?: FeedCard['feedCard']
 
     at?: Text['at']
-    // [key: string]: any
+    [key: string]: any
 }
 
 export type DingtalkOptionSchema = OptionSchema<TempDingtalkOption>

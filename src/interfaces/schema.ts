@@ -48,16 +48,16 @@ export type ConfigSchema<T = Config> = {
         // 字段描述
         description?: string
         // 字段是否必填
-        required: IsRequired<Pick<T, K>>
+        required: boolean // IsRequired<Pick<T, K>>
         // 字段默认值
         default?: T[K]
         // 字段选项，仅当字段类型为 select 时有效
-        options?: IsUnion<T[K]> extends true ? {
+        options?: {
             // 选项名称
             label: string
             // 选项值
             value: T[K] // 选项值的类型跟字段的类型一致
-        }[] : never
+        }[]
     }
 }
 
