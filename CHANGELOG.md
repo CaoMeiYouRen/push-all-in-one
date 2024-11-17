@@ -1,5 +1,19 @@
 # push-all-in-one
 
+# [4.1.0-beta.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.0.0...v4.1.0-beta.1) (2024-11-17)
+
+
+### ♻ 代码重构
+
+* 优化 OneBot 和 Qmsg 的 option 校验 ([d415eac](https://github.com/CaoMeiYouRen/push-all-in-one/commit/d415eac))
+* 优化 部分代码的导入风格 ([dc25e6b](https://github.com/CaoMeiYouRen/push-all-in-one/commit/dc25e6b))
+
+
+### ✨ 新功能
+
+* 增加 ConfigSchema 和 OptionSchema 声明；重构 Config 校验 ([1ae4203](https://github.com/CaoMeiYouRen/push-all-in-one/commit/1ae4203))
+* 钉钉/自定义邮件新增 配置定义 和 配置校验 ([038fdcb](https://github.com/CaoMeiYouRen/push-all-in-one/commit/038fdcb))
+
 # [4.0.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v3.6.0...v4.0.0) (2024-11-16)
 
 
