@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.1.0-beta.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0-beta.3...v4.1.0-beta.4) (2024-11-18)
+
+
+### ✨ 新功能
+
+* 增加 命名空间 声明；添加 readonly 声明 ([cc0b08f](https://github.com/CaoMeiYouRen/push-all-in-one/commit/cc0b08f))
+
 # [4.1.0-beta.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0-beta.2...v4.1.0-beta.3) (2024-11-18)
 
 
