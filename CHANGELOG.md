@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.1.0-beta.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0-beta.2...v4.1.0-beta.3) (2024-11-18)
+
+
+### 🐛 Bug 修复
+
+* 增加 PushAllInOne 导出 ([b273034](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b273034))
+
 # [4.1.0-beta.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0-beta.1...v4.1.0-beta.2) (2024-11-17)
 
 
