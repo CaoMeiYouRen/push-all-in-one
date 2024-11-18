@@ -136,8 +136,9 @@ export interface TelegramResponse {
  */
 export class Telegram implements Send {
 
-    static configSchema = telegramConfigSchema
-    static optionSchema = telegramOptionSchema
+    static readonly namespace = 'Telegram'
+    static readonly configSchema = telegramConfigSchema
+    static readonly optionSchema = telegramOptionSchema
 
     /**
      * 机器人令牌

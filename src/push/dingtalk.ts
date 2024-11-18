@@ -151,9 +151,11 @@ export interface DingtalkResponse {
  */
 export class Dingtalk implements Send {
 
-    static configSchema = dingtalkConfigSchema
+    static readonly namespace = '钉钉'
 
-    static optionSchema = dingtalkOptionSchema
+    static readonly configSchema = dingtalkConfigSchema
+
+    static readonly optionSchema = dingtalkOptionSchema
 
     private ACCESS_TOKEN: string
     /**

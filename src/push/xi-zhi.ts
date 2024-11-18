@@ -45,8 +45,9 @@ export interface XiZhiResponse {
  */
 export class XiZhi implements Send {
 
-    static configSchema = xiZhiConfigSchema
-    static optionSchema = xiZhiOptionSchema
+    static readonly namespace = '息知'
+    static readonly configSchema = xiZhiConfigSchema
+    static readonly optionSchema = xiZhiOptionSchema
 
     private XI_ZHI_KEY: string
 

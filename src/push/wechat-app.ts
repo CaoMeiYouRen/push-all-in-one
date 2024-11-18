@@ -215,8 +215,9 @@ export interface WechatAppResponse {
  */
 export class WechatApp implements Send {
 
-    static configSchema = wechatAppConfigSchema
-    static optionSchema = wechatAppOptionSchema
+    static readonly namespace = '企业微信应用'
+    static readonly configSchema = wechatAppConfigSchema
+    static readonly optionSchema = wechatAppOptionSchema
 
     private ACCESS_TOKEN: string
 
