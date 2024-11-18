@@ -119,8 +119,9 @@ export interface IGotResponse {
  * @class IGot
  */
 export class IGot implements Send {
-    static configSchema = iGotConfigSchema
-    static optionSchema = iGotOptionSchema
+    static readonly namespace = 'iGot'
+    static readonly configSchema = iGotConfigSchema
+    static readonly optionSchema = iGotOptionSchema
     /**
      * 微信搜索小程序“iGot”获取推送key
      *

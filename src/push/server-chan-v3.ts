@@ -76,8 +76,9 @@ export interface ServerChanV3Response {
  */
 export class ServerChanV3 implements Send {
 
-    static configSchema = serverChanV3ConfigSchema
-    static optionSchema = serverChanV3OptionSchema
+    static readonly namespace = 'Server酱³'
+    static readonly configSchema = serverChanV3ConfigSchema
+    static readonly optionSchema = serverChanV3OptionSchema
 
     /**
      * 请前往 https://sc3.ft07.com/sendkey 领取

@@ -126,8 +126,9 @@ export interface QmsgResponse {
  */
 export class Qmsg implements Send {
 
-    static configSchema = qmsgConfigSchema
-    static optionSchema = qmsgOptionSchema
+    static readonly namespace = 'Qmsg酱'
+    static readonly configSchema = qmsgConfigSchema
+    static readonly optionSchema = qmsgOptionSchema
 
     private QMSG_KEY: string
 

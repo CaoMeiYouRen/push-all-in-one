@@ -184,8 +184,9 @@ export interface PushPlusResponse {
  * @class PushPlus
  */
 export class PushPlus implements Send {
-    static configSchema = pushPlusConfigSchema
-    static optionSchema = pushPlusOptionSchema
+    static readonly namespace = 'PushPlus'
+    static readonly configSchema = pushPlusConfigSchema
+    static readonly optionSchema = pushPlusOptionSchema
     /**
      * 请前往 https://www.pushplus.plus 领取
      *

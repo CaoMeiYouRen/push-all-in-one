@@ -139,9 +139,9 @@ export interface OneBotResponse {
  * @class OneBot
  */
 export class OneBot implements Send {
-
-    static configSchema = oneBotConfigSchema
-    static optionSchema = oneBotOptionSchema
+    static readonly namespace = 'OneBot'
+    static readonly configSchema = oneBotConfigSchema
+    static readonly optionSchema = oneBotOptionSchema
 
     /**
      *  OneBot 协议版本号

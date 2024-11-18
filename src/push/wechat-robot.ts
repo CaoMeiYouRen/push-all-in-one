@@ -84,8 +84,9 @@ export interface WechatRobotResponse {
  */
 export class WechatRobot implements Send {
 
-    static configSchema = wechatRobotConfigSchema
-    static optionSchema = wechatRobotOptionSchema
+    static readonly namespace = '企业微信群机器人'
+    static readonly configSchema = wechatRobotConfigSchema
+    static readonly optionSchema = wechatRobotOptionSchema
 
     private WECHAT_ROBOT_KEY: string
 

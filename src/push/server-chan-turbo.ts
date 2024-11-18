@@ -120,8 +120,9 @@ export interface ServerChanTurboResponse {
  */
 export class ServerChanTurbo implements Send {
 
-    static configSchema = serverChanTurboConfigSchema
-    static optionSchema = serverChanTurboOptionSchema
+    static readonly namespace = 'Server酱·Turbo'
+    static readonly configSchema = serverChanTurboConfigSchema
+    static readonly optionSchema = serverChanTurboOptionSchema
 
     /**
      *

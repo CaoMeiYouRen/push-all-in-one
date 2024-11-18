@@ -98,8 +98,9 @@ export interface PushDeerResponse {
  */
 export class PushDeer implements Send {
 
-    static configSchema = pushDeerConfigSchema
-    static optionSchema = pushDeerOptionSchema
+    static readonly namespace = 'PushDeer'
+    static readonly configSchema = pushDeerConfigSchema
+    static readonly optionSchema = pushDeerOptionSchema
 
     /**
      * pushkey，请参考 https://github.com/easychen/pushdeer 获取

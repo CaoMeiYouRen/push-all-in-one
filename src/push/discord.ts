@@ -81,8 +81,10 @@ export interface DiscordResponse { }
  */
 export class Discord implements Send {
 
-    static configSchema = discordConfigSchema
-    static optionSchema = discordOptionSchema
+    static readonly namespace = 'Discord'
+    static readonly configSchema = discordConfigSchema
+    static readonly optionSchema = discordOptionSchema
+
     /**
      * Webhook Url 可在服务器设置 -> 整合 -> Webhook -> 创建 Webhook 中获取
      *
