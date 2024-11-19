@@ -67,6 +67,8 @@ npm i push-all-in-one -S
 
 `title` 为 `消息标题`，`desp` 为 `消息描述`，`options` 为该推送方式的`额外推送选项`，具体请参考各个推送渠道的注释。
 
+> 不知道如何设置配置？请前往 [push-all-in-cloud 配置生成器](https://push.cmyr.dev/) 在线生成 `push-all-in-one` 和 `push-all-in-cloud` 通用配置。
+
 调用方式举例：
 
 ```ts

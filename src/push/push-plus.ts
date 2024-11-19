@@ -164,7 +164,7 @@ export const pushPlusOptionSchema: PushPlusOptionSchema = {
         title: '毫秒时间戳',
         description: '格式如：1632993318000。服务器时间戳大于此时间戳，则消息不会发送',
         required: false,
-        default: 0,
+        // default: 0,
     },
 }
 

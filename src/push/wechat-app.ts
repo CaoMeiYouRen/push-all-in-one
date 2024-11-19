@@ -34,18 +34,21 @@ export const wechatAppConfigSchema: WechatAppConfigSchema = {
         title: '企业ID',
         description: '企业ID，获取方式参考：[术语说明-corpid](https://work.weixin.qq.com/api/doc/90000/90135/91039#14953/corpid)',
         required: true,
+        default: '',
     },
     WECHAT_APP_SECRET: {
         type: 'string',
         title: '应用的凭证密钥',
         description: '应用的凭证密钥，获取方式参考：[术语说明-secret](https://work.weixin.qq.com/api/doc/90000/90135/91039#14953/secret)',
         required: true,
+        default: '',
     },
     WECHAT_APP_AGENTID: {
         type: 'number',
         title: '企业应用的id',
         description: '企业应用的id。企业内部开发，可在应用的设置页面查看',
         required: true,
+        default: 0,
     },
 } as const
 
