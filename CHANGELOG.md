@@ -1,5 +1,35 @@
 # push-all-in-one
 
+# [4.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.0.0...v4.1.0) (2024-11-19)
+
+
+### ♻ 代码重构
+
+* 优化 OneBot 和 Qmsg 的 option 校验 ([bce14a3](https://github.com/CaoMeiYouRen/push-all-in-one/commit/bce14a3))
+* 优化 OneBot 和 Qmsg 的 option 校验 ([d415eac](https://github.com/CaoMeiYouRen/push-all-in-one/commit/d415eac))
+* 优化 部分代码的导入风格 ([51baf2b](https://github.com/CaoMeiYouRen/push-all-in-one/commit/51baf2b))
+* 优化 部分代码的导入风格 ([dc25e6b](https://github.com/CaoMeiYouRen/push-all-in-one/commit/dc25e6b))
+
+
+### ✨ 新功能
+
+* 增加 ConfigSchema 和 OptionSchema 声明；重构 Config 校验 ([b7436ed](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b7436ed))
+* 增加 ConfigSchema 和 OptionSchema 声明；重构 Config 校验 ([1ae4203](https://github.com/CaoMeiYouRen/push-all-in-one/commit/1ae4203))
+* 增加 命名空间 声明；添加 readonly 声明 ([7aaca63](https://github.com/CaoMeiYouRen/push-all-in-one/commit/7aaca63))
+* 增加 命名空间 声明；添加 readonly 声明 ([cc0b08f](https://github.com/CaoMeiYouRen/push-all-in-one/commit/cc0b08f))
+* 钉钉/自定义邮件新增 配置定义 和 配置校验 ([4f7d8c3](https://github.com/CaoMeiYouRen/push-all-in-one/commit/4f7d8c3))
+* 钉钉/自定义邮件新增 配置定义 和 配置校验 ([038fdcb](https://github.com/CaoMeiYouRen/push-all-in-one/commit/038fdcb))
+
+
+### 🐛 Bug 修复
+
+* 修改 DingtalkOption 的默认值 ([ce62275](https://github.com/CaoMeiYouRen/push-all-in-one/commit/ce62275))
+* 修改 DingtalkOption 的默认值 ([b7329ec](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b7329ec))
+* 修改 部分可选字段的类型声明 ([5d46d07](https://github.com/CaoMeiYouRen/push-all-in-one/commit/5d46d07))
+* 修改 部分可选字段的类型声明 ([e8a6832](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e8a6832))
+* 增加 PushAllInOne 导出 ([3bb1a64](https://github.com/CaoMeiYouRen/push-all-in-one/commit/3bb1a64))
+* 增加 PushAllInOne 导出 ([b273034](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b273034))
+
 # [4.1.0-beta.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0-beta.3...v4.1.0-beta.4) (2024-11-18)
 
 
