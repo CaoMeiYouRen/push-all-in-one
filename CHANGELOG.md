@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.1.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0...v4.1.1) (2024-11-19)
+
+
+### 🐛 Bug 修复
+
+* 更新文档说明；修复 PushPlus 存在错误默认值的问题；修复 企业应用的 id 缺少默认值的问题 ([5482fee](https://github.com/CaoMeiYouRen/push-all-in-one/commit/5482fee))
+
 # [4.1.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.0.0...v4.1.0) (2024-11-19)
 
 
