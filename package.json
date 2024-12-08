@@ -105,7 +105,7 @@
     "@colors/colors": "^1.5.0",
     "axios": "^1.2.1",
     "debug": "^4.3.1",
-    "https-proxy-agent": "7.0.5",
+    "https-proxy-agent": "7.0.6",
     "nodemailer": "^6.9.1",
     "socks-proxy-agent": "^8.0.4"
   },
