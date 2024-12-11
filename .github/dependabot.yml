@@ -9,17 +9,11 @@ updates:
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 20
     schedule:
-      interval: "daily"
+      interval: "weekly"
       time: "05:00"
       timezone: "Asia/Shanghai"
     ignore:
       - dependency-name: "conventional-changelog-cli"
-      - dependency-name: "https-proxy-agent"
-        versions:
-          - ">= 8.0.0"
-      - dependency-name: "socks-proxy-agent"
-        versions:
-          - ">= 9.0.0"
       - dependency-name: "eslint"
         versions:
           - ">= 9.0.0"
