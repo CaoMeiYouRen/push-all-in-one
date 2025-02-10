@@ -153,6 +153,14 @@ export const feishuOptionSchema: FeishuOptionSchema = {
     },
 }
 
+/**
+ * 飞书。官方文档：https://open.feishu.cn/document/home/index
+ *
+ * @author CaoMeiYouRen
+ * @date 2025-02-10
+ * @export
+ * @class Feishu
+ */
 export class Feishu implements Send {
 
     static readonly namespace = '飞书'
