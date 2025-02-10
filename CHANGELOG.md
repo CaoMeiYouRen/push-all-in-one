@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.1...v4.2.0) (2025-02-10)
+
+
+### ✨ 新功能
+
+* 添加飞书消息发送功能及配置验证 ([f93fc7f](https://github.com/CaoMeiYouRen/push-all-in-one/commit/f93fc7f)), closes [#285](https://github.com/CaoMeiYouRen/push-all-in-one/issues/285)
+
 ## [4.1.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.0...v4.1.1) (2024-11-19)
 
 
