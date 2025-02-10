@@ -1,6 +1,7 @@
 export * from './push/custom-email'
 export * from './push/dingtalk'
 export * from './push/discord'
+export * from './push/feishu'
 export * from './push/i-got'
 export * from './push/one-bot'
 export * from './push/push-deer'
@@ -13,7 +14,8 @@ export * from './push/wechat-app'
 export * from './push/wechat-robot'
 export * from './push/xi-zhi'
 
-export * from './one'
 export * from './interfaces/response'
-export * from './interfaces/send'
 export * from './interfaces/schema'
+export * from './interfaces/send'
+export * from './one'
+

@@ -1,10 +1,11 @@
-import { CustomEmail, Dingtalk, Discord, IGot, OneBot, PushDeer, PushPlus, Qmsg, ServerChanTurbo, ServerChanV3, Telegram, WechatApp, WechatRobot, XiZhi } from './index'
+import { CustomEmail, Dingtalk, Discord, IGot, OneBot, PushDeer, PushPlus, Qmsg, ServerChanTurbo, ServerChanV3, Telegram, WechatApp, WechatRobot, XiZhi, Feishu } from './index'
 import { SendResponse } from '@/interfaces/response'
 
 export const PushAllInOne = {
     CustomEmail,
     Dingtalk,
     Discord,
+    Feishu,
     IGot,
     OneBot,
     PushDeer,
