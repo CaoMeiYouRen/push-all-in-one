@@ -25,3 +25,11 @@ export function generateSignature(timestamp: string | number, suiteTicket: strin
 
     return signature
 }
+
+export function base64Encode(str: string): string {
+    return Buffer.from(str).toString('base64')
+}
+
+export function rfc2047Encode(str: string): string {
+    return `=?utf-8?B?${base64Encode(str)}?=`
+}
