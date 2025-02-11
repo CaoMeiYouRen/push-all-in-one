@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.2.0...v4.3.0) (2025-02-11)
+
+
+### ✨ 新功能
+
+* 添加 ntfy 推送功能及相关配置 ([540c1db](https://github.com/CaoMeiYouRen/push-all-in-one/commit/540c1db)), closes [#264](https://github.com/CaoMeiYouRen/push-all-in-one/issues/264)
+
 # [4.2.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.1.1...v4.2.0) (2025-02-10)
 
 
