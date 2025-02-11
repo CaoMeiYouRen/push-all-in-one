@@ -24,9 +24,9 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、飞书、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式。
+> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、飞书、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram、ntfy 等多种推送方式。
 >
-> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, Feishu, pushplus, iGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, and more.
+> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, Feishu, pushplus, iGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, ntfy and more.
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！
 >
@@ -72,7 +72,7 @@ npm i push-all-in-one -S
 调用方式举例：
 
 ```ts
-import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, runPushAllInOne } from 'push-all-in-one'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, Feishu, Ntfy, runPushAllInOne } from 'push-all-in-one'
 
 // 通过 runPushAllInOne 统一调用
 runPushAllInOne('测试推送', '测试推送', {
@@ -226,6 +226,14 @@ const oneBot = new OneBot({ ONE_BOT_BASE_URL, ONE_BOT_ACCESS_TOKEN })
 oneBot.send('你好，我很可爱 - OneBot 11', '', {
     message_type: 'private',
     user_id: 123456789,
+})
+
+// 【推荐】Ntfy 推送。官方文档：https://ntfy.sh/docs/publish/
+const ntfy = new Ntfy({
+    NTFY_URL: 'https://ntfy.sh',
+    NTFY_TOPIC: 'push_all_in_one_test',
+})
+await ntfy.send('Ntfy - 标题支持中文', '你好，我很可爱 - Ntfy', {
 })
 ```
 
