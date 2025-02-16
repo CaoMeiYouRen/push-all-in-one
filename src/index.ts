@@ -14,6 +14,7 @@ export * from './push/telegram'
 export * from './push/wechat-app'
 export * from './push/wechat-robot'
 export * from './push/xi-zhi'
+export * from './push/wx-pusher'
 
 export * from './interfaces/response'
 export * from './interfaces/schema'
