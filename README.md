@@ -235,6 +235,23 @@ const ntfy = new Ntfy({
 })
 await ntfy.send('Ntfy - 标题支持中文', '你好，我很可爱 - Ntfy', {
 })
+
+// 【推荐】WxPusher 推送。官方文档：https://wxpusher.zjiecode.com/docs
+// WxPusher 是一个开源的微信消息推送平台，支持多种消息格式，包括文本、HTML、Markdown
+// 使用前需要：
+// 1. 在 https://wxpusher.zjiecode.com/admin/main/app/appToken 申请 appToken
+// 2. 在 https://wxpusher.zjiecode.com/admin/main/wxuser/list 获取接收消息用户的 uid
+const WX_PUSHER_APP_TOKEN = 'xxxxxxxxxxxxxxxxxx'
+const WX_PUSHER_UID = 'yyyyyyyyyyyyyyyyyyy'
+const wxPusher = new WxPusher({
+    WX_PUSHER_APP_TOKEN,
+    WX_PUSHER_UID,
+})
+wxPusher.send('你好', '你好，我很可爱 - WxPusher', {
+    contentType: 3, // 使用 markdown 格式
+    summary: '消息摘要', // 显示在微信聊天页面的消息摘要
+    url: 'https://wxpusher.zjiecode.com', // 点击消息时打开的链接
+})
 ```
 
 更多例子请参考 [examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
