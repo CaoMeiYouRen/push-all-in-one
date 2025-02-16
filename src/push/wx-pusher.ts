@@ -37,15 +37,17 @@ export const wxPusherConfigSchema: WxPusherConfigSchema = {
 
 export interface WxPusherOption {
     /**
-     * 消息摘要，显示在微信聊天页面或者模版消息卡片上，限制长度100，可以不传，不传默认截取content前面的内容。
+     * 消息摘要，显示在微信聊天页面或者模版消息卡片上，限制长度20，可以不传，不传默认截取content前面的内容。
      */
     summary?: string
     /**
      * 内容类型 1表示文字  2表示html(只发送body标签内部的数据即可，不包括body标签) 3表示markdown
+     * @default 1
      */
     contentType?: 1 | 2 | 3
     /**
-     * 是否保存发送内容，1保存，0不保存，默认0
+     * 是否保存发送内容，1保存，0不保存
+     * @default 0
      */
     save?: 0 | 1
     /**
@@ -53,11 +55,15 @@ export interface WxPusherOption {
      */
     topicIds?: number[]
     /**
+     * 发送目标的UID，是一个数组。注意uids和topicIds可以同时填写，也可以只填写一个。
+     */
+    uids?: string[]
+    /**
      * 发送url，可以不传，如果传了，则根据url弹出通知
      */
     url?: string
     /**
-     * 仅针对text消息类型有效
+     * 验证负载，仅针对text消息类型有效
      */
     verifyPayload?: string
 }
@@ -68,7 +74,7 @@ export const wxPusherOptionSchema: WxPusherOptionSchema = {
     summary: {
         type: 'string',
         title: '消息摘要',
-        description: '显示在微信聊天页面或者模版消息卡片上，限制长度100，可以不传，不传默认截取content前面的内容。',
+        description: '显示在微信聊天页面或者模版消息卡片上，限制长度20，可以不传，不传默认截取content前面的内容。',
         required: false,
     },
     contentType: {
@@ -97,6 +103,7 @@ export const wxPusherOptionSchema: WxPusherOptionSchema = {
         title: '是否保存发送内容',
         description: '是否保存发送内容，1保存，0不保存，默认0',
         required: false,
+        default: 0,
         options: [
             {
                 label: '不保存',
@@ -112,6 +119,12 @@ export const wxPusherOptionSchema: WxPusherOptionSchema = {
         type: 'array',
         title: '主题ID',
         description: '主题ID，可以根据主题ID发送消息，可以在主题管理中查看主题ID',
+        required: false,
+    },
+    uids: {
+        type: 'array',
+        title: '用户ID',
+        description: '发送目标的UID，是一个数组。注意uids和topicIds可以同时填写，也可以只填写一个。',
         required: false,
     },
     url: {
@@ -183,7 +196,7 @@ export class WxPusher implements Send {
 
     async send(title: string, desp?: string, option?: WxPusherOption): Promise<SendResponse<WxPusherResponse>> {
         Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
-        const { contentType = 1, ...args } = option || {}
+        const { contentType = 1, uids = [this.WX_PUSHER_UID], ...args } = option || {}
         const content = `${title}${desp ? `\n${desp}` : ''}`
         return ajax({
             url: 'https://wxpusher.zjiecode.com/api/send/message',
@@ -195,7 +208,7 @@ export class WxPusher implements Send {
                 appToken: this.WX_PUSHER_APP_TOKEN,
                 content,
                 contentType,
-                uids: [this.WX_PUSHER_UID],
+                uids,
                 ...args,
             },
         })
