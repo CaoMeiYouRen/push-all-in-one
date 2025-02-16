@@ -247,12 +247,38 @@ const wxPusher = new WxPusher({
     WX_PUSHER_APP_TOKEN,
     WX_PUSHER_UID,
 })
+
+// 基础用法
+wxPusher.send('你好', '你好，我很可爱 - WxPusher')
+
+// 高级用法
 wxPusher.send('你好', '你好，我很可爱 - WxPusher', {
-    contentType: 3, // 使用 markdown 格式
-    summary: '消息摘要', // 显示在微信聊天页面的消息摘要
-    url: 'https://wxpusher.zjiecode.com', // 点击消息时打开的链接
+    contentType: 3, // 内容类型：1=文本，2=HTML，3=Markdown，默认为1
+    summary: '消息摘要', // 显示在微信聊天页面的消息摘要，限制长度20，不传则自动截取content
+    url: 'https://wxpusher.zjiecode.com', // 点击消息时打开的链接，可选
+    topicIds: [123], // 发送目标的主题ID数组，可以实现群发，可选
+    save: 1, // 是否保存消息：0=不保存，1=保存，默认0
+    verifyPayload: 'test', // 验证负载，仅针对text消息类型有效，可选
 })
-```
+
+// HTML 格式示例
+wxPusher.send('HTML 消息', '<h1>标题</h1><p style="color:red;">红色文字</p>', {
+    contentType: 2,
+    summary: 'HTML示例',
+})
+
+// Markdown 格式示例
+wxPusher.send('Markdown 消息', '## 二级标题\n- 列表项1\n- 列表项2', {
+    contentType: 3,
+    summary: 'Markdown示例',
+})
+
+// 群发示例
+wxPusher.send('群发消息', '这是一条群发消息', {
+    contentType: 1,
+    topicIds: [123, 456], // 可以发送给多个主题
+    uids: ['UID_1', 'UID_2'], // 可以同时发送给多个用户
+})
 
 更多例子请参考 [examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
 
