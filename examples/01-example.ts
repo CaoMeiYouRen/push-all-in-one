@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios'
 import colors from '@colors/colors'
-import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, PushPlusTemplateType, CustomEmailType, WechatRobotMsgType, WechatAppMsgType, PushPlusChannelType } from '../src'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, WxPusher, PushPlusTemplateType, CustomEmailType, WechatRobotMsgType, WechatAppMsgType, PushPlusChannelType } from '../src'
 import { warn } from '../src/utils/helper'
 import { SendResponse } from '../src/interfaces/response'
 
@@ -205,6 +205,20 @@ export async function batchPushAllInOne(title: string, desp?: string): Promise<P
         info('OneBot 推送 已加入推送队列')
     } else {
         info('未配置 OneBot 推送，已跳过')
+    }
+
+    if (env.WX_PUSHER_APP_TOKEN && env.WX_PUSHER_UID) {
+        // WxPusher 推送。官方文档：https://wxpusher.zjiecode.com/docs
+        const wxPusher = new WxPusher({
+            WX_PUSHER_APP_TOKEN: env.WX_PUSHER_APP_TOKEN,
+            WX_PUSHER_UID: env.WX_PUSHER_UID,
+        })
+        pushs.push(wxPusher.send(title, desp, {
+            contentType: 3, // 使用 markdown 格式
+        }))
+        info('WxPusher 推送 已加入推送队列')
+    } else {
+        info('未配置 WxPusher 推送，已跳过')
     }
 
     if (pushs.length === 0) {
