@@ -1,4 +1,4 @@
-import { CustomEmail, Dingtalk, Discord, Feishu, IGot, Ntfy, OneBot, PushDeer, PushPlus, Qmsg, ServerChanTurbo, ServerChanV3, Telegram, WechatApp, WechatRobot, XiZhi } from './index'
+import { CustomEmail, Dingtalk, Discord, Feishu, IGot, Ntfy, OneBot, PushDeer, PushPlus, Qmsg, ServerChanTurbo, ServerChanV3, Telegram, WechatApp, WechatRobot, XiZhi, WxPusher } from './index'
 import { SendResponse } from '@/interfaces/response'
 
 export const PushAllInOne = {
@@ -17,6 +17,7 @@ export const PushAllInOne = {
     Telegram,
     WechatApp,
     WechatRobot,
+    WxPusher,
     XiZhi,
 } as const
 
