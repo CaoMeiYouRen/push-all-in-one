@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.0...v4.4.1) (2025-03-04)
+
+
+### 🐛 Bug 修复
+
+* **wx-pusher:** 优化发送方法，支持去重用户 ID ([8337603](https://github.com/CaoMeiYouRen/push-all-in-one/commit/8337603))
+
 # [4.4.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.3.0...v4.4.0) (2025-03-04)
 
 
