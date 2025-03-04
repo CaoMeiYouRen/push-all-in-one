@@ -1,5 +1,13 @@
 # push-all-in-one
 
+# [4.4.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.3.0...v4.4.0) (2025-03-04)
+
+
+### ✨ 新功能
+
+* **push:** 添加 WxPusher 推送支持 ([67de1fd](https://github.com/CaoMeiYouRen/push-all-in-one/commit/67de1fd))
+* **push:** 添加 WxPusher 推送支持 ([a1ffedf](https://github.com/CaoMeiYouRen/push-all-in-one/commit/a1ffedf))
+
 # [4.3.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.2.0...v4.3.0) (2025-02-11)
 
 
