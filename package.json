@@ -42,7 +42,8 @@
     "pushdeer",
     "Discord",
     "OneBot",
-    "Telegram"
+    "Telegram",
+    "WxPusher"
   ],
   "scripts": {
     "lint": "cross-env NODE_ENV=production eslint src examples --fix --ext .ts,.js,.cjs,.mjs",
@@ -130,6 +131,11 @@
     "*.{js,ts}": [
       "npm run lint",
       "git add"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
     ]
   }
 }
