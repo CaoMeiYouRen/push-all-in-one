@@ -73,3 +73,16 @@ export function isEmpty(value: unknown): boolean {
 export function isNotEmpty(value: unknown): boolean {
     return !isEmpty(value)
 }
+
+/**
+ *  数组去重
+ *
+ * @author CaoMeiYouRen
+ * @date 2025-03-05
+ * @export
+ * @template T
+ * @param arr
+ */
+export function uniq<T>(arr: T[]): T[] {
+    return Array.from(new Set(arr))
+}

@@ -4,6 +4,7 @@ import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
 import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
 import { validate } from '@/utils/validate'
+import { uniq } from '@/utils/helper'
 
 const Debugger = debug('push:wx-pusher')
 
@@ -196,7 +197,8 @@ export class WxPusher implements Send {
 
     async send(title: string, desp?: string, option?: WxPusherOption): Promise<SendResponse<WxPusherResponse>> {
         Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
-        const { contentType = 1, uids = [this.WX_PUSHER_UID], ...args } = option || {}
+        const { contentType = 1, ...args } = option || {}
+        const uids = uniq([...option.uids || [], this.WX_PUSHER_UID])
         const content = `${title}${desp ? `\n${desp}` : ''}`
         return ajax({
             url: 'https://wxpusher.zjiecode.com/api/send/message',
@@ -205,11 +207,11 @@ export class WxPusher implements Send {
                 'Content-Type': 'application/json',
             },
             data: {
+                ...args,
                 appToken: this.WX_PUSHER_APP_TOKEN,
                 content,
                 contentType,
                 uids,
-                ...args,
             },
         })
     }
