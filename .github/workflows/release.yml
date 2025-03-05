@@ -43,6 +43,6 @@ jobs:
       - run: pnpm run build
       - run: pnpm run test
       - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm run release
