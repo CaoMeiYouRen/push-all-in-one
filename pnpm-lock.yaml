@@ -92,7 +92,7 @@ importers:
         version: 8.57.1
       eslint-config-cmyr:
         specifier: ^1.1.30
-        version: 1.1.32(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)(typescript@5.8.2))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1))(eslint@8.57.1)(typescript@5.8.2)
+        version: 1.1.33(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)(typescript@5.8.2))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1))(eslint@8.57.1)(typescript@5.8.2)
       eslint-plugin-import:
         specifier: ^2.25.4
         version: 2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)
@@ -1993,14 +1993,14 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-config-cmyr@1.1.32:
-    resolution: {integrity: sha512-dK4atnEPl4twuEpOzdyRvE6JaxDoIJizKIMDdTpca2ZY1b5TosgVnfpXj9lT+hkm4jj2jMsFk2rXVe/u0bgNTg==}
+  eslint-config-cmyr@1.1.33:
+    resolution: {integrity: sha512-jv1OjVgK5SBRnP/+srmjg7eMO9pVep+lDPLBsvXa6rg1XRwNo9yQWmzbiz5WDECJDWQYQ56oYgXyP/EgALHyFA==}
     engines: {node: '>=12'}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': '>=3'
       '@typescript-eslint/parser': '>=3'
       '@vue/eslint-config-typescript': '>=5'
-      eslint: '>=6'
+      eslint: '>=6 <9'
       eslint-config-react-app: '>=5'
       eslint-plugin-import: '>=2'
       eslint-plugin-vue: '>=6'
@@ -6980,7 +6980,7 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-config-cmyr@1.1.32(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)(typescript@5.8.2))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1))(eslint@8.57.1)(typescript@5.8.2):
+  eslint-config-cmyr@1.1.33(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)(typescript@5.8.2))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1))(eslint@8.57.1)(typescript@5.8.2):
     dependencies:
       eslint: 8.57.1
     optionalDependencies:
