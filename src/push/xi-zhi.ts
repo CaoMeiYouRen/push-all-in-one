@@ -42,6 +42,7 @@ export interface XiZhiResponse {
  * @date 2022-02-18
  * @export
  * @class XiZhi
+ * @deprecated 受微信官方监管影响，息知推送已停止服务，请开发者更换其他通道
  */
 export class XiZhi implements Send {
 
