@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.1...v4.4.2) (2025-05-09)
+
+
+### 🐛 Bug 修复
+
+* 添加息知推送已停止服务的弃用说明 ([af49fa7](https://github.com/CaoMeiYouRen/push-all-in-one/commit/af49fa7))
+
 ## [4.4.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.0...v4.4.1) (2025-03-04)
 
 
