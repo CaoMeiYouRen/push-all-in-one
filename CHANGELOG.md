@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.2...v4.4.3) (2025-05-27)
+
+
+### 🐛 Bug 修复
+
+* **utils:** 改进颜色模块加载方式 ([0c11819](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0c11819))
+
 ## [4.4.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.1...v4.4.2) (2025-05-09)
 
 
