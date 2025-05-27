@@ -1,9 +1,13 @@
 let colors: any
 
 if (globalThis.process && typeof globalThis.process.on === 'function') {
-    import('@colors/colors').then((value) => {
-        colors = value.default
-    }).catch(console.error)
+    try {
+        colors = require('@colors/colors')
+    } catch {
+        import('@colors/colors').then((value) => {
+            colors = value.default
+        }).catch(console.error)
+    }
 }
 
 export function warn(text: any): void {
