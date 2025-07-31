@@ -22,7 +22,7 @@ importers:
         version: 7.0.6
       nodemailer:
         specifier: ^7.0.3
-        version: 7.0.4
+        version: 7.0.5
       socks-proxy-agent:
         specifier: ^8.0.4
         version: 8.0.5
@@ -3683,8 +3683,8 @@ packages:
   node-releases@2.0.18:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
 
-  nodemailer@7.0.4:
-    resolution: {integrity: sha512-9O00Vh89/Ld2EcVCqJ/etd7u20UhME0f/NToPfArwPEe1Don1zy4mAIz6ariRr7mJ2RDxtaDzN0WJVdVXPtZaw==}
+  nodemailer@7.0.5:
+    resolution: {integrity: sha512-nsrh2lO3j4GkLLXoeEksAMgAOqxOv6QumNRVQTJwKH4nuiww6iC2y7GyANs9kRAxCexg3+lTWM3PZ91iLlVjfg==}
     engines: {node: '>=6.0.0'}
 
   normalize-package-data@2.5.0:
@@ -9286,7 +9286,7 @@ snapshots:
 
   node-releases@2.0.18: {}
 
-  nodemailer@7.0.4: {}
+  nodemailer@7.0.5: {}
 
   normalize-package-data@2.5.0:
     dependencies:
