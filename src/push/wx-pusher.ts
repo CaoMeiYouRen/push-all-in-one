@@ -179,6 +179,7 @@ export interface WxPusherResponse {
  * @class WxPusher
  */
 export class WxPusher implements Send {
+
     static readonly namespace = 'WxPusher'
     static readonly configSchema = wxPusherConfigSchema
     static readonly optionSchema = wxPusherOptionSchema
@@ -215,4 +216,5 @@ export class WxPusher implements Send {
             },
         })
     }
+
 }

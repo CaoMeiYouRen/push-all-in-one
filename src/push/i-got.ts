@@ -119,6 +119,7 @@ export interface IGotResponse {
  * @class IGot
  */
 export class IGot implements Send {
+
     static readonly namespace = 'iGot'
     static readonly configSchema = iGotConfigSchema
     static readonly optionSchema = iGotOptionSchema
@@ -140,6 +141,7 @@ export class IGot implements Send {
         // 根据 configSchema 验证 config
         validate(config, IGot.configSchema)
     }
+
     /**
      *
      *

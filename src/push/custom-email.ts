@@ -153,6 +153,7 @@ export const customEmailOptionSchema: CustomEmailOptionSchema = {
  * @class CustomEmail
  */
 export class CustomEmail implements Send {
+
     // 命名空间
     static readonly namespace = '自定义邮件'
 
@@ -236,4 +237,5 @@ export class CustomEmail implements Send {
             headers: {},
         }
     }
+
 }

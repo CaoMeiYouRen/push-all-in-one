@@ -258,6 +258,7 @@ export class WechatApp implements Send {
         this.extendexpiresTime(expires_in)
         return access_token
     }
+
     /**
      * 延长过期时间
      *
@@ -311,4 +312,5 @@ export class WechatApp implements Send {
             },
         })
     }
+
 }

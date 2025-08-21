@@ -5,7 +5,6 @@ import { warn } from '../src/utils/helper'
 import { SendResponse } from '../src/interfaces/response'
 
 export function info(text: any): void {
-    // eslint-disable-next-line no-console
     console.info(colors.cyan(text))
 }
 

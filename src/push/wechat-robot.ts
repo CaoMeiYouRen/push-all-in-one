@@ -126,4 +126,5 @@ export class WechatRobot implements Send {
             },
         })
     }
+
 }

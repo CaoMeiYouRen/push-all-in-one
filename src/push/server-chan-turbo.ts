@@ -137,6 +137,7 @@ export class ServerChanTurbo implements Send {
         // 根据 configSchema 验证 config
         validate(config, ServerChanTurbo.configSchema)
     }
+
     /**
      *
      *
@@ -172,4 +173,5 @@ export class ServerChanTurbo implements Send {
             data,
         })
     }
+
 }

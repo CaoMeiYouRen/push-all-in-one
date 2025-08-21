@@ -50,9 +50,9 @@ export const ntfyConfigSchema: NtfyConfigSchema = {
     NTFY_AUTH: {
         type: 'string',
         title: '认证参数',
-        description: '支持 Basic Auth、Bearer Token。\n' +
-            'Basic Auth 示例："Basic dGVzdDpwYXNz"\n' +
-            'Bearer Token 示例："Bearer tk_..."',
+        description: '支持 Basic Auth、Bearer Token。\n'
+            + 'Basic Auth 示例："Basic dGVzdDpwYXNz"\n'
+            + 'Bearer Token 示例："Bearer tk_..."',
         required: false,
         default: '',
     },
@@ -304,6 +304,7 @@ export interface NtfyResponse {
  * @class Ntfy
  */
 export class Ntfy implements Send {
+
     static readonly namespace = 'ntfy'
     static readonly configSchema = ntfyConfigSchema
     static readonly optionSchema = ntfyOptionSchema
@@ -414,4 +415,5 @@ export class Ntfy implements Send {
         })
         return response
     }
+
 }

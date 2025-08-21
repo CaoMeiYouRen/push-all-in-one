@@ -282,4 +282,5 @@ export class Dingtalk implements Send {
                 throw new Error('msgtype is required!')
         }
     }
+
 }

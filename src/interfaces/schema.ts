@@ -3,8 +3,8 @@ type IsUnion<T, U = T> = T extends U ? ([U] extends [T] ? false : true) : never
 /**
  * 判断类型是否相同
  */
-type Equal<Left, Right> =
-    (<U>() => U extends Left ? 1 : 0) extends (<U>() => U extends Right ? 1 : 0) ? true : false
+type Equal<Left, Right>
+    = (<U>() => U extends Left ? 1 : 0) extends (<U>() => U extends Right ? 1 : 0) ? true : false
 
 /**
  * 判断字段是否必填

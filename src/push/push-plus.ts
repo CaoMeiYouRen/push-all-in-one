@@ -184,6 +184,7 @@ export interface PushPlusResponse {
  * @class PushPlus
  */
 export class PushPlus implements Send {
+
     static readonly namespace = 'PushPlus'
     static readonly configSchema = pushPlusConfigSchema
     static readonly optionSchema = pushPlusOptionSchema
