@@ -13,7 +13,6 @@ updates:
       time: "05:00"
       timezone: "Asia/Shanghai"
     ignore:
-      - dependency-name: "conventional-changelog-cli"
       - dependency-name: "eslint"
         versions:
           - ">= 9.0.0"
