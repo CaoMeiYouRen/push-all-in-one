@@ -78,7 +78,7 @@
     "cross-env": "^10.0.0",
     "cz-conventional-changelog-cmyr": "^2.0.0-beta",
     "eslint": "^9.33.0",
-    "eslint-config-cmyr": "2.0.0-beta.12",
+    "eslint-config-cmyr": "2.0.0-beta.15",
     "husky": "^9.0.5",
     "jest": "^30.0.5",
     "lint-staged": "^16.1.0",
