@@ -67,8 +67,8 @@ importers:
         specifier: ^1.0.0-beta
         version: 1.0.0
       conventional-changelog-cmyr-config:
-        specifier: 2.1.2
-        version: 2.1.2
+        specifier: 3.0.0
+        version: 3.0.0
       cross-env:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2201,9 +2201,9 @@ packages:
     resolution: {integrity: sha512-ROjNchA9LgfNMTTFSIWPzebCwOGFdgkEq45EnvvrmSLvCtAw0HSmrCs7/ty+wAeYUZyNay0YMUNYFTRL72PkBQ==}
     engines: {node: '>=16'}
 
-  conventional-changelog-cmyr-config@2.1.2:
-    resolution: {integrity: sha512-JucNefNoVC1StkGTSKeFRZgOLOsXnmqd3CoaxoI1QPZ093slTdhQrt1doTARJKzvmL+4RL80LiSRneH1mdRSmw==}
-    engines: {node: '>=12'}
+  conventional-changelog-cmyr-config@3.0.0:
+    resolution: {integrity: sha512-QhD/0545XRgspCcopi2d5L8ffFdiqsaqqcQfGRprv18CVH0NUQUtfORpbNqEOWwl1VxYj1pZUcVyxHTSfam1Xg==}
+    engines: {node: '>=18'}
 
   conventional-changelog-conventionalcommits@7.0.2:
     resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
@@ -4410,14 +4410,6 @@ packages:
 
   pure-rand@7.0.1:
     resolution: {integrity: sha512-oTUZM/NAZS8p7ANR3SHh30kXB+zK2r2BPcEn/awJIbOvq82WoMN4p62AWWp3Hhw50G0xMsw1mhIBLqHw64EcNQ==}
-
-  q@1.5.1:
-    resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
-    engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
-    deprecated: |-
-      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
-      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -7907,11 +7899,10 @@ snapshots:
     dependencies:
       compare-func: 2.0.0
 
-  conventional-changelog-cmyr-config@2.1.2:
+  conventional-changelog-cmyr-config@3.0.0:
     dependencies:
       compare-func: 2.0.0
       debug: 4.4.1(supports-color@8.1.1)
-      q: 1.5.1
     transitivePeerDependencies:
       - supports-color
 
@@ -10529,8 +10520,6 @@ snapshots:
   punycode@2.3.1: {}
 
   pure-rand@7.0.1: {}
-
-  q@1.5.1: {}
 
   queue-microtask@1.2.3: {}
 
