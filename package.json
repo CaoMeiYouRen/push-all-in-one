@@ -74,7 +74,7 @@
     "@types/nodemailer": "^7.0.1",
     "commitizen": "^4.2.3",
     "commitlint-config-cmyr": "^1.0.0-beta",
-    "conventional-changelog-cmyr-config": "2.1.2",
+    "conventional-changelog-cmyr-config": "3.0.0",
     "cross-env": "^10.0.0",
     "cz-conventional-changelog-cmyr": "^2.0.0-beta",
     "eslint": "^9.33.0",
