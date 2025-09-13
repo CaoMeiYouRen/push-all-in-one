@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.3...v4.4.4) (2025-09-13)
+
+
+### 🐛 Bug 修复
+
+* **build:** 移除 validate-commit-msg 依赖和 husky commit-msg 钩子 ([95b96f9](https://github.com/CaoMeiYouRen/push-all-in-one/commit/95b96f9))
+
 ## [4.4.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.2...v4.4.3) (2025-05-27)
 
 
