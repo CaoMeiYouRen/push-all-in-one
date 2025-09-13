@@ -13,7 +13,7 @@ importers:
         version: 1.6.0
       axios:
         specifier: ^1.2.1
-        version: 1.11.0(debug@4.4.1)
+        version: 1.12.0(debug@4.4.1)
       debug:
         specifier: ^4.3.1
         version: 4.4.1(supports-color@8.1.1)
@@ -1865,8 +1865,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.11.0:
-    resolution: {integrity: sha512-1Lx3WLFQWm3ooKDYZD1eXmoGO9fxYQjrycfHFC8P0sCfQVXyROp0p9PFWBehewBOdCwHc+f/b8I0fMto5eSfwA==}
+  axios@1.12.0:
+    resolution: {integrity: sha512-oXTDccv8PcfjZmPGlWsPSwtOJCZ/b6W5jAMCNcfwJbCzDckwG0jrYJFaWH1yvivfCXjVzV/SPDEhMB3Q+DSurg==}
 
   babel-jest@30.1.1:
     resolution: {integrity: sha512-1bZfC/V03qBCzASvZpNFhx3Ouj6LgOd4KFJm4br/fYOS+tSSvVCE61QmcAVbMTwq/GoB7KN4pzGMoyr9cMxSvQ==}
@@ -7488,7 +7488,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios@1.11.0(debug@4.4.1):
+  axios@1.12.0(debug@4.4.1):
     dependencies:
       follow-redirects: 1.15.11(debug@4.4.1)
       form-data: 4.0.4
