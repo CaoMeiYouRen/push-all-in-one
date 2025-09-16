@@ -2,6 +2,7 @@ let colors: any
 
 if (globalThis.process && typeof globalThis.process.on === 'function') {
     try {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         colors = require('@colors/colors')
     } catch {
         import('@colors/colors').then((value) => {

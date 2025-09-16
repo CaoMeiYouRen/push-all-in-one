@@ -48,10 +48,10 @@
   "scripts": {
     "lint": "cross-env NODE_ENV=production eslint src examples --fix",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production tsup",
+    "build": "cross-env NODE_ENV=production tsdown",
     "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",
     "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
-    "dev:tsup": "cross-env NODE_ENV=development tsup --watch",
+    "dev:tsup": "cross-env NODE_ENV=development tsdown --watch",
     "rm": "rimraf node_modules",
     "start": "node ./dist/index.mjs",
     "release": "semantic-release",
@@ -90,7 +90,7 @@
     "ts-node": "^10.5.0",
     "ts-node-dev": "^2.0.0",
     "tslib": "^2.6.2",
-    "tsup": "^8.5.0",
+    "tsdown": "^0.15.1",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   },
