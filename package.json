@@ -122,6 +122,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "tmp": "0.2.4"
+    }
   }
 }
