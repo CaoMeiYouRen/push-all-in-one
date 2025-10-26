@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.7](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.6...v4.4.7) (2025-10-26)
+
+
+### 🐛 Bug 修复
+
+* **package:** 添加 homepage、repository 和 bugs 字段以完善 package.json ([6021418](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6021418))
+
 ## [4.4.6](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.5...v4.4.6) (2025-10-26)
 
 

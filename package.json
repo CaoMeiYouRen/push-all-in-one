@@ -1,6 +1,6 @@
 {
   "name": "push-all-in-one",
-  "version": "4.4.6",
+  "version": "4.4.7",
   "description": "Push All In One！支持 Server酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、pushplus、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram 等多种推送方式",
   "author": "CaoMeiYouRen",
   "license": "MIT",
