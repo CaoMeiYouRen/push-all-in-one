@@ -279,6 +279,7 @@ wxPusher.send('群发消息', '这是一条群发消息', {
     topicIds: [123, 456], // 可以发送给多个主题
     uids: ['UID_1', 'UID_2'], // 可以同时发送给多个用户
 })
+```
 
 更多例子请参考 [examples](https://github.com/CaoMeiYouRen/push-all-in-one/tree/master/examples)
 
