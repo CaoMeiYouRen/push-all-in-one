@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+      - name: Update npm
+        run: npm install -g npm@latest
       - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run build
