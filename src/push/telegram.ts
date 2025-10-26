@@ -74,6 +74,12 @@ export interface TelegramOption {
      * 可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用
      */
     message_thread_id?: string
+
+    /**
+     * 消息格式，支持 MarkdownV2、HTML 等格式。Markdown字段已弃用，请改为使用MarkdownV2。
+     * 详见：https://core.telegram.org/bots/api#formatting-options
+     */
+    parse_mode?: 'MarkdownV2' | 'HTML'
     [key: string]: any
 }
 
@@ -97,6 +103,13 @@ export const telegramOptionSchema: TelegramOptionSchema = {
         title: '话题 ID',
         description: '可选的唯一标识符，用以向该标识符对应的话题发送消息，仅限启用了话题功能的超级群组可用',
         required: false,
+    },
+    parse_mode: {
+        type: 'select',
+        title: '消息格式',
+        description: '消息格式，支持 MarkdownV2、HTML 等格式。Markdown字段已弃用，请改为使用MarkdownV2。',
+        required: false,
+        options: [{ label: 'MarkdownV2', value: 'MarkdownV2' }, { label: 'HTML', value: 'HTML' }],
     },
 } as const
 
