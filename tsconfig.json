@@ -11,15 +11,14 @@
         "declaration": true, //生成类型文件
         "importHelpers": true,
         "esModuleInterop": true,
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "strictPropertyInitialization": false,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true, //开启装饰器
         "removeComments": false,
-        "baseUrl": ".",
         "paths": {
             "@/*": [
-                "src/*"
+                "./src/*"
             ],
         },
         "lib": [
