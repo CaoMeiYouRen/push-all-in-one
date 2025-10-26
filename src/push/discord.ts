@@ -38,7 +38,8 @@ export const discordConfigSchema: DiscordConfigSchema = {
 
 /**
  * Discord 额外选项
- * 由于参数过多，因此请参考官方文档进行配置
+ * 由于参数过多，因此请参考官方文档进行配置。
+ * @link https://discord.com/developers/docs/resources/webhook#execute-webhook
  */
 export type DiscordOption = {
     /**
