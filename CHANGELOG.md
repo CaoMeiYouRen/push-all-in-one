@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.6](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.5...v4.4.6) (2025-10-26)
+
+
+### 🐛 Bug 修复
+
+* **tsconfig:** 更新 tsconfig.json 配置以优化编译选项 ([56300d9](https://github.com/CaoMeiYouRen/push-all-in-one/commit/56300d9))
+
 ## [4.4.5](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.4...v4.4.5) (2025-10-26)
 
 
