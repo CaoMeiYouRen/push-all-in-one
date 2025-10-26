@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.4.5](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.4...v4.4.5) (2025-10-26)
+
+
+### 🐛 Bug 修复
+
+* **telegram:** 添加 parse_mode 字段以支持消息格式选择 ([904b006](https://github.com/CaoMeiYouRen/push-all-in-one/commit/904b006))
+
 ## [4.4.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.3...v4.4.4) (2025-09-13)
 
 
