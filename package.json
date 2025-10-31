@@ -91,7 +91,7 @@
     "mocha": "^11.0.1",
     "module-alias": "^2.2.2",
     "rimraf": "^6.0.0",
-    "semantic-release": "24.2.9",
+    "semantic-release": "25.0.1",
     "semantic-release-cmyr-config": "^1.0.0",
     "should": "^13.2.3",
     "ts-jest": "^29.2.5",
