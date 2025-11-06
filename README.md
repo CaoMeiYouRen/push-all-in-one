@@ -72,7 +72,7 @@ npm i push-all-in-one -S
 调用方式举例：
 
 ```ts
-import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, WxPusher, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, Feishu, Ntfy, runPushAllInOne } from 'push-all-in-one'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, WxPusher, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, Feishu, Ntfy, runPushAllInOne, runPushAllInCloud } from 'push-all-in-one'
 
 // 通过 runPushAllInOne 统一调用
 runPushAllInOne('测试推送', '测试推送', {
@@ -84,6 +84,19 @@ runPushAllInOne('测试推送', '测试推送', {
     },
 })
 
+// 通过 runPushAllInCloud 调用 push-all-in-cloud 服务
+// `runPushAllInCloud` 会将消息发送到自建的 push-all-in-cloud 服务，并由云函数代为转发；`baseUrl` 应指向 push-all-in-cloud 部署地址（包含协议），`authToken` 对应服务端环境变量 `AUTH_FORWARD_KEY`。其余配置与 `runPushAllInOne` 完全一致。
+// `runPushAllInCloud` sends the payload to your self-hosted push-all-in-cloud service, which relays the request to the selected channel. Set `baseUrl` to the deployment URL (with protocol) and `authToken` to the server-side `AUTH_FORWARD_KEY`. Other configuration fields mirror `runPushAllInOne`.
+runPushAllInCloud('测试推送', '测试推送', {
+    type: 'ServerChanTurbo',
+    config: {
+        SERVER_CHAN_TURBO_SENDKEY: '',
+    },
+    option: {
+    },
+    baseUrl: 'https://push.example.com',
+    authToken: 'YOUR_AUTH_FORWARD_KEY',
+})
 
 // Server酱·Turbo。官方文档：https://sct.ftqq.com/r/13172
 const SCTKEY = 'SCTxxxxxxxxxxxxxxxxxxx'
