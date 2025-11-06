@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.5.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.7...v4.5.0) (2025-11-06)
+
+
+### ✨ 新功能
+
+* 添加 push-all-in-cloud 服务推送功能 ([29c4ef1](https://github.com/CaoMeiYouRen/push-all-in-one/commit/29c4ef1))
+
 ## [4.4.7](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.6...v4.4.7) (2025-10-26)
 
 
