@@ -33,6 +33,10 @@
 > Friendly Reminder: For security reasons, **all** push methods should be used on the **server side**! Do not use them on the **client side (web page)**!
 >
 > 基于 push-all-in-one 和 hono 开发的云函数推送服务——[push-all-in-cloud](https://github.com/CaoMeiYouRen/push-all-in-cloud) 。支持 nodejs/docker/vercel 等部署方式 ，可一键部署到 vercel 。
+>
+> **问题反馈和交流群**：
+>    - QQ 群: [807530287](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=K3QRQlxv_y7KqLhdEZmfouxKv9WHLN_v&authKey=pfdJX4EkvKGQXQrtM5BR968EbtFc9WnVvz8AtLiSUTGZRgw3P1wBWESSDcEjoCZB&noverify=0&group_code=807530287)
+>    - Discord: [草梅友仁的交流群](https://discord.gg/6bfPevfyr6)
 
 **重大更新提示：** `push-all-in-one` v4 版本不兼容 v3 及以下低版本，请查看 [CHANGELOG](./CHANGELOG.md) 了解改动。
 
