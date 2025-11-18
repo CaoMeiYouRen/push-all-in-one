@@ -83,7 +83,7 @@
     "cross-env": "^10.0.0",
     "cz-conventional-changelog-cmyr": "^2.0.0",
     "eslint": "^9.33.0",
-    "eslint-config-cmyr": "2.0.1",
+    "eslint-config-cmyr": "^2.0.1",
     "husky": "^9.0.5",
     "jest": "^30.0.5",
     "lint-staged": "^16.1.0",
@@ -91,7 +91,7 @@
     "mocha": "^11.0.1",
     "module-alias": "^2.2.2",
     "rimraf": "^6.0.0",
-    "semantic-release": "25.0.1",
+    "semantic-release": "^25.0.1",
     "semantic-release-cmyr-config": "^1.0.0",
     "should": "^13.2.3",
     "ts-jest": "^29.2.5",
@@ -132,8 +132,9 @@
       "esbuild"
     ],
     "overrides": {
-      "tmp": "0.2.4",
-      "@semantic-release/npm": "^13.1.0"
+      "tmp": "^0.2.4",
+      "@semantic-release/npm": "^13.1.0",
+      "js-yaml": "4.1.1"
     }
   }
 }
