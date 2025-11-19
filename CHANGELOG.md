@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.5.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.0...v4.5.1) (2025-11-19)
+
+
+### 🐛 Bug 修复
+
+* **deps:** upgrade glob to >=11.1.0 to fix CVE-2025-64756 ([bf9febc](https://github.com/CaoMeiYouRen/push-all-in-one/commit/bf9febc))
+
 # [4.5.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.4.7...v4.5.0) (2025-11-06)
 
 
