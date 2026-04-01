@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.5.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.1...v4.5.2) (2026-04-01)
+
+
+### 🐛 Bug 修复
+
+* resolve pnpm-lock.yaml broken lockfile with duplicated key ([6cdd74a](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6cdd74a))
+
 ## [4.5.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.0...v4.5.1) (2025-11-19)
 
 
