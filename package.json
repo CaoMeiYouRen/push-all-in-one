@@ -147,7 +147,8 @@
       "minimatch@10": "^10.2.5",
       "picomatch@2": "^2.3.2",
       "picomatch@4": "^4.0.4",
-      "serialize-javascript": "^7.0.3"
+      "serialize-javascript": "^7.0.3",
+      "undici": "^6.24.0"
     }
   }
 }
