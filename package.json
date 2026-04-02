@@ -69,14 +69,14 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
+    "@commitlint/cli": "^20.5.0",
     "@types/crypto-js": "^4.1.0",
     "@types/debug": "^4.1.5",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.14.168",
     "@types/mocha": "^10.0.1",
     "@types/module-alias": "^2.0.0",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.5.0",
     "@types/nodemailer": "^7.0.1",
     "commitizen": "^4.2.3",
     "commitlint-config-cmyr": "^1.0.0",
@@ -97,8 +97,8 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.5.0",
     "ts-node-dev": "^2.0.0",
+    "tsdown": "^0.21.7",
     "tslib": "^2.6.2",
-    "tsdown": "^0.18.4",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   },
