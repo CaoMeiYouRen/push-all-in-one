@@ -87,7 +87,7 @@
     "husky": "^9.0.5",
     "jest": "^30.0.5",
     "lint-staged": "^16.1.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.18.1",
     "mocha": "^11.7.5",
     "module-alias": "^2.2.2",
     "rimraf": "^6.0.0",
@@ -135,17 +135,18 @@
       "tmp": "^0.2.4",
       "@semantic-release/npm": "^13.1.0",
       "js-yaml": "4.1.1",
-      "glob": ">=11.1.0",
-      "handlebars": "4.7.9",
-      "fast-xml-parser": "5.5.9",
-      "flatted": "3.4.2",
-      "lodash-es": "4.17.23",
-      "@isaacs/brace-expansion": "5.0.1",
-      "minimatch@3": "3.1.5",
-      "minimatch@9": "9.0.9",
-      "minimatch@10": "10.2.5",
-      "picomatch@2": "2.3.2",
-      "picomatch@4": "4.0.4"
+      "glob": "^11.1.0",
+      "handlebars": "^4.7.9",
+      "fast-xml-parser": "^5.5.9",
+      "flatted": "^3.4.2",
+      "lodash-es": "$lodash",
+      "@isaacs/brace-expansion": "^5.0.1",
+      "minimatch@3": "^3.1.5",
+      "minimatch@9": "^9.0.9",
+      "minimatch@10": "^10.2.5",
+      "picomatch@2": "^2.3.2",
+      "picomatch@4": "^4.0.4",
+      "serialize-javascript": "^7.0.3"
     }
   }
 }
