@@ -77,7 +77,7 @@
     "@types/mocha": "^10.0.1",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^25.5.0",
-    "@types/nodemailer": "^7.0.1",
+    "@types/nodemailer": "^7.0.11",
     "commitizen": "^4.2.3",
     "commitlint-config-cmyr": "^1.0.0",
     "cross-env": "^10.0.0",
@@ -88,13 +88,13 @@
     "jest": "^30.0.5",
     "lint-staged": "^16.1.0",
     "lodash": "^4.17.21",
-    "mocha": "^11.0.1",
+    "mocha": "^11.7.5",
     "module-alias": "^2.2.2",
     "rimraf": "^6.0.0",
-    "semantic-release": "^25.0.1",
+    "semantic-release": "^25.0.3",
     "semantic-release-cmyr-config": "^1.0.0",
     "should": "^13.2.3",
-    "ts-jest": "^29.2.5",
+    "ts-jest": "^29.4.9",
     "ts-node": "^10.5.0",
     "ts-node-dev": "^2.0.0",
     "tsdown": "^0.21.7",
@@ -104,7 +104,7 @@
   },
   "dependencies": {
     "@colors/colors": "^1.5.0",
-    "axios": "^1.2.1",
+    "axios": "^1.14.0",
     "debug": "^4.3.1",
     "https-proxy-agent": "7.0.6",
     "nodemailer": "^7.0.11",
@@ -135,7 +135,17 @@
       "tmp": "^0.2.4",
       "@semantic-release/npm": "^13.1.0",
       "js-yaml": "4.1.1",
-      "glob": ">=11.1.0"
+      "glob": ">=11.1.0",
+      "handlebars": "4.7.9",
+      "fast-xml-parser": "5.5.9",
+      "flatted": "3.4.2",
+      "lodash-es": "4.17.23",
+      "@isaacs/brace-expansion": "5.0.1",
+      "minimatch@3": "3.1.5",
+      "minimatch@9": "9.0.9",
+      "minimatch@10": "10.2.5",
+      "picomatch@2": "2.3.2",
+      "picomatch@4": "4.0.4"
     }
   }
 }
