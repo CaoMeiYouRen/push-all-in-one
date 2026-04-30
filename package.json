@@ -108,7 +108,7 @@
     "debug": "^4.3.1",
     "https-proxy-agent": "7.0.6",
     "nodemailer": "^8.0.5",
-    "socks-proxy-agent": "^8.0.4"
+    "socks-proxy-agent": "^10.0.0"
   },
   "config": {
     "commitizen": {
