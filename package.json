@@ -77,7 +77,7 @@
     "@types/mocha": "^10.0.1",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^25.6.0",
-    "@types/nodemailer": "^7.0.11",
+    "@types/nodemailer": "^8.0.0",
     "commitizen": "^4.2.3",
     "commitlint-config-cmyr": "^1.0.0",
     "cross-env": "^10.0.0",
