@@ -1,5 +1,5 @@
 import { generateSignature } from './crypto'
-// 生成 generateSignature 的jest 测试用例
+// 生成 generateSignature 的测试用例
 describe('generateSignature', () => {
     it('should generate correct signature', () => {
         const timestamp = '1604000000'

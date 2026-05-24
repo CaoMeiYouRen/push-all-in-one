@@ -6,7 +6,7 @@
         "allowJs": true, //允许编译js文件
         "checkJs": true, //在 .js文件中报告错误。与 --allowJs配合使用。
         "sourceMap": false, //用于debug
-        "rootDir": "./src", //仅用来控制输出的目录结构--outDir。
+        "rootDir": ".", //仅用来控制输出的目录结构--outDir。
         "outDir": "./dist", //重定向输出目录。
         "declaration": true, //生成类型文件
         "importHelpers": true,
@@ -21,6 +21,10 @@
                 "./src/*"
             ],
         },
+        "types": [
+            "node",
+            "vitest/globals"
+        ],
         "lib": [
             "esnext",
             "dom",
@@ -31,6 +35,7 @@
     "include": [
         "src/*.ts",
         "src/**/*.ts",
+        "test/**/*.test.ts"
     ],
     "exclude": [
         "node_modules",
