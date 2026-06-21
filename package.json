@@ -107,7 +107,7 @@
     "axios": "^1.15.0",
     "debug": "^4.3.1",
     "https-proxy-agent": "9.0.0",
-    "nodemailer": "^8.0.5",
+    "nodemailer": "^9.0.1",
     "socks-proxy-agent": "^10.0.0"
   },
   "config": {
