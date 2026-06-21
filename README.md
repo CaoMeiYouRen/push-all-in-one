@@ -378,6 +378,8 @@ Welcome to contribute, ask questions or propose new features! <br />If you have 
 
 如果觉得这个项目有用的话请给一颗⭐️，非常感谢。
 
+如需商业版支持、定制开发或赞助等，请通过 [爱发电](https://afdian.com/a/CaoMeiYouRen) 联系（可直接下单）。
+
 If you find this project useful, please give it a ⭐️. Thank you very much.
 
 <a href="https://afdian.com/@CaoMeiYouRen">
