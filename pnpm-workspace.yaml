@@ -8,7 +8,7 @@ overrides:
     tmp: ^0.2.4
     "@semantic-release/npm": ^13.1.0
     fast-uri: ^3.1.2
-    js-yaml: 4.1.1
+    js-yaml: ^4.1.2
     glob: ^11.1.0
     handlebars: ^4.7.9
     fast-xml-parser: ^5.5.9
@@ -28,4 +28,6 @@ overrides:
     picomatch@2: ^2.3.2
     picomatch@4: ^4.0.4
     serialize-javascript: ^7.0.3
-    undici: ^6.24.0
+    undici: ^6.27.0
+    esbuild: ^0.28.1
+    diff: ^8.0.3
