@@ -7,7 +7,8 @@ allowBuilds:
 overrides:
     tmp: ^0.2.4
     "@semantic-release/npm": ^13.1.0
-    fast-uri: ^3.1.2
+    postcss: ^8.5.16
+    fast-uri: ^3.1.4
     js-yaml: ^4.1.2
     glob: ^11.1.0
     handlebars: ^4.7.9
