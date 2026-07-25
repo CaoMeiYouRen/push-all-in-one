@@ -5,6 +5,7 @@ allowBuilds:
     unrs-resolver: true
 
 overrides:
+    brace-expansion: ^2.1.2
     tmp: ^0.2.4
     "@semantic-release/npm": ^13.1.0
     postcss: ^8.5.16
