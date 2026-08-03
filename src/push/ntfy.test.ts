@@ -31,7 +31,7 @@ describe('Ntfy', () => {
         const [config] = mockedAjax.mock.calls[0]
         expect(config.url).toBe('https://ntfy.sh/test-topic')
         expect(config.method).toBe('POST')
-        expect(config.headers['X-Title']).toBe('=?utf-8?B?5rWL6K+V5qCH6aKY?=')
+        expect(config.headers?.['X-Title']).toBe('=?utf-8?B?5rWL6K+V5qCH6aKY?=')
         expect(config.data).toBe('测试内容')
     })
 
@@ -71,7 +71,7 @@ describe('Ntfy', () => {
             'X-Email': 'user@example.com',
             'X-Call': '+8613800138000',
         })
-        expect(config.headers['X-Cache']).toBeUndefined()
+        expect(config.headers?.['X-Cache']).toBeUndefined()
     })
 
     it('should set custom contentType header', async () => {
@@ -80,7 +80,7 @@ describe('Ntfy', () => {
             contentType: 'application/json',
         } as any)
         const [config] = mockedAjax.mock.calls[0]
-        expect(config.headers['Content-Type']).toBe('application/json')
+        expect(config.headers?.['Content-Type']).toBe('application/json')
     })
 
     it('should set file attachment headers', async () => {
@@ -108,6 +108,6 @@ describe('Ntfy', () => {
         } as any)
         const [config] = mockedAjax.mock.calls[0]
         expect(config.data).toBe('desp内容')
-        expect(config.headers['X-Message']).toBe('=?utf-8?B?bWVzc2FnZeWGheWuuQ==?=')
+        expect(config.headers?.['X-Message']).toBe('=?utf-8?B?bWVzc2FnZeWGheWuuQ==?=')
     })
 })

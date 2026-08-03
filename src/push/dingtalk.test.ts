@@ -20,7 +20,7 @@ describe('Dingtalk', () => {
     })
 
     it('should warn when secret is not provided', () => {
-        const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => { })
+        const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
         new Dingtalk({ DINGTALK_ACCESS_TOKEN: 'token123' })
         expect(warnSpy).toHaveBeenCalled()
         warnSpy.mockRestore()
@@ -39,9 +39,9 @@ describe('Dingtalk', () => {
         expect(config.headers).toEqual({
             'Content-Type': 'application/json',
         })
-        expect(typeof config.query.timestamp).toBe('number')
-        expect(config.query.sign).toBeTruthy()
-        expect(config.query.access_token).toBe('token123')
+        expect(typeof config.query?.timestamp).toBe('number')
+        expect(config.query?.sign).toBeTruthy()
+        expect(config.query?.access_token).toBe('token123')
         expect(config.data).toMatchObject({
             msgtype: 'text',
             text: {

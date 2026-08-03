@@ -352,6 +352,27 @@ cross-env DEBUG=push:* vitest run test/index.test.ts
 
 > 注意：调试日志中打印的敏感信息（token/secret 等）已自动脱敏，仅保留前 4 位。
 
+## 🧪 测试/Test
+
+本项目使用 [vitest](https://vitest.dev) 进行单元测试，测试文件与源码同目录（`*.test.ts`）。
+
+```sh
+# 运行单元测试
+pnpm run test
+
+# 运行测试并生成覆盖率报告（阈值：lines/functions/statements 90%、branches 80%，未达标会失败）
+pnpm run coverage
+```
+
+覆盖率报告会上传到 [Codecov](https://app.codecov.io/gh/CaoMeiYouRen/push-all-in-one)。
+
+**真实推送 e2e 测试**：`test/index.test.ts` 包含各推送渠道的真实推送测试，默认关闭。需要运行时：
+
+1. 在 `.env.local`（已被 `.gitignore` 忽略）中填入渠道密钥，例如 `DINGTALK_ACCESS_TOKEN=xxx`
+2. 设置 `TEST_E2E=true` 启用真实推送（未配置密钥的渠道会自动跳过）
+
+> 警告：启用后会给已配置的渠道真实发送测试消息！
+
 ## 🔧 编译/Build
 
 ```sh

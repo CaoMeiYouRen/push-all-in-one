@@ -104,7 +104,7 @@ export class ServerChanV3 implements Send {
         Debugger('set sendkey: "%s"', sendkey)
         // 根据 configSchema 验证 config
         validate(config, ServerChanV3.configSchema)
-        this.uid = this.sendkey.match(/^sctp(\d+)t/)?.[1]
+        this.uid = this.sendkey.match(/^sctp(\d+)t/)?.[1] || ''
         if (!this.uid) {
             throw new Error('SERVER_CHAN_V3_SENDKEY 不合法！')
         }

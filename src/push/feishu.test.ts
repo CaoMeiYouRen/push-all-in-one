@@ -42,7 +42,7 @@ describe('Feishu', () => {
         })
         const [sendConfig] = mockedAjax.mock.calls[1]
         expect(sendConfig.url).toBe('https://open.feishu.cn/open-apis/im/v1/messages')
-        expect(sendConfig.headers.Authorization).toBe('Bearer tenant-token-abc')
+        expect(sendConfig.headers?.['Authorization']).toBe('Bearer tenant-token-abc')
         expect(sendConfig.query).toEqual({
             receive_id_type: 'open_id',
         })

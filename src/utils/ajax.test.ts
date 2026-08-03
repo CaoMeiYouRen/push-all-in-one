@@ -36,7 +36,7 @@ describe('ajax', () => {
             method: 'GET',
         })
         expect(mockedAxios).toHaveBeenCalledTimes(1)
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [url, config = {}] = mockedAxios.mock.calls[0]!
         expect(url).toBe('https://example.com/api')
         expect(config.method).toBe('GET')
         expect(config.params).toEqual({ a: 1, b: 'test' })
@@ -56,7 +56,7 @@ describe('ajax', () => {
                 num: '1',
             },
         })
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [, config = {}] = mockedAxios.mock.calls[0]!
         expect(config.data).toBe('text=hello+world&num=1')
     })
 
@@ -70,7 +70,7 @@ describe('ajax', () => {
             },
             data,
         })
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [, config = {}] = mockedAxios.mock.calls[0]!
         expect(config.data).toEqual(data)
     })
 
@@ -79,7 +79,7 @@ describe('ajax', () => {
         await ajax({
             url: 'https://example.com/api',
         })
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [, config = {}] = mockedAxios.mock.calls[0]!
         expect(config.httpAgent).toBeInstanceOf(HttpsProxyAgent)
     })
 
@@ -88,7 +88,7 @@ describe('ajax', () => {
         await ajax({
             url: 'https://example.com/api',
         })
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [, config = {}] = mockedAxios.mock.calls[0]!
         expect(config.httpAgent).toBeInstanceOf(SocksProxyAgent)
     })
 
@@ -98,7 +98,7 @@ describe('ajax', () => {
             url: 'https://example.com/api',
             proxyUrl: 'socks://127.0.0.1:7891',
         })
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [, config = {}] = mockedAxios.mock.calls[0]!
         expect(config.httpAgent).toBeInstanceOf(SocksProxyAgent)
     })
 
@@ -108,7 +108,7 @@ describe('ajax', () => {
         await ajax({
             url: 'https://example.com/api',
         })
-        const [url, config] = mockedAxios.mock.calls[0]
+        const [, config = {}] = mockedAxios.mock.calls[0]!
         expect(config.httpAgent).toBeNull()
     })
 

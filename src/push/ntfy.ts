@@ -348,7 +348,7 @@ export class Ntfy implements Send {
         if (contentType) {
             headers['Content-Type'] = contentType
         }
-        const xTitle = title || option.title
+        const xTitle = title || option?.title
         if (xTitle) {
             headers['X-Title'] = rfc2047Encode(xTitle)
         }

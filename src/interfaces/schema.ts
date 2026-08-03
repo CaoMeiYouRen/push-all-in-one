@@ -1,19 +1,14 @@
 // 是否是联合类型
 type IsUnion<T, U = T> = T extends U ? ([U] extends [T] ? false : true) : never
-/**
- * 判断类型是否相同
- */
-type Equal<Left, Right> =
-    (<U>() => U extends Left ? 1 : 0) extends (<U>() => U extends Right ? 1 : 0) ? true : false
-
-/**
- * 判断字段是否必填
- */
-type IsRequired<T> = Equal<Required<T>, T>
 
 export type Config = {
     [key: string]: any
 }
+
+/**
+ * 去除可选字段中的 undefined，使类型推导不因 strictNullChecks 而误判
+ */
+type NonUndefined<T> = Exclude<T, undefined>
 
 /**
  * 配置 Schema
@@ -29,12 +24,12 @@ export type Config = {
 export type ConfigSchema<T = Config> = {
     [K in keyof T]: {
         // 字段类型
-        type: T[K] extends boolean ? 'boolean' : (
-            IsUnion<T[K]> extends true ? 'select' : (
-                T[K] extends string ? 'string' : (
-                    T[K] extends number ? 'number' : (
-                        T[K] extends any[] ? 'array' : (
-                            T[K] extends object ? 'object' : (
+        type: NonUndefined<T[K]> extends boolean ? 'boolean' : (
+            IsUnion<NonUndefined<T[K]>> extends true ? 'select' : (
+                NonUndefined<T[K]> extends string ? 'string' : (
+                    NonUndefined<T[K]> extends number ? 'number' : (
+                        NonUndefined<T[K]> extends any[] ? 'array' : (
+                            NonUndefined<T[K]> extends object ? 'object' : (
                                 'select'
                             )
                         )
@@ -56,7 +51,7 @@ export type ConfigSchema<T = Config> = {
             // 选项名称
             label: string
             // 选项值
-            value: T[K] // 选项值的类型跟字段的类型一致
+            value: NonUndefined<T[K]> // 选项值的类型跟字段的类型一致
         }[]
     }
 }

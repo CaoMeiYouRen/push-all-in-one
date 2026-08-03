@@ -22,8 +22,7 @@ export const xiZhiConfigSchema: XiZhiConfigSchema = {
     },
 } as const
 
-export interface XiZhiOption {
-}
+export type XiZhiOption = Record<string, never>
 
 export type XiZhiOptionSchema = OptionSchema<XiZhiOption>
 export const xiZhiOptionSchema: XiZhiOptionSchema = {
@@ -59,6 +58,7 @@ export class XiZhi implements Send {
         validate(config, XiZhi.configSchema)
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async send(title: string, desp?: string, option?: XiZhiOption): Promise<SendResponse<XiZhiResponse>> {
         Debugger('title: "%s", desp: "%s"', title, desp)
         return ajax({

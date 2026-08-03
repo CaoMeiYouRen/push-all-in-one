@@ -36,22 +36,23 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
             data = new URLSearchParams(data as Record<string, string>).toString()
         }
 
-        let httpAgent = null
+        let httpAgent: HttpsProxyAgent<string> | SocksProxyAgent | null = null
         Debugger('NO_PROXY: %s', process.env.NO_PROXY)
         if (process.env.NO_PROXY !== 'true') {
             Debugger('HTTP_PROXY: %s', process.env.HTTP_PROXY)
             Debugger('HTTPS_PROXY: %s', process.env.HTTPS_PROXY)
             Debugger('SOCKS_PROXY: %s', process.env.SOCKS_PROXY)
-            if (isHttpURL(proxyUrl)) {
+            const { HTTP_PROXY, HTTPS_PROXY, SOCKS_PROXY } = process.env
+            if (proxyUrl && isHttpURL(proxyUrl)) {
                 httpAgent = new HttpsProxyAgent(proxyUrl)
-            } else if (isSocksUrl(proxyUrl)) {
+            } else if (proxyUrl && isSocksUrl(proxyUrl)) {
                 httpAgent = new SocksProxyAgent(proxyUrl)
-            } else if (process.env.HTTPS_PROXY) {
-                httpAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY)
-            } else if (process.env.HTTP_PROXY) {
-                httpAgent = new HttpsProxyAgent(process.env.HTTP_PROXY)
-            } else if (process.env.SOCKS_PROXY) {
-                httpAgent = new SocksProxyAgent(process.env.SOCKS_PROXY)
+            } else if (HTTPS_PROXY) {
+                httpAgent = new HttpsProxyAgent(HTTPS_PROXY)
+            } else if (HTTP_PROXY) {
+                httpAgent = new HttpsProxyAgent(HTTP_PROXY)
+            } else if (SOCKS_PROXY) {
+                httpAgent = new SocksProxyAgent(SOCKS_PROXY)
             }
         }
         const response = await axios(url, {
@@ -68,9 +69,10 @@ export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T
         Debugger('response data: %O', response.data)
         return response
     } catch (error) {
-        if (error?.response) {
-            logger.error(error.response)
-            return error.response
+        const err = error as { response?: AxiosResponse }
+        if (err?.response) {
+            logger.error(err.response)
+            return err.response
         }
         throw error
     }

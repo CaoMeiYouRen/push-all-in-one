@@ -7,20 +7,20 @@ import { validate } from '@/utils/validate'
 
 const Debugger = debug('push:push-plus')
 /**
-html	默认模板，支持html文本
-txt	纯文本展示，不转义html
-json	内容基于json格式展示
-markdown	内容基于markdown格式展示
-cloudMonitor	阿里云监控报警定制模板
-jenkins	jenkins插件定制模板
-route	路由器插件定制模板 */
+html    默认模板，支持html文本
+txt    纯文本展示，不转义html
+json    内容基于json格式展示
+markdown    内容基于markdown格式展示
+cloudMonitor    阿里云监控报警定制模板
+jenkins    jenkins插件定制模板
+route    路由器插件定制模板 */
 export type PushPlusTemplateType = 'html' | 'txt' | 'json' | 'markdown' | 'cloudMonitor' | 'jenkins' | 'route'
 /**
-wechat	免费	微信公众号
-webhook	免费	第三方webhook；企业微信、钉钉、飞书、server酱；webhook机器人推送
-cp	免费	企业微信应用；具体参考企业微信应用推送
-mail	免费	邮箱；具体参考邮件渠道使用说明
-sms	收费	短信，未开放
+wechat    免费    微信公众号
+webhook    免费    第三方webhook；企业微信、钉钉、飞书、server酱；webhook机器人推送
+cp    免费    企业微信应用；具体参考企业微信应用推送
+mail    免费    邮箱；具体参考邮件渠道使用说明
+sms    收费    短信，未开放
  */
 export type PushPlusChannelType = 'wechat' | 'webhook' | 'cp' | 'sms' | 'mail'
 

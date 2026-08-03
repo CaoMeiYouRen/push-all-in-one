@@ -71,7 +71,7 @@ export const discordOptionSchema: DiscordOptionSchema = {
     },
 } as const
 
-export interface DiscordResponse { }
+export type DiscordResponse = Record<string, never>
 
 /**
  * Discord Webhook 推送
