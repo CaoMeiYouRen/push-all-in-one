@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.5.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.2...v4.5.3) (2026-08-03)
+
+
+### 🐛 Bug 修复
+
+* 添加敏感信息脱敏处理功能 ([e40bfea](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e40bfea))
+
 ## [4.5.2](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.1...v4.5.2) (2026-04-01)
 
 
