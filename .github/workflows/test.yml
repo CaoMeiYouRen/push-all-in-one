@@ -20,6 +20,12 @@ jobs:
           node-version: "lts/*"
           cache: "pnpm"
       - run: pnpm i --frozen-lockfile
+      - run: pnpm run typecheck
       - run: pnpm run lint
       - run: pnpm run build
       - run: pnpm run test
+      - run: pnpm run coverage
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

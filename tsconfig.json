@@ -12,6 +12,7 @@
         "importHelpers": true,
         "esModuleInterop": true,
         "moduleResolution": "bundler",
+        "strict": false, //TS 6.0 默认开启 strict，此处显式关闭以保持与 TS 5.x 行为一致；严格化改造另行处理
         "strictPropertyInitialization": false,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true, //开启装饰器

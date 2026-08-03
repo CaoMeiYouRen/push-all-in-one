@@ -31,7 +31,6 @@ yarn-error.log*
 # *.key
 # *.pem
 sessions
-/test
 *.assets
 #public
 dist

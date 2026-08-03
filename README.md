@@ -12,6 +12,9 @@
   <a href="https://github.com/CaoMeiYouRen/push-all-in-one/actions?query=workflow%3ARelease" target="_blank">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/push-all-in-one/release.yml?branch=master">
   </a>
+  <a href="https://app.codecov.io/gh/CaoMeiYouRen/push-all-in-one" target="_blank">
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/CaoMeiYouRen/push-all-in-one">
+  </a>
   <img alt="Node Current" src="https://img.shields.io/node/v/push-all-in-one?color=blue">
   <a href="https://github.com/CaoMeiYouRen/push-all-in-one#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
