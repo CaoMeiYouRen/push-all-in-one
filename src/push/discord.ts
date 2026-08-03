@@ -4,6 +4,7 @@ import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
 import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
 import { validate } from '@/utils/validate'
+import { maskSensitiveData } from '@/utils/helper'
 
 const Debugger = debug('push:discord')
 
@@ -124,7 +125,7 @@ export class Discord implements Send {
      * @param [option] 额外选项
      */
     async send(title: string, desp?: string, option?: DiscordOption): Promise<SendResponse<DiscordResponse>> {
-        Debugger('title: "%s", desp: "%s", option: %o', title, desp, option)
+        Debugger('title: "%s", desp: "%s", option: %o', title, desp, maskSensitiveData(option))
         const { username, avatar_url, ...args } = option || {}
         const proxyUrl = this.proxyUrl
         const content = `${title}${desp ? `\n${desp}` : ''}`

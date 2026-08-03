@@ -1,6 +1,6 @@
 import debug from 'debug'
 import { Send } from '@/interfaces/send'
-import { warn } from '@/utils/helper'
+import { warn, maskSensitiveData } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
 import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
@@ -236,7 +236,7 @@ export class WechatApp implements Send {
     private expiresTime: number
 
     constructor(config: WechatAppConfig) {
-        Debugger('config: %O', config)
+        Debugger('config: %O', maskSensitiveData(config))
         Object.assign(this, config)
         // 根据 configSchema 验证 config
         validate(config, WechatApp.configSchema)
@@ -281,7 +281,7 @@ export class WechatApp implements Send {
      * @param [option] 额外推送选项
      */
     async send(title: string, desp?: string, option?: WechatAppOption): Promise<SendResponse<WechatAppResponse>> {
-        Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
+        Debugger('title: "%s", desp: "%s", option: %O', title, desp, maskSensitiveData(option))
         if (!this.ACCESS_TOKEN || Date.now() >= this.expiresTime) {
             this.ACCESS_TOKEN = await this.getAccessToken()
         }

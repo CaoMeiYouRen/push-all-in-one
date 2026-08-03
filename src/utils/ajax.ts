@@ -2,7 +2,7 @@ import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import debug from 'debug'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { SocksProxyAgent } from 'socks-proxy-agent'
-import { isHttpURL, isSocksUrl, logger } from './helper'
+import { isHttpURL, isSocksUrl, logger, maskSensitiveData } from './helper'
 
 const Debugger = debug('push:ajax')
 
@@ -27,7 +27,7 @@ interface AjaxConfig {
  */
 export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T>> {
     try {
-        Debugger('ajax config: %O', config)
+        Debugger('ajax config: %O', maskSensitiveData(config))
         const { url, query = {}, method = 'GET', baseURL = '', proxyUrl } = config
         const headers = (config.headers || {}) as AxiosRequestHeaders
         let { data = {} } = config

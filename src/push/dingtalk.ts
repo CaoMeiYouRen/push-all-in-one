@@ -6,7 +6,7 @@ import { Link } from './dingtalk/link'
 import { FeedCard } from './dingtalk/feed-card'
 import { ActionCard, IndependentJump, OverallJump } from './dingtalk/action-card'
 import { Send } from '@/interfaces/send'
-import { warn } from '@/utils/helper'
+import { warn, maskSecret } from '@/utils/helper'
 import { ajax } from '@/utils/ajax'
 import { generateSignature } from '@/utils/crypto'
 import { SendResponse } from '@/interfaces/response'
@@ -176,7 +176,7 @@ export class Dingtalk implements Send {
         const { DINGTALK_ACCESS_TOKEN, DINGTALK_SECRET } = config
         this.ACCESS_TOKEN = DINGTALK_ACCESS_TOKEN
         this.SECRET = DINGTALK_SECRET
-        Debugger('DINGTALK_ACCESS_TOKEN: %s , DINGTALK_SECRET: %s', this.ACCESS_TOKEN, this.SECRET)
+        Debugger('DINGTALK_ACCESS_TOKEN: %s , DINGTALK_SECRET: %s', maskSecret(this.ACCESS_TOKEN), maskSecret(this.SECRET))
         // 根据 configSchema 验证 config
         validate(config, Dingtalk.configSchema)
         if (!this.SECRET) {
@@ -188,7 +188,7 @@ export class Dingtalk implements Send {
         let signStr = ''
         if (this.SECRET) {
             signStr = generateSignature(timeStamp, this.SECRET, this.SECRET)
-            Debugger('Sign string is %s, result is %s', `${timeStamp}\n${this.SECRET}`, signStr)
+            Debugger('Sign string is %s, result is %s', `${timeStamp}\n${maskSecret(this.SECRET)}`, signStr)
         }
         return signStr
     }

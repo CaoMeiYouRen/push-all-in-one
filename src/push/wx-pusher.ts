@@ -4,7 +4,7 @@ import { ajax } from '@/utils/ajax'
 import { SendResponse } from '@/interfaces/response'
 import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
 import { validate } from '@/utils/validate'
-import { uniq } from '@/utils/helper'
+import { uniq, maskSecret } from '@/utils/helper'
 
 const Debugger = debug('push:wx-pusher')
 
@@ -191,7 +191,7 @@ export class WxPusher implements Send {
         const { WX_PUSHER_APP_TOKEN, WX_PUSHER_UID } = config
         this.WX_PUSHER_APP_TOKEN = WX_PUSHER_APP_TOKEN
         this.WX_PUSHER_UID = WX_PUSHER_UID
-        Debugger('set WX_PUSHER_APP_TOKEN: "%s", WX_PUSHER_UID: "%s"', WX_PUSHER_APP_TOKEN, WX_PUSHER_UID)
+        Debugger('set WX_PUSHER_APP_TOKEN: "%s", WX_PUSHER_UID: "%s"', maskSecret(WX_PUSHER_APP_TOKEN), WX_PUSHER_UID)
         // 根据 configSchema 验证 config
         validate(config, WxPusher.configSchema)
     }

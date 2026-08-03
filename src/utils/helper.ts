@@ -91,3 +91,51 @@ export function isNotEmpty(value: unknown): boolean {
 export function uniq<T>(arr: T[]): T[] {
     return Array.from(new Set(arr))
 }
+
+/**
+ * 对密钥/敏感信息进行脱敏处理，仅保留前 4 位，其余用 * 替换
+ *
+ * @author CaoMeiYouRen
+ * @date 2026-08-03
+ * @export
+ * @param secret 敏感信息
+ */
+export function maskSecret(secret: string | null | undefined): string {
+    if (!secret) {
+        return ''
+    }
+    if (secret.length <= 4) {
+        return '****'
+    }
+    return `${secret.slice(0, 4)}***`
+}
+
+const SENSITIVE_KEY_PATTERN = /secret|token|password|passwd|pass|auth|key|webhook/i
+
+/**
+ * 递归脱敏对象中的敏感字段
+ * key 包含 secret/token/password/auth/key/webhook 等关键词时，值将被脱敏
+ *
+ * @author CaoMeiYouRen
+ * @date 2026-08-03
+ * @export
+ * @template T
+ * @param value 原始数据
+ * @param [key] 当前字段名
+ */
+export function maskSensitiveData<T>(value: T, key?: string): T {
+    if (typeof value === 'string' && key && SENSITIVE_KEY_PATTERN.test(key)) {
+        return maskSecret(value) as T
+    }
+    if (Array.isArray(value)) {
+        return value.map((item) => maskSensitiveData(item, key)) as T
+    }
+    if (value && typeof value === 'object') {
+        const result: Record<string, unknown> = {}
+        for (const [k, v] of Object.entries(value)) {
+            result[k] = maskSensitiveData(v, k)
+        }
+        return result as T
+    }
+    return value
+}
