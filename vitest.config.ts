@@ -23,6 +23,12 @@ export default defineConfig(({ mode }) => {
                 include: [
                     'src/**/*.ts',
                 ],
+                thresholds: {
+                    lines: 90,
+                    functions: 90,
+                    statements: 90,
+                    branches: 80,
+                },
             },
             env,
         },

@@ -213,7 +213,7 @@ export class Feishu implements Send {
         if (!this.accessToken || Date.now() >= this.expiresTime) {
             this.accessToken = await this.getAccessToken()
         }
-        const { receive_id_type = 'open_id', receive_id, msg_type = 'text', content, uuid } = option
+        const { receive_id_type = 'open_id', receive_id, msg_type = 'text', content, uuid } = option || {}
         const data = { receive_id, msg_type, content, uuid }
         if (!data.content) {
             switch (msg_type) {

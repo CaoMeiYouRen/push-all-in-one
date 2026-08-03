@@ -10,11 +10,10 @@ const E2E_ENABLED = env('TEST_E2E') === 'true'
 describe.skipIf(!E2E_ENABLED)('push-all-in-one e2e 测试', () => {
     it.skipIf(!env('SOCKS_PROXY'))('测试 ajax proxy', async () => {
         // 需要本地代理，未设置 SOCKS_PROXY 环境变量时跳过
-        const { data, status } = await ajax({
+        const { status } = await ajax({
             url: 'https://ip.cmyr.ltd/ip',
             method: 'GET',
         })
-        // console.log(data)
         should(status).equal(200, 'ajax 返回 status 应该为 200')
     })
 

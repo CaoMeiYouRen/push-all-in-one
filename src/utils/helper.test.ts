@@ -1,4 +1,4 @@
-import { isHttpURL, isSocksUrl, isNil, isNotNil, isEmpty, isNotEmpty } from './helper'
+import { isHttpURL, isSocksUrl, isNil, isNotNil, isEmpty, isNotEmpty, uniq, maskSecret, maskSensitiveData } from './helper'
 
 describe('helper', () => {
     it('isHttpURL', () => {
@@ -44,6 +44,29 @@ describe('helper', () => {
         expect(isNotEmpty([1])).toBe(true)
         expect(isNotEmpty('test')).toBe(true)
         expect(isNotEmpty(1)).toBe(true)
+    })
+    it('uniq', () => {
+        expect(uniq([1, 2, 2, 3, 3, 3])).toEqual([1, 2, 3])
+        expect(uniq(['a', 'a', 'b'])).toEqual(['a', 'b'])
+        expect(uniq([])).toEqual([])
+    })
+    it('maskSecret', () => {
+        expect(maskSecret('abcdefg12345')).toBe('abcd***')
+        expect(maskSecret('abcd')).toBe('****')
+        expect(maskSecret('')).toBe('')
+        expect(maskSecret(null)).toBe('')
+        expect(maskSecret(undefined)).toBe('')
+    })
+    it('maskSensitiveData', () => {
+        expect(maskSensitiveData({ app_secret: 'abcdefg' })).toEqual({ app_secret: 'abcd***' })
+        expect(maskSensitiveData({ token: 'abcdefg', name: 'test' })).toEqual({ token: 'abcd***', name: 'test' })
+        expect(maskSensitiveData({ password: 'abcdefg' })).toEqual({ password: 'abcd***' })
+        expect(maskSensitiveData({ Authorization: 'Bearer abcdefg' })).toEqual({ Authorization: 'Bear***' })
+        expect(maskSensitiveData({ DISCORD_WEBHOOK: 'https://discord.com/api/webhooks/xxx' })).toEqual({ DISCORD_WEBHOOK: 'http***' })
+        expect(maskSensitiveData({ CORPID: 'wwcorpid', AGENTID: 1000003 })).toEqual({ CORPID: 'wwcorpid', AGENTID: 1000003 })
+        expect(maskSensitiveData({ a: { b: { api_key: 'abcdefg' } } })).toEqual({ a: { b: { api_key: 'abcd***' } } })
+        expect(maskSensitiveData([{ token: 'abcdefg' }, { name: 'test' }])).toEqual([{ token: 'abcd***' }, { name: 'test' }])
+        expect(maskSensitiveData({ data: 'abcdefg' })).toEqual({ data: 'abcdefg' })
     })
 })
 

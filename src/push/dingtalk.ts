@@ -226,9 +226,10 @@ export class Dingtalk implements Send {
      * @param [desp] 消息的内容，支持 Markdown
      * @returns
      */
-    async send(title: string, desp?: string, option?: DingtalkOption): Promise<SendResponse<DingtalkResponse>> {
+    async send(title: string, desp?: string, option: DingtalkOption = {}): Promise<SendResponse<DingtalkResponse>> {
         Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
-        switch (option.msgtype) {
+        const msgtype = option.msgtype || 'text'
+        switch (msgtype) {
             case 'text':
                 return this.push({
                     msgtype: 'text',
@@ -246,38 +247,44 @@ export class Dingtalk implements Send {
                     },
                     ...option,
                 })
-            case 'link':
+            case 'link': {
+                const link = (option as Partial<Link>).link
                 return this.push({
                     msgtype: 'link',
                     link: {
                         title,
                         text: desp || '',
-                        picUrl: option?.link?.picUrl || '',
-                        messageUrl: option.link?.messageUrl || '',
+                        picUrl: link?.picUrl || '',
+                        messageUrl: link?.messageUrl || '',
                     },
                     ...option,
                 })
-            case 'actionCard':
+            }
+            case 'actionCard': {
+                const actionCard = (option as any)?.actionCard
                 return this.push({
                     msgtype: 'actionCard',
                     actionCard: {
                         title,
                         text: desp || '',
-                        btnOrientation: option?.actionCard?.btnOrientation || '0',
-                        btns: (option?.actionCard as any)?.btns,
-                        singleTitle: (option?.actionCard as any)?.singleTitle,
-                        singleURL: (option?.actionCard as any)?.singleURL,
+                        btnOrientation: actionCard?.btnOrientation || '0',
+                        btns: actionCard?.btns,
+                        singleTitle: actionCard?.singleTitle,
+                        singleURL: actionCard?.singleURL,
                     },
                     ...option,
                 })
-            case 'feedCard':
+            }
+            case 'feedCard': {
+                const feedCard = (option as Partial<FeedCard>).feedCard
                 return this.push({
                     msgtype: 'feedCard',
                     feedCard: {
-                        links: option?.feedCard?.links || [],
+                        links: feedCard?.links || [],
                     },
                     ...option,
                 })
+            }
             default:
                 throw new Error('msgtype is required!')
         }

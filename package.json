@@ -54,7 +54,7 @@
     "WxPusher"
   ],
   "scripts": {
-    "lint": "cross-env NODE_ENV=production eslint src examples --fix",
+    "lint": "cross-env NODE_ENV=production eslint src examples test --fix",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production tsdown",
     "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",

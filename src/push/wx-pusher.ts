@@ -199,7 +199,7 @@ export class WxPusher implements Send {
     async send(title: string, desp?: string, option?: WxPusherOption): Promise<SendResponse<WxPusherResponse>> {
         Debugger('title: "%s", desp: "%s", option: %O', title, desp, option)
         const { contentType = 1, ...args } = option || {}
-        const uids = uniq([...option.uids || [], this.WX_PUSHER_UID])
+        const uids = uniq([...option?.uids || [], this.WX_PUSHER_UID])
         const content = `${title}${desp ? `\n${desp}` : ''}`
         return ajax({
             url: 'https://wxpusher.zjiecode.com/api/send/message',
