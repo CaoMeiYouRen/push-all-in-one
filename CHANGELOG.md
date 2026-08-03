@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.5.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.3...v4.5.4) (2026-08-03)
+
+
+### 🐛 Bug 修复
+
+* 修复多个地方的可选链访问和类型定义问题 ([fc794ab](https://github.com/CaoMeiYouRen/push-all-in-one/commit/fc794ab))
+
 ## [4.5.3](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.2...v4.5.3) (2026-08-03)
 
 
