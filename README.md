@@ -343,8 +343,14 @@ npm run dev
 本项目使用 `debug` 这个包来 debug ，如果要开启调试则设置环境变量为 `DEBUG=push:*` 即可，例如
 
 ```sh
-cross-env DEBUG=push:* NODE_ENV=development ts-node-dev test/index.test.ts # 因为一些原因该文件未上传，可自行编写测试用例
+# 运行测试并输出调试日志（test 脚本已内置 DEBUG=push:*）
+pnpm run test
+
+# 手动运行测试并开启调试日志
+cross-env DEBUG=push:* vitest run test/index.test.ts
 ```
+
+> 注意：调试日志中打印的敏感信息（token/secret 等）已自动脱敏，仅保留前 4 位。
 
 ## 🔧 编译/Build
 
