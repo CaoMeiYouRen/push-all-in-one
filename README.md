@@ -27,9 +27,9 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、飞书、pushplus、WxPusher、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram、ntfy 等多种推送方式。
+> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、飞书、pushplus、WPUSH、WxPusher、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram、ntfy 等多种推送方式。
 >
-> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, Feishu, pushplus, WxPusher, iGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, ntfy and more.
+> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, Feishu, pushplus, WPUSH, WxPusher, iGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, ntfy and more.
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！
 >
@@ -79,7 +79,7 @@ npm i push-all-in-one -S
 调用方式举例：
 
 ```ts
-import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, WxPusher, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, Feishu, Ntfy, runPushAllInOne, runPushAllInCloud } from 'push-all-in-one'
+import { ServerChanTurbo, ServerChanV3, CustomEmail, Dingtalk, WechatRobot, WechatApp, PushPlus, WPush, WxPusher, IGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, Feishu, Ntfy, runPushAllInOne, runPushAllInCloud } from 'push-all-in-one'
 
 // 通过 runPushAllInOne 统一调用
 runPushAllInOne('测试推送', '测试推送', {
@@ -179,6 +179,16 @@ const pushplus = new PushPlus({ PUSH_PLUS_TOKEN })
 pushplus.send('你好', '你好，我很可爱 - PushPlus', {
     template: 'html',
     channel: 'wechat',
+})
+
+
+// WPUSH 推送。官方文档：https://wpush.cn/docs
+// 多渠道消息推送（微信/App/短信/邮件/钉钉/飞书/企微等），成功时 code === 0
+const WPUSH_APIKEY = 'WPUSHxxxxxxxxxxxxxxxxxxx'
+const wpush = new WPush({ WPUSH_APIKEY })
+wpush.send('你好', '你好，我很可爱 - WPUSH', {
+    channel: 'wechat',
+    // topic_code: 'your-topic-code', // 可选，Topic 广播
 })
 
 // iGot 推送，官方文档：http://hellyw.com/#/
