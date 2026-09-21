@@ -1,35 +1,35 @@
 strictPeerDependencies: false
-
 allowBuilds:
-    esbuild: true
-    unrs-resolver: true
-
+  esbuild: true
+  unrs-resolver: true
 overrides:
-    brace-expansion: ^2.1.2
-    tmp: ^0.2.4
-    "@semantic-release/npm": ^13.1.0
-    postcss: ^8.5.16
-    fast-uri: ^3.1.4
-    js-yaml: ^4.3.0
-    glob: ^11.1.0
-    handlebars: ^4.7.9
-    fast-xml-parser: ^5.5.9
-    flatted: ^3.4.2
-    defu: ^6.1.5
-    lodash: ^4.18.1
-    lodash-es: ^4.18.1
-    brace-expansion@1: ^1.1.16
-    brace-expansion@2: ^2.0.3
-    brace-expansion@5: ^5.0.7
-    diff@4: ^4.0.4
-    diff@5: ^5.2.2
-    "@isaacs/brace-expansion": ^5.0.1
-    minimatch@3: ^3.1.5
-    minimatch@9: ^9.0.9
-    minimatch@10: ^10.2.5
-    picomatch@2: ^2.3.2
-    picomatch@4: ^4.0.4
-    serialize-javascript: ^7.0.3
-    undici: ^6.27.0
-    esbuild: ^0.28.1
-    diff: ^8.0.3
+  brace-expansion: ^2.1.2
+  tmp: ^0.2.4
+  "@semantic-release/npm": ^13.1.0
+  postcss: ^8.5.16
+  fast-uri: ^3.1.4
+  js-yaml: ^4.3.2
+  glob: ^11.1.0
+  handlebars: ^4.7.9
+  fast-xml-parser: ^5.5.9
+  flatted: ^3.4.2
+  defu: ^6.1.5
+  lodash: ^4.18.1
+  lodash-es: ^4.18.1
+  brace-expansion@1: ^1.1.16
+  brace-expansion@2: ^2.0.3
+  brace-expansion@5: ^5.0.7
+  diff@4: ^4.0.4
+  diff@5: ^5.2.2
+  "@isaacs/brace-expansion": ^5.0.1
+  minimatch@3: ^3.1.5
+  minimatch@9: ^9.0.9
+  minimatch@10: ^10.2.5
+  picomatch@2: ^2.3.2
+  picomatch@4: ^4.0.4
+  serialize-javascript: ^7.0.3
+  undici: ^6.27.0
+  esbuild: ^0.28.1
+  diff: ^8.0.3
+  ip-address: ^10.3.1
+  "@humanfs/node": ^0.16.8
