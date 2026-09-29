@@ -36,3 +36,5 @@ sessions
 dist
 temp
 coverage
+# dependfix
+dependfix-reports/
