@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.6.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.4...v4.6.0) (2026-10-02)
+
+
+### ✨ 新功能
+
+* add WPUSH notification channel ([b805818](https://github.com/CaoMeiYouRen/push-all-in-one/commit/b805818))
+
 ## [4.5.4](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.3...v4.5.4) (2026-08-03)
 
 
