@@ -407,19 +407,19 @@
 
 ### 🐛 Bug 修复
 
-* 替换colors为 @colors/colors ([e014753](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e014753))
+* 替换 colors 为 @colors/colors ([e014753](https://github.com/CaoMeiYouRen/push-all-in-one/commit/e014753))
 
 # [3.0.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.3.1...v3.0.0) (2023-01-05)
 
 
 ### ✨ 新功能
 
-* 移除 酷推、BER分邮件系统 的集成 ([6e59259](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6e59259))
+* 移除 酷推、BER 分邮件系统 的集成 ([6e59259](https://github.com/CaoMeiYouRen/push-all-in-one/commit/6e59259))
 
 
 ### 💥 BREAKING CHANGES
 
-* 由于 酷推、BER分邮件系统 已无法登陆，故不再提供接口集成
+* 由于 酷推、BER 分邮件系统 已无法登陆，故不再提供接口集成
 
 ## [2.3.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v2.3.0...v2.3.1) (2022-11-27)
 
@@ -564,7 +564,7 @@
 
 ### ✨ 新功能
 
-* 修改邮件推送为 BER分邮件系统 ([0b2e864](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0b2e864))
+* 修改邮件推送为 BER 分邮件系统 ([0b2e864](https://github.com/CaoMeiYouRen/push-all-in-one/commit/0b2e864))
 
 # 1.0.0 (2021-02-27)
 

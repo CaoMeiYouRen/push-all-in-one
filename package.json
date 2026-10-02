@@ -101,14 +101,14 @@
     "tsx": "^4.21.0",
     "typescript": "^6.0.3",
     "vite": "^8.2.2",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.11"
   },
   "dependencies": {
     "@colors/colors": "^1.5.0",
     "axios": "^1.15.0",
     "debug": "^4.3.1",
     "https-proxy-agent": "9.1.0",
-    "nodemailer": "^9.0.3",
+    "nodemailer": "^10.0.6",
     "socks-proxy-agent": "^10.0.0"
   },
   "config": {
