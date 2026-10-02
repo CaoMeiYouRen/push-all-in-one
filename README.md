@@ -27,9 +27,9 @@
   </a>
 </p>
 
-> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、飞书、pushplus、WPUSH、WxPusher、iGot 、Qmsg、息知、PushDeer、Discord、OneBot、Telegram、ntfy 等多种推送方式。
+> Push All In One！支持 Server 酱(以及 Server 酱³)、自定义邮件、钉钉机器人、企业微信机器人、企业微信应用、飞书、pushplus、WxPusher、iGot 、Qmsg、息知、PushDeer、WPUSH、Discord、OneBot、Telegram、ntfy 等多种推送方式。
 >
-> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, Feishu, pushplus, WPUSH, WxPusher, iGot, Qmsg, XiZhi, PushDeer, Discord, OneBot, Telegram, ntfy and more.
+> Push All In One! Supports multiple push methods including Server Chan (and Server Chan³), custom email, DingTalk robot, WeChat Work robot, WeChat Work application, Feishu, pushplus, WxPusher, iGot, Qmsg, XiZhi, PushDeer, WPUSH, Discord, OneBot, Telegram, ntfy and more.
 >
 > 温馨提示：出于安全考虑， **所有** 推送方式请在 **服务端** 使用！请勿在 **客户端(网页端)** 使用！
 >
