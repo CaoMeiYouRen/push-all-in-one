@@ -1,5 +1,12 @@
 # push-all-in-one
 
+## [4.6.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.6.0...v4.6.1) (2026-10-13)
+
+
+### 🐛 Bug 修复
+
+* **deps:** 适配 nodemailer 10 的类型变更并升级 katex override ([71854f6](https://github.com/CaoMeiYouRen/push-all-in-one/commit/71854f6))
+
 # [4.6.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.5.4...v4.6.0) (2026-10-02)
 
 
