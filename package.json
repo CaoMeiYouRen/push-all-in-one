@@ -77,7 +77,6 @@
     "@types/mocha": "^10.0.1",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^26.0.1",
-    "@types/nodemailer": "^8.0.0",
     "@vitest/coverage-v8": "^4.1.11",
     "commitizen": "^4.2.3",
     "commitlint-config-cmyr": "^1.0.0",
