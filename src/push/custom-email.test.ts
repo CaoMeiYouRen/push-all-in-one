@@ -1,16 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 vi.mock('nodemailer', () => ({
-    __esModule: true,
-    default: {
-        createTransport: vi.fn(),
-    },
+    createTransport: vi.fn(),
 }))
 
-import nodemailer from 'nodemailer'
+import { createTransport } from 'nodemailer'
 import { CustomEmail, type CustomEmailConfig } from './custom-email'
 
-const mockedCreateTransport = vi.mocked(nodemailer.createTransport)
+const mockedCreateTransport = vi.mocked(createTransport)
 
 const emailConfig: CustomEmailConfig = {
     EMAIL_TYPE: 'text',
