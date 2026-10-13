@@ -1,7 +1,5 @@
 import debug from 'debug'
-import nodemailer from 'nodemailer'
-import SMTPTransport from 'nodemailer/lib/smtp-transport'
-import Mail from 'nodemailer/lib/mailer'
+import { createTransport, type Mail, type SMTPSentMessageInfo, type SMTPTransportOptions } from 'nodemailer'
 import { Send } from '@/interfaces/send'
 import { SendResponse } from '@/interfaces/response'
 import { ConfigSchema, OptionSchema } from '@/interfaces/schema'
@@ -163,7 +161,7 @@ export class CustomEmail implements Send {
 
     private config: CustomEmailConfig
 
-    private transporter: nodemailer.Transporter<SMTPTransport.SentMessageInfo, SMTPTransport.Options>
+    private transporter: Mail<SMTPSentMessageInfo, SMTPTransportOptions>
 
     constructor(config: CustomEmailConfig) {
         this.config = config
@@ -171,7 +169,7 @@ export class CustomEmail implements Send {
         // 根据 configSchema 验证 config
         validate(config, CustomEmail.configSchema)
         const { EMAIL_AUTH_USER, EMAIL_AUTH_PASS, EMAIL_HOST, EMAIL_PORT } = this.config
-        this.transporter = nodemailer.createTransport({
+        this.transporter = createTransport({
             host: EMAIL_HOST,
             port: Number(EMAIL_PORT),
             auth: {
@@ -201,7 +199,7 @@ export class CustomEmail implements Send {
      * @param [desp] 消息的内容，支持 html
      * @param [option] 额外选项
      */
-    async send(title: string, desp?: string, option?: CustomEmailOption): Promise<SendResponse<SMTPTransport.SentMessageInfo>> {
+    async send(title: string, desp?: string, option?: CustomEmailOption): Promise<SendResponse<SMTPSentMessageInfo>> {
         Debugger('title: "%s", desp: "%s", option: %o', title, desp, option)
         const { EMAIL_TYPE, EMAIL_TO_ADDRESS, EMAIL_AUTH_USER } = this.config
         if (!await this.transporter.verify()) {
