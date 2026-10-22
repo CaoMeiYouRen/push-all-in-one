@@ -60,7 +60,9 @@ Suggest modifying according to TypeScript's type prompts.
 ## 📦 依赖要求/Requirements
 
 
-- node >=18
+- Node.js `^22.23.4 || ^24.22.1 || >=26.12.1`
+
+> Node.js 18/20 已结束支持（EOL），低于上述版本的运行时缺少 [2026-10-21 Node.js 安全更新](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases)（含 CVE-2026-111497 Brotli 解码越界写入、CVE-2026-105482 DNS 截断、CVE-2026-105483 / CVE-2026-106069 TLS 主机名校验绕过等），请先升级运行时再使用。
 
 ## 🚀 安装/Installation
 
