@@ -1,5 +1,12 @@
 # push-all-in-one
 
+# [4.7.0](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.6.1...v4.7.0) (2026-10-22)
+
+
+### ✨ 新功能
+
+* 要求已修复 2026-10 Node.js 安全漏洞的运行时 ([f6ed737](https://github.com/CaoMeiYouRen/push-all-in-one/commit/f6ed737))
+
 ## [4.6.1](https://github.com/CaoMeiYouRen/push-all-in-one/compare/v4.6.0...v4.6.1) (2026-10-13)
 
 
